@@ -5,19 +5,24 @@ using UnityEngine;
 
 public class Seedling : MonoBehaviour
 {
-    public GameObject grownFlower;
+    public GameObject grownPlant;
     public string seedlingName;
     public bool isPlanted;
+    public bool canGrow;
 
-    public void IGotPlanted(GameObject plantedSeedling)
+    public void IGotPlanted()
     {
         isPlanted = true;
-        Debug.Log("Yay!");
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
+
     public void IGotWateredDown()
     {
-
+        canGrow = true;
+        grownPlant.GetComponent<Flower>().GrowFlower(gameObject);
+        Destroy(gameObject);
+        //tell flower that it got watered down
+        //pass seedling to get 
     }
 
     public void IGotPickedUp()

@@ -60,11 +60,9 @@ public class Player : MonoBehaviour
                 //If player wants to move a seedling that is arleady planted
                 if (Seedling.GetComponent<Seedling>().isPlanted != true)
                 {
-                    Seedling.GetComponent<Seedling>().IGotPickedUp();
-
                     carriedSeedling = Seedling.GetComponent<Seedling>();
                     inventory.Add(Seedling);
-                    carriedSeedling.IGotPlanted(Seedling);
+                    carriedSeedling.IGotPickedUp();
                     isCarryingSeedling = true;
 
                     Debug.Log("Picked up: " + Seedling.name);
@@ -72,8 +70,9 @@ public class Player : MonoBehaviour
                 //If player clicks on a seedling with water can
                 else if (Seedling.GetComponent<Seedling>().isPlanted == true && isCarryingWaterCan == true)
                 {
-                    Debug.Log("You watered down: " + Seedling.gameObject.name);
                     Seedling.GetComponent<Seedling>().IGotWateredDown();
+
+                    Debug.Log("You watered down: " + Seedling.gameObject.name);
                 }
                 else
                 {
@@ -88,6 +87,7 @@ public class Player : MonoBehaviour
                 //If players wants to plant a seedling on occupied pot
                 if(Pot.GetComponent<Pot>().isOccupied != true)
                 {
+                    carriedSeedling.GetComponent<Seedling>().IGotPlanted();
                     Pot.GetComponent<Pot>().PlantASeedling(carriedSeedling.gameObject);
 
                     Debug.Log("Planting " + carriedSeedling.gameObject.name);

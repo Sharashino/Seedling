@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3540193564956093027}
   - component: {fileID: 3540193564956093024}
   - component: {fileID: 3540193564956093025}
-  - component: {fileID: -1674072741487398516}
-  - component: {fileID: -1351839724075785971}
+  - component: {fileID: 6599125009428510792}
   m_Layer: 0
   m_Name: Iris Plant
   m_TagString: Plant
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3540193564956093054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 1, z: 4}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.35, y: 1.25, z: 0.35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,23 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-1674072741487398516
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3540193564956093054}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &-1351839724075785971
+--- !u!114 &6599125009428510792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,12 +103,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3540193564956093054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3bdb9428993444dbbdff63befeedff, type: 3}
+  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBeginDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEndDrag:
-    m_PersistentCalls:
-      m_Calls: []
+  flowerName: Iris Flower
+  flowerObject: {fileID: 3540193564956093054}
+  ableToGrow: 0

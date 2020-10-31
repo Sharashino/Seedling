@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carriedSeedling: {fileID: 0}
   isCarryingSeedling: 0
-  carriedWateringCan: 0
+  isCarryingWaterCan: 0
   isFocused: 0
   AllPots: []
   playerCamera: {fileID: 0}
@@ -849,92 +849,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1115419420}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1161200606
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841710, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_Name
-      value: DraggableObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: m_TagString
-      value: Seedling
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575183559286441031, guid: 315490e2464014b4d98e2089b6a8fe33,
-        type: 3}
-      propertyPath: grownFlower
-      value: 
-      objectReference: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
-        type: 3}
-    m_RemovedComponents:
-    - {fileID: 8575183559286441031, guid: 315490e2464014b4d98e2089b6a8fe33, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 315490e2464014b4d98e2089b6a8fe33, type: 3}
 --- !u!1001 &1193751601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1428,62 +1342,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1370827969}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1858973370 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1161200606}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1858973371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858973370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3bdb9428993444dbbdff63befeedff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnBeginDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEndDrag:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!54 &1858973376
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858973370}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &1858973377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858973370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grownFlower: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
-    type: 3}
-  seedlingName: xd
-  isPlanted: 0
 --- !u!1 &1898159657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1801,7 @@ PrefabInstance:
     - target: {fileID: 7093835512616989633, guid: a3aaa6ef60b12f74b897d5f7a2264a8e,
         type: 3}
       propertyPath: m_Name
-      value: Water  Can
+      value: Water Can
       objectReference: {fileID: 0}
     - target: {fileID: 7093835512616989633, guid: a3aaa6ef60b12f74b897d5f7a2264a8e,
         type: 3}

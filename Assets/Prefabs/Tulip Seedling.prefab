@@ -106,7 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grownFlower: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
+  grownPlant: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
     type: 3}
   seedlingName: Tulip Seedling
   isPlanted: 0
+  canGrow: 0
