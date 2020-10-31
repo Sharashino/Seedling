@@ -1,7 +1,7 @@
+![](SeedlingLogos/SeedlingLogo.png)
+
 # Seedling
 Game created for organizing users time its focus 
 
-![](SeedlingLogos/SeedlingLogo.png)
 
-#Developed by
-Gerard Adamkiewicz 
+#Developed by Gerard Adamkiewicz# 
