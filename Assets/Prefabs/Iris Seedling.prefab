@@ -111,3 +111,5 @@ MonoBehaviour:
   seedlingName: Iris Seedling
   isPlanted: 0
   canGrow: 0
+  timesWatered: 0
+  reqWater: 2

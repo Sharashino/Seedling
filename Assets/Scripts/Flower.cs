@@ -8,7 +8,6 @@ public class Flower : MonoBehaviour
     public GameObject flowerObject;
     public bool ableToGrow;
 
-
     private void Update()
     {
         
@@ -18,6 +17,8 @@ public class Flower : MonoBehaviour
     {
         GameObject Flower = Instantiate(flowerObject, seedling.transform.position, seedling.transform.rotation);
         Flower.name = flowerName;
+
+        Debug.Log("Your " +flowerName +" has grown up!");
     }
 
 }

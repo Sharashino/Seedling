@@ -9,7 +9,9 @@ public class Seedling : MonoBehaviour
     public string seedlingName;
     public bool isPlanted;
     public bool canGrow;
-
+    public int timesWatered;
+    public int reqWater;
+   
     public void IGotPlanted()
     {
         isPlanted = true;
@@ -18,9 +20,18 @@ public class Seedling : MonoBehaviour
 
     public void IGotWateredDown()
     {
-        canGrow = true;
-        grownPlant.GetComponent<Flower>().GrowFlower(gameObject);
-        Destroy(gameObject);
+        timesWatered++;
+
+        if(timesWatered == reqWater)
+        {
+            canGrow = true;
+            grownPlant.GetComponent<Flower>().GrowFlower(gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("This flower requires more time: " + timesWatered + " / " + reqWater);
+        }
         //tell flower that it got watered down
         //pass seedling to get 
     }
