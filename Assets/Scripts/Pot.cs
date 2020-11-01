@@ -4,27 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Pot : MonoBehaviour
 {
+    public GameObject potGround;
     public bool isOccupied = false;
+    public bool hasGround;
 
-    [SerializeField]
-    private Material blinking1;
-    [SerializeField]
-    private Material blinking2;
+    private void Start()
+    {
+        if(GetComponentInChildren<Ground>() != null)
+        {
+            hasGround = true;
+        }
+        else
+        {
+            hasGround = false;
+        }
+    }
 
 
     public void PlantASeedling(GameObject seedlingToPlant)
     {
-        Seedling seedling = seedlingToPlant.GetComponent<Seedling>();
-        Transform seedlingTransform = seedlingToPlant.GetComponent<Transform>();
-        Transform potTransform = GetComponent<Transform>();
+        if(hasGround == true)
+        {
+            Seedling seedling = seedlingToPlant.GetComponent<Seedling>();
+            Transform seedlingTransform = seedlingToPlant.GetComponent<Transform>();
+            Transform potTransform = GetComponent<Transform>();
 
-        //Moving seedle to the centre of the pot
-        Vector3 position = seedlingTransform.position;
-        position.x = potTransform.position.x;
-        position.y = potTransform.position.y + 0.22f;
-        position.z = potTransform.position.z;
-        seedlingTransform.position = position;
+            //Moving seedle to the centre of the pot
+            Vector3 position = seedlingTransform.position;
+            position.x = potTransform.position.x;
+            position.y = potTransform.position.y + 0.15f;
+            position.z = potTransform.position.z;
+            seedlingTransform.position = position;
 
-        isOccupied = true;
+            isOccupied = true;
+        }
     }
 }
