@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
-    public bool isMature;
     public string flowerName;
-    public Ground flowerGround;
+    public GameObject flowerGround;
     public GameObject flowerObject;
-
+    
+    private GameObject flower;
+        
+    //When Flower got Watered Down enough times
     public void GrowFlower(GameObject seedlingToGrowFrom, GameObject plantedOnGround)
     {
-        GameObject Flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.25f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
-        Flower.name = flowerName;
-        isMature = true;
+        //Getting Ground and spawning Grown Flower on it
+        flowerGround = plantedOnGround;
+        flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.25f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
+        flower.name = flowerName;
 
-        Flower.transform.parent = plantedOnGround.transform;
+        //Setting up Ground as Flower parent
+        flower.transform.parent = plantedOnGround.transform;
 
         Debug.Log("Your " +flowerName +" has grown up!");
+    }
+
+    //When player harvests the Flower destroy it and make Ground plantable again
+    public void HarvestFlower(GameObject flowerToHarvest)
+    {
+        Debug.Log("You harvested " + flowerToHarvest.name);
+        
+        //Destroying Flower
+        Destroy(flowerToHarvest);
+
+        //Making Ground plantable again
+        flowerGround.GetComponentInParent<Pot>().isOccupied = false;
     }
 }

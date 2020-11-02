@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4159817391439144556}
   m_Layer: 0
   m_Name: Tulip Plant
-  m_TagString: Plant
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMature: 0
   flowerName: Tulip Flower
+  flowerGround: {fileID: 0}
   flowerObject: {fileID: 5688738673944872102}
-  ableToGrow: 0

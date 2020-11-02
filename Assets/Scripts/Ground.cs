@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public void BeginGrowth(GameObject seedlingToGrowFrom)
+    //When picking up ground
+    public void IGotPickedUp()
     {
-
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
-
-
+    //When placking ground in pot
+    public void IGotPlacedInPot()
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+    }
 }

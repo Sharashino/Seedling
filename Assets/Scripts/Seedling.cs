@@ -10,7 +10,6 @@ public class Seedling : MonoBehaviour
     public GameObject grownPlant;
     public string seedlingName;
     public bool isPlanted;
-    public bool canGrow;
     public int timesWatered;
 
     public int plantFirstStage;
@@ -31,17 +30,19 @@ public class Seedling : MonoBehaviour
     {
         timesWatered++;
 
+        //Watered enough times for First Stage
         if(timesWatered == plantFirstStage)
         {
             Debug.Log("This seedling requires more time: " + timesWatered + " / " + plantSecondStage);
         }
-        else if(timesWatered == plantSecondStage)
+        //Watered enough times for Second Stage
+        else if (timesWatered == plantSecondStage)
         {
             Debug.Log("This seedling requires more time: " + timesWatered + " / " + plantThirdStage);
         }
+        //Watered enough times for Third Stage, grow Flower
         else if (timesWatered == plantThirdStage)
         {
-            canGrow = true;
             grownPlant.GetComponent<Flower>().GrowFlower(gameObject, ground);
             Destroy(gameObject);
         }
