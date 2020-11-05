@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7539906995714841709}
   - component: {fileID: 7539906995714841710}
   - component: {fileID: 8575183559286441031}
+  - component: {fileID: 4393357541783505052}
   m_Layer: 0
   m_Name: Rose Seedling
   m_TagString: Seedling
@@ -111,9 +112,20 @@ MonoBehaviour:
     type: 3}
   seedlingName: Rose Seedling
   isPlanted: 0
-  canGrow: 0
   timesWatered: 0
   plantFirstStage: 3
   plantSecondStage: 6
   plantThirdStage: 9
-  growStage: 0
+--- !u!114 &4393357541783505052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539906995714841711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4c8fa49b9c971468713a3083408a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1a024f045ff43a54ca43a215a28303d8, type: 2}
