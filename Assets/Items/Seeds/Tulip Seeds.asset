@@ -15,5 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 971f2565057026d488d317e86581899e, type: 3}
   itemName: Tulip Seeds
   itemDesc: You've never grown one of these!
-  itemObject: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
+  itemObject: {fileID: 0}
+  itemUsedOnObject: {fileID: 0}
+  seedsItem: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
     type: 3}

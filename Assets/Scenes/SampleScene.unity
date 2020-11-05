@@ -181,14 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c1287e18b62b44197fc41e2de187ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerCamera: {fileID: 0}
-  carriedSeedling: {fileID: 0}
-  isCarryingSeedling: 0
-  isCarryingWaterCan: 0
-  isCarryingGround: 0
-  isFocused: 0
-  inventory: []
 --- !u!114 &122469181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
@@ -269,6 +261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c48a60d0e5dfac4e9cbafbad188af31, type: 3}
@@ -388,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 485314473356339605, guid: ba72e401a5972434a8af603273e729ec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 485314473356339605, guid: ba72e401a5972434a8af603273e729ec,
         type: 3}
@@ -631,6 +628,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2615897317055659977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &986418469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+    type: 3}
+  m_PrefabInstance: {fileID: 181398478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255064299
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +724,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -313830762672610934, guid: c320b0a1900ac14418fbb09318ce4fa3,
+        type: 3}
+      propertyPath: potGround
+      value: 
+      objectReference: {fileID: 986418469}
     - target: {fileID: 2408755847125734990, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_Name
@@ -764,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
@@ -828,7 +836,7 @@ PrefabInstance:
     - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7539906995714841683, guid: 315490e2464014b4d98e2089b6a8fe33,
         type: 3}

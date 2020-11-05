@@ -9,11 +9,12 @@ public class Pot : MonoBehaviour
     public bool isOccupied = false;
     public bool hasGround = false;
 
-    public void PlaceGround()
+    public void PlaceGround(GameObject groundToPlace)
     {
-        //Getting Ground and Pot Transforms
-        potGround = Instantiate(potGround);
-        Transform groundTransform = potGround.GetComponent<Transform>();
+        groundToPlace.gameObject.SetActive(false);
+        groundToPlace = Instantiate(potGround);
+        groundToPlace.SetActive(true);
+        Transform groundTransform = groundToPlace.GetComponent<Transform>();
         Transform potTransform = GetComponent<Transform>();
         
         //Moving ground to the centre of the pot
@@ -24,7 +25,7 @@ public class Pot : MonoBehaviour
         groundTransform.position = position;
 
         //Setting Ground Pot as parent
-        potGround.transform.parent = gameObject.transform;
+        groundToPlace.transform.parent = gameObject.transform;
 
         //Filling Pot with Ground
         hasGround = true;

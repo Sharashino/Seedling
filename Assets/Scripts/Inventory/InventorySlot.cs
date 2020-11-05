@@ -17,6 +17,18 @@ public class InventorySlot : MonoBehaviour
     }
 
     //Pressing on item to use it 
+    public void UseItemOn(GameObject itemUsedOn, GameObject usedItem)
+    {
+        if (item != null)
+        {
+            item.itemObject = usedItem;
+            item.itemUsedOnObject = itemUsedOn;
+            item.Use();
+            ClearSlot();
+        }
+    }
+
+    //Pressing on item to use it 
     public void UseItem()
     {
         if(item != null)

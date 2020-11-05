@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2408755847125734991}
   - component: {fileID: -313830762672610934}
   m_Layer: 0
-  m_Name: EmptyPot
+  m_Name: Pot
   m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fb025677240284288f606b02303649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potGround: {fileID: 0}
+  potGround: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+    type: 3}
   isOccupied: 0
   hasGround: 0

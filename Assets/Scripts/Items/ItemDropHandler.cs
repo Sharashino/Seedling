@@ -2,28 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngineInternal;
 
 public class ItemDropHandler : MonoBehaviour, IDropHandler, IEndDragHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        var Item = eventData.pointerDrag.GetComponentInParent<InventorySlot>();
+        var ItemOnSlot = eventData.pointerDrag.GetComponentInParent<InventorySlot>();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         if(Physics.Raycast(ray, out hit))
         {
-            if(hit.collider.tag == "Pot")
+            var hittedObject = hit.collider;
+            if(hittedObject.tag == "Pot")
             {
-                GameObject Pot = hit.collider.gameObject;
-                Item.UseItem();
-                Item.RemoveItem();
+                ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.item.itemObject);
+                ItemOnSlot.RemoveItem();
             }
-            else if(hit.collider.tag == "Ground")
+            else if(hittedObject.tag == "Ground")
             {
-                GameObject Pot = hit.collider.gameObject;
-                Item.UseItem();
-                Item.RemoveItem();
+                ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.gameObject);
+                ItemOnSlot.RemoveItem();
             }
         }
         //RectTransform inventoryPanel = transform as RectTransform;

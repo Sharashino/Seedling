@@ -54,10 +54,10 @@ public class Player : MonoBehaviour
 
         if(Physics.Raycast(mouseRay, out mouseHit))
         {
-            ItemPickUp itemPickUp = mouseHit.collider.GetComponent<ItemPickUp>();
-            if(itemPickUp != null)
+            ItemPickUp itemToPickUp = mouseHit.collider.GetComponent<ItemPickUp>();
+            if(itemToPickUp != null)
             {
-                itemPickUp.PickUp(itemPickUp.item);
+                itemToPickUp.PickUp(itemToPickUp.item);
             }
             else
             {

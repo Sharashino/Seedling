@@ -13,7 +13,7 @@ public class ItemPickUp : MonoBehaviour
         bool wasPickedUp = Inventory.instance.AddItem(pickedUpItem);
         if(wasPickedUp)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

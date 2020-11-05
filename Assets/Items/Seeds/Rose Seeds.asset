@@ -15,5 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: c9fd9ee153a633a4494f4205cae3f9c2, type: 3}
   itemName: Rose Seeds
   itemDesc: Pink rose seeds...
-  itemObject: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
+  itemObject: {fileID: 0}
+  itemUsedOnObject: {fileID: 0}
+  seedsItem: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
     type: 3}

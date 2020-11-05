@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +7,8 @@ using UnityEngine;
 public class Ground : Item
 {
     public bool isInPot;
-    public GameObject itemObject;
-
+    public GameObject Pot;
+    
     public enum SoilType
     {
         Sandy,
@@ -17,9 +18,10 @@ public class Ground : Item
         Chalk,
         Loam
     }
-
-    public virtual void Use()
+    public override void Use()
     {
+        Pot = itemUsedOnObject;
+        Pot.GetComponent<Pot>().PlaceGround(itemObject);
         Debug.Log("Using ground: " + itemName);
     }
 }

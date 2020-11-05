@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class Seedling : MonoBehaviour
 {
-    public GameObject ground;
     public GameObject grownPlant;
-    public string seedlingName;
     public bool isPlanted;
     public int timesWatered;
 
@@ -16,14 +14,23 @@ public class Seedling : MonoBehaviour
     public int plantSecondStage;
     public int plantThirdStage;
 
-    //When seedling got planted
-    public void IGotPlanted(GameObject plantedOnGround)
+    public void PlantASeedling(GameObject seedlingToPlant)
     {
-        gameObject.transform.parent = plantedOnGround.transform;
-        isPlanted = true;
-        ground = plantedOnGround;
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        //Getting Seedling and Pot Transforms
+        Transform seedlingTransform = seedlingToPlant.GetComponent<Transform>();
+        Transform potTransform = GetComponent<Transform>();
+
+        //Moving seedling to the centre of the pot
+        Vector3 position = seedlingTransform.position;
+        position.x = potTransform.position.x;
+        position.y = potTransform.position.y + 0.2f;
+        position.z = potTransform.position.z;
+        seedlingTransform.position = position;
+
+            //Making Pot occupied
+            //isOccupied = true;
     }
+
 
     //When seedling got watered down
     public void IGotWateredDown()
@@ -43,7 +50,7 @@ public class Seedling : MonoBehaviour
         //Watered enough times for Third Stage, grow Flower
         else if (timesWatered == plantThirdStage)
         {
-            grownPlant.GetComponent<Flower>().GrowFlower(gameObject, ground);
+            //grownPlant.GetComponent<Flower>().GrowFlower(gameObject, ground);
             Destroy(gameObject);
         }
         else if (timesWatered > plantThirdStage)
