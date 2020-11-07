@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9195059183565728684}
   - component: {fileID: 9195059183565728685}
   - component: {fileID: 7821420177254136110}
+  - component: {fileID: 284720502}
   m_Layer: 0
   m_Name: Iris Seedling
   m_TagString: Seedling
@@ -106,14 +107,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 0}
   grownPlant: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}
-  seedlingName: Iris Seedling
-  isPlanted: 0
-  canGrow: 0
+  isPlanted: 1
   timesWatered: 0
   plantFirstStage: 2
   plantSecondStage: 4
   plantThirdStage: 6
-  growStage: 0
+--- !u!114 &284720502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195059183565728674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4c8fa49b9c971468713a3083408a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 41bdf9927ee38de47be32a0047b4d528, type: 2}

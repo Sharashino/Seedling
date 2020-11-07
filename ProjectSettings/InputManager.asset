@@ -262,12 +262,12 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Submit
+    m_Name: Inventory
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
-    altNegativeButton: 
+    positiveButton: i
+    altNegativeButton: b
     altPositiveButton: space
     gravity: 1000
     dead: 0.001
