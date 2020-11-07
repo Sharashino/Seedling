@@ -24,6 +24,12 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler, IEndDragHandler
                 ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.item.itemObject);
                 ItemOnSlot.RemoveItem();
             }
+            else if(hittedObject.tag == "Seedling" && ItemOnSlot.item.itemObject.tag == "WaterCan" && hittedObject.gameObject.GetComponent<Seedling>().isPlanted)
+            {
+                ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.item.itemObject);
+                //ItemOnSlot.RemoveItem();
+                //Debug.Log("watered down " + hittedObject.name);
+            }
             else
             {
                 Debug.Log("I cant place that here...");

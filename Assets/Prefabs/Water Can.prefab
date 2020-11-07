@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7093835512616989637}
   - component: {fileID: 7093835512616989634}
   - component: {fileID: 7093835512616989635}
-  - component: {fileID: 7093835512616989632}
+  - component: {fileID: 7969231138831712759}
   m_Layer: 0
-  m_Name: WaterCan
-  m_TagString: Untagged
+  m_Name: Water Can
+  m_TagString: WaterCan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7093835512616989632
+--- !u!114 &7969231138831712759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7093835512616989633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5815ff4b692bb2046b683606043c829c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d4c8fa49b9c971468713a3083408a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: a04fcb23c23b1664e93f4b70cd1c5cce, type: 2}

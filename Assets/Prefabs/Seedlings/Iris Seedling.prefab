@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9195059183565728686
 Transform:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grownPlant: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}
-  isPlanted: 0
+  isPlanted: 1
   timesWatered: 0
   plantFirstStage: 2
   plantSecondStage: 4

@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13814a7f0d2920d439934722133c0242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   itemIcon: {fileID: 3012744866182936160}
-  removeButton: {fileID: 0}
 --- !u!1 &3012744866087159197
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3012744866182936161}
   - component: {fileID: 3012744866182936160}
   - component: {fileID: 5966105399901345011}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

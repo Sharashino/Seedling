@@ -13,6 +13,6 @@ public class Item : ScriptableObject
     public bool canBePickedUp = true;
     public virtual void Use()
     {
-        canBePickedUp = false;
+
     }
 }

@@ -16,12 +16,10 @@ public class Seedling : MonoBehaviour
 
     public void PlantASeedling(GameObject seedlingToPlant, GameObject plantOnGround)
     {
-        seedlingToPlant.gameObject.SetActive(false);
-        seedlingToPlant = Instantiate(seedlingToPlant);
-        seedlingToPlant.gameObject.SetActive(true);
-
+        GameObject newSeedling = Instantiate(seedlingToPlant);
+        newSeedling.name = seedlingToPlant.name;
         //Getting Seedling and Pot Transforms
-        Transform seedlingTransform = seedlingToPlant.GetComponent<Transform>();
+        Transform seedlingTransform = newSeedling.GetComponent<Transform>();
         Transform potTransform = plantOnGround.GetComponent<Transform>();
 
         //Moving seedling to the centre of the pot
@@ -31,8 +29,9 @@ public class Seedling : MonoBehaviour
         position.z = potTransform.position.z;
         seedlingTransform.position = position;
 
-            //Making Pot occupied
-            //isOccupied = true;
+        seedlingTransform.parent = plantOnGround.transform;
+
+        isPlanted = true;
     }
 
 
@@ -40,7 +39,6 @@ public class Seedling : MonoBehaviour
     public void IGotWateredDown()
     {
         timesWatered++;
-
         //Watered enough times for First Stage
         if(timesWatered == plantFirstStage)
         {
@@ -61,11 +59,5 @@ public class Seedling : MonoBehaviour
         {
             Debug.Log("This flower can't be watered now");
         }
-    }
-
-    //When picking up seedling turn off its Renderer
-    public void IGotPickedUp()
-    {
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }

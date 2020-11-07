@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
                 if(itemToPickUp.item.canBePickedUp)
                 {
                     itemToPickUp.PickUp(itemToPickUp.item);
-
                 }
             }
             else

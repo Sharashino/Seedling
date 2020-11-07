@@ -11,10 +11,9 @@ public class Pot : MonoBehaviour
 
     public void PlaceGround(GameObject groundToPlace)
     {
-        groundToPlace.gameObject.SetActive(false);
-        groundToPlace = Instantiate(groundToPlace);
-        groundToPlace.SetActive(true);
-        Transform groundTransform = groundToPlace.GetComponent<Transform>();
+        GameObject newGround = Instantiate(groundToPlace);
+        newGround.name = groundToPlace.name;
+        Transform groundTransform = newGround.GetComponent<Transform>();
         Transform potTransform = GetComponent<Transform>();
         
         //Moving ground to the centre of the pot
@@ -25,7 +24,7 @@ public class Pot : MonoBehaviour
         groundTransform.position = position;
 
         //Setting Ground Pot as parent
-        groundToPlace.transform.parent = gameObject.transform;
+        newGround.transform.parent = gameObject.transform;
 
         //Filling Pot with Ground
         hasGround = true;
