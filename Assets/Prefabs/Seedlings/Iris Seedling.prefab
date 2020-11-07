@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9195059183565728686
 Transform:
   m_ObjectHideFlags: 0
@@ -107,10 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 0}
   grownPlant: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}
-  seedlingName: Iris Seedling
   isPlanted: 0
   timesWatered: 0
   plantFirstStage: 2

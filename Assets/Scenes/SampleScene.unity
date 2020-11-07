@@ -202,10 +202,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8629360011876515643, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: isInPot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2769109
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
@@ -215,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25645426
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
         type: 3}
@@ -346,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tulip Seedling
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485314473356339605, guid: ba72e401a5972434a8af603273e729ec,
         type: 3}
@@ -508,6 +518,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &796666471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8629360011876515643, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: isInPot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303510502102414879, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c48a60d0e5dfac4e9cbafbad188af31, type: 3}
 --- !u!1 &804555470
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.384
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
@@ -747,7 +836,7 @@ PrefabInstance:
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.17893803
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
@@ -871,6 +960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Iris Seedling
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195059183565728674, guid: 414cecf65ca836641983a49ccc865461,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9195059183565728686, guid: 414cecf65ca836641983a49ccc865461,
         type: 3}

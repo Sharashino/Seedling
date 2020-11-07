@@ -18,5 +18,6 @@ MonoBehaviour:
   itemObject: {fileID: 4769628234175573353, guid: 5c48a60d0e5dfac4e9cbafbad188af31,
     type: 3}
   itemUsedOnObject: {fileID: 0}
+  canBePickedUp: 1
   isInPot: 0
-  pot: {fileID: 0}
+  soilType: 0

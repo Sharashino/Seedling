@@ -12,7 +12,7 @@ public class Pot : MonoBehaviour
     public void PlaceGround(GameObject groundToPlace)
     {
         groundToPlace.gameObject.SetActive(false);
-        groundToPlace = Instantiate(potGround);
+        groundToPlace = Instantiate(groundToPlace);
         groundToPlace.SetActive(true);
         Transform groundTransform = groundToPlace.GetComponent<Transform>();
         Transform potTransform = GetComponent<Transform>();

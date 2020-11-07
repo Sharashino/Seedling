@@ -14,16 +14,20 @@ public class Seedling : MonoBehaviour
     public int plantSecondStage;
     public int plantThirdStage;
 
-    public void PlantASeedling(GameObject seedlingToPlant)
+    public void PlantASeedling(GameObject seedlingToPlant, GameObject plantOnGround)
     {
+        seedlingToPlant.gameObject.SetActive(false);
+        seedlingToPlant = Instantiate(seedlingToPlant);
+        seedlingToPlant.gameObject.SetActive(true);
+
         //Getting Seedling and Pot Transforms
         Transform seedlingTransform = seedlingToPlant.GetComponent<Transform>();
-        Transform potTransform = GetComponent<Transform>();
+        Transform potTransform = plantOnGround.GetComponent<Transform>();
 
         //Moving seedling to the centre of the pot
         Vector3 position = seedlingTransform.position;
         position.x = potTransform.position.x;
-        position.y = potTransform.position.y + 0.2f;
+        position.y = potTransform.position.y + 0.1f;
         position.z = potTransform.position.z;
         seedlingTransform.position = position;
 

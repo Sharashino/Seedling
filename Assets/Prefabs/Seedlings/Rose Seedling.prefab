@@ -107,10 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 0}
   grownPlant: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
     type: 3}
-  seedlingName: Rose Seedling
   isPlanted: 0
   timesWatered: 0
   plantFirstStage: 3

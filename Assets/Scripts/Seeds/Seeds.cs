@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item/Seeds")]
 public class Seeds : Item
 {
-    public GameObject seedsItem;
     public override void Use()
     {
+        canBePickedUp = false;
         Debug.Log("Using seed: " + itemName);
-        seedsItem.GetComponent<Seedling>().PlantASeedling(itemUsedOnObject);
+        itemObject.GetComponent<Seedling>().PlantASeedling(itemObject, itemUsedOnObject);
     }
 }

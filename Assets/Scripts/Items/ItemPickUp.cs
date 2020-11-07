@@ -9,11 +9,14 @@ public class ItemPickUp : MonoBehaviour
 
     public void PickUp(Item pickedUpItem)
     {
-        Debug.Log("Picking up: " + pickedUpItem.itemName);
-        bool wasPickedUp = Inventory.instance.AddItem(pickedUpItem);
-        if(wasPickedUp)
+        if(item.canBePickedUp)
         {
-            gameObject.SetActive(false);
+            Debug.Log("Picking up: " + pickedUpItem.itemName);
+            bool wasPickedUp = Inventory.instance.AddItem(pickedUpItem);
+            if (wasPickedUp)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

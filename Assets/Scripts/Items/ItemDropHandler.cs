@@ -14,15 +14,19 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler, IEndDragHandler
         if(Physics.Raycast(ray, out hit))
         {
             var hittedObject = hit.collider;
-            if(hittedObject.tag == "Pot")
+            if(hittedObject.tag == "Pot" && ItemOnSlot.item.itemObject.tag == "Ground" && !hittedObject.GetComponent<Pot>().hasGround)
             {
                 ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.item.itemObject);
                 ItemOnSlot.RemoveItem();
             }
-            else if(hittedObject.tag == "Ground")
+            else if(hittedObject.tag == "Ground" && ItemOnSlot.item.itemObject.tag == "Seedling"  && hittedObject.GetComponent<Ground>().isInPot)
             {
-                ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.gameObject);
+                ItemOnSlot.UseItemOn(hittedObject.gameObject, ItemOnSlot.item.itemObject);
                 ItemOnSlot.RemoveItem();
+            }
+            else
+            {
+                Debug.Log("I cant place that here...");
             }
         }
         //RectTransform inventoryPanel = transform as RectTransform;

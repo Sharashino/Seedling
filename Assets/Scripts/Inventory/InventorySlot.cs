@@ -16,7 +16,7 @@ public class InventorySlot : MonoBehaviour
         itemIcon.enabled = true;
     }
 
-    //Pressing on item to use it 
+    //Dragging the item to use it on something
     public void UseItemOn(GameObject itemUsedOn, GameObject usedItem)
     {
         if (item != null)
@@ -24,6 +24,7 @@ public class InventorySlot : MonoBehaviour
             item.itemObject = usedItem;
             item.itemUsedOnObject = itemUsedOn;
             item.Use();
+            RemoveItem();
             ClearSlot();
         }
     }

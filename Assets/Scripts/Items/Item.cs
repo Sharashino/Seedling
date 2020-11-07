@@ -10,8 +10,9 @@ public class Item : ScriptableObject
     public string itemDesc = "Item description";
     public GameObject itemObject;
     public GameObject itemUsedOnObject;
-
+    public bool canBePickedUp = true;
     public virtual void Use()
     {
+        canBePickedUp = false;
     }
 }

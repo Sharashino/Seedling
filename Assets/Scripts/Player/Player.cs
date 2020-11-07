@@ -57,7 +57,11 @@ public class Player : MonoBehaviour
             ItemPickUp itemToPickUp = mouseHit.collider.GetComponent<ItemPickUp>();
             if(itemToPickUp != null)
             {
-                itemToPickUp.PickUp(itemToPickUp.item);
+                if(itemToPickUp.item.canBePickedUp)
+                {
+                    itemToPickUp.PickUp(itemToPickUp.item);
+
+                }
             }
             else
             {
