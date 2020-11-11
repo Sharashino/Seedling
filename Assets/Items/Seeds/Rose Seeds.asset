@@ -19,3 +19,6 @@ MonoBehaviour:
     type: 3}
   itemUsedOnObject: {fileID: 0}
   canBePickedUp: 0
+  minutesToGrow: 120
+  seedlingCuriosity: Did you know you can eat Roses? Her hips are packed with vitamin
+    C!

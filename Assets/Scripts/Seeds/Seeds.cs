@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item/Seeds")]
 public class Seeds : Item
 {
+    public int minutesToGrow;
+    public string seedlingCuriosity;
     public override void Use()
     {
         canBePickedUp = false;

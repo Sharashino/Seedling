@@ -69,6 +69,7 @@ public class CountdownTimer : MonoBehaviour
             yield return null;
         }
 
+        offButtons.SetActive(true);
         Debug.Log("You spent " + startingTime / 60 + " minutes on your plant");
     }
 

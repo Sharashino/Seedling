@@ -19,3 +19,6 @@ MonoBehaviour:
     type: 3}
   itemUsedOnObject: {fileID: 0}
   canBePickedUp: 1
+  minutesToGrow: 360
+  seedlingCuriosity: Tulips are part of the lily family. Their flower buds are known
+    for being perfectly symmetrical.
