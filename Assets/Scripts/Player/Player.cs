@@ -5,78 +5,27 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
+using TMPro;
 public class Player : MonoBehaviour
 {
-    public Camera playerCamera;
+    public string playerName;
+    public int allTimeSpent;
+    public int playerCoins;
     [SerializeField]
-    private int plantedSeeds;
+    TMP_Text playerCoinsText;
 
-    void Start()
+    public void SavePlayer()
     {
-        playerCamera = Camera.main;
+        SaveSystem.SaveData(this);
     }
 
-    private void Update()
+    public void LoadPlayer()
     {
-        //If player is hovering over inventory
-        if(EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-        //If left-clicked 
-        else if(Input.GetMouseButtonDown(0))
-        {
-            LeftClicked();
-        }
-        //If right-clicked
-        else if(Input.GetMouseButtonDown(1))
-        {
-            RightClicked();
-        }
-    }
+        PlayerData data = SaveSystem.LoadData();
 
-    private void RightClicked()
-    {
-        Ray mouseRay = playerCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit mouseHit = new RaycastHit();
-
-        if (Physics.Raycast(mouseRay, out mouseHit))
-        {
-            
-        }
-    }
-
-    private void LeftClicked()
-    {
-        Ray mouseRay = playerCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit mouseHit = new RaycastHit();
-
-        if(Physics.Raycast(mouseRay, out mouseHit))
-        {
-            ItemPickUp itemToPickUp = mouseHit.collider.GetComponent<ItemPickUp>();
-            if(itemToPickUp != null)
-            {
-                if(itemToPickUp.item.canBePickedUp)
-                {
-                    itemToPickUp.PickUp(itemToPickUp.item);
-                }
-            }
-            else
-            {
-                Debug.Log("nie podniose");
-            }
-        }
-    }
-
-    public void PlantGrewUp()
-    {
-        plantedSeeds++;
-
-        if (plantedSeeds == 3)
-        {
-            //victory!
-            Debug.Log("You won!");
-        }
+        playerName = data.playerName;
+        allTimeSpent = data.allTimeSpent;
+        playerCoins = data.playerCoins;
+        playerCoinsText.text = playerCoins.ToString();
     }
 }

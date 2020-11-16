@@ -6,8 +6,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     GameObject plantedSeedling;
+    [SerializeField]
+    Player player;
 
 
-
-
+    private void Start()
+    {
+        player.LoadPlayer();
+    }
 }

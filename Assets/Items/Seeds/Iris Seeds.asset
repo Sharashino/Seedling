@@ -19,6 +19,7 @@ MonoBehaviour:
     type: 3}
   itemUsedOnObject: {fileID: 0}
   canBePickedUp: 0
+  coinsToUnlock: 250
   minutesToGrow: 25
   seedlingCuriosity: Irises are named after Greek Goddess Iris. It is also Greek
     word for rainbow.
