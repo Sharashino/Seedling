@@ -26,6 +26,7 @@ public class LockPanel : MonoBehaviour
         if (player.playerCoins >= seeds.coinsToUnlock)
         {
             lockPanel.gameObject.SetActive(false);
+            Debug.Log("You have unlocked " +gameObject.GetComponent<DefineSeedling>().seedling.itemName);
         }
         else
         {

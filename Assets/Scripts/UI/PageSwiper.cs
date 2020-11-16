@@ -36,12 +36,12 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
             if(percentage > 0 && currentPage < totalPages)
             {
                 currentPage++;
-                newLocation += new Vector3(-Screen.width+1, 0, 0);
+                newLocation += new Vector3(-Screen.width, 0, 0);
             }
             else if(percentage < 0 && currentPage > 1)
             {
                 currentPage--;
-                newLocation += new Vector3(Screen.width+1, 0, 0);
+                newLocation += new Vector3(Screen.width, 0, 0);
             }
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;

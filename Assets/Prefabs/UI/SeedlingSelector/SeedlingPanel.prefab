@@ -83,6 +83,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3283020778766948487}
+  - component: {fileID: 374559200846797405}
+  - component: {fileID: 3283020779066277619}
   m_Layer: 5
   m_Name: SeedlingPanel
   m_TagString: Untagged
@@ -111,6 +113,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &374559200846797405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283020778766948480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seedlingSelector: {fileID: 0}
+  seedlingName: {fileID: 3283020779338550356}
+  seedlingTime: {fileID: 2577390260685322654}
+  seedlingCuriosity: {fileID: 3283020779890318455}
+  seedlingImage: {fileID: 3283020778714457328}
+  seedling: {fileID: 11400000, guid: 41bdf9927ee38de47be32a0047b4d528, type: 2}
+--- !u!114 &3283020779066277619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283020778766948480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ad989ff3d83b548810dcba25a4f527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isLocked: 0
+  buttonPanel: {fileID: 3283020778766948480}
+  lockPanel: {fileID: 3283020780641721684}
+  requiredCoins: {fileID: 3283020779716373328}
 --- !u!1 &3283020778778402707
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +290,7 @@ GameObject:
   - component: {fileID: 3283020779042099412}
   - component: {fileID: 3283020779042099413}
   - component: {fileID: 3283020779042099414}
+  - component: {fileID: 1705874267465825947}
   m_Layer: 5
   m_Name: SeedlingButton
   m_TagString: Untagged
@@ -360,6 +398,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1705874267465825947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283020779042099408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seedlingSelector: {fileID: 3283020778766948480}
+  seedlingName: {fileID: 3283020779338550356}
+  seedlingTime: {fileID: 2577390260685322654}
+  seedlingCuriosity: {fileID: 3283020779890318455}
+  seedlingImage: {fileID: 3283020778714457328}
+  seedling: {fileID: 0}
 --- !u!1 &3283020779189867657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1656,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2d6c3db9870aa429af7c052b931067, type: 3}
+--- !u!114 &2577390260685322654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1029944188556768896, guid: 0e2d6c3db9870aa429af7c052b931067,
+    type: 3}
+  m_PrefabInstance: {fileID: 3283020778803842846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3511717091898447062 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2104168489841466312, guid: 0e2d6c3db9870aa429af7c052b931067,

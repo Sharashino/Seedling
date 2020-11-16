@@ -282,7 +282,6 @@ GameObject:
   - component: {fileID: 7050926297116750775}
   - component: {fileID: 7050926297116750772}
   - component: {fileID: 7050926297116750773}
-  - component: {fileID: 8974910801235191909}
   m_Layer: 5
   m_Name: SeedlingButton
   m_TagString: Untagged
@@ -390,24 +389,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8974910801235191909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7050926297116750779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedlingSelector: {fileID: 0}
-  seedlingName: {fileID: 0}
-  seedlingTime: {fileID: 0}
-  seedlingCuriosity: {fileID: 0}
-  seedlingImage: {fileID: 0}
-  seedling: {fileID: 0}
 --- !u!1 &7050926297431141257
 GameObject:
   m_ObjectHideFlags: 0
