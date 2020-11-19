@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class DefineSeedling : MonoBehaviour
 {
     [SerializeField]
+    GameObject timer;
+
+    [SerializeField]
     GameObject seedlingSelector;
 
     [SerializeField]
@@ -35,6 +38,7 @@ public class DefineSeedling : MonoBehaviour
 
     public void ChoseSeedling()
     {
+        timer.SetActive(true);
         seedlingSelector.SetActive(false);
         Debug.Log("You have chosen " + seedling.itemName);
     }

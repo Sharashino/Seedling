@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class LockPanel : MonoBehaviour
 {
     Seeds seeds;
+    [SerializeField]
+    TMP_Text coinsText;
     [SerializeField]
     Player player;
     public bool isLocked;
@@ -17,6 +21,8 @@ public class LockPanel : MonoBehaviour
 
     private void Start()
     {
+        isLocked = true;
+        PanelLock();
         seeds = buttonPanel.GetComponent<DefineSeedling>().seedling;
         requiredCoins.text = seeds.coinsToUnlock.ToString();
     }
@@ -25,6 +31,8 @@ public class LockPanel : MonoBehaviour
     {
         if (player.playerCoins >= seeds.coinsToUnlock)
         {
+            player.playerCoins -= seeds.coinsToUnlock;
+            UpdateCoins();
             lockPanel.gameObject.SetActive(false);
             Debug.Log("You have unlocked " +gameObject.GetComponent<DefineSeedling>().seedling.itemName);
         }
@@ -45,4 +53,9 @@ public class LockPanel : MonoBehaviour
             lockPanel.gameObject.SetActive(false);
         }
     }
+    private void UpdateCoins()
+    {
+        coinsText.text = player.playerCoins.ToString();
+    }
+
 }

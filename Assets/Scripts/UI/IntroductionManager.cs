@@ -28,11 +28,24 @@ public class IntroductionManager : MonoBehaviour
     //fading object speed
     float fadeSpeed = 0.01f;
 
+    bool hasRun = false;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitTime());
         niceToMeetYouText.gameObject.SetActive(false);
+
+        GiveCoins();
+    }
+
+    private void GiveCoins()
+    {
+        if(!hasRun)
+        {
+            player.playerCoins += 100;
+            hasRun = true;
+        }
     }
 
 
