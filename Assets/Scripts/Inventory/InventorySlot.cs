@@ -22,7 +22,6 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         {
             item.itemObject = usedItem;
-            item.itemUsedOnObject = itemUsedOn;
             item.Use();
             RemoveItem();
             ClearSlot();

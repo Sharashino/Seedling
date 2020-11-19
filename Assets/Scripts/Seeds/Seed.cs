@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item/Seeds")]
-public class Seeds : Item
+public class Seed : Item
 {
     public int coinsToUnlock;
     public int minutesToGrow;
+    public int growInMinutes;
     public string seedlingCuriosity;
 
     public override void Use()
     {
-        canBePickedUp = false;
         Debug.Log("Using seed: " + itemName);
-        itemObject.GetComponent<Seedling>().PlantASeedling(itemObject, itemUsedOnObject);
     }
 }

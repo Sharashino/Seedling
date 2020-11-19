@@ -24,22 +24,29 @@ public class DefineSeedling : MonoBehaviour
     [SerializeField]
     Image seedlingImage;
 
-    public Seeds seedling;
-
+    public Seed seedling;
 
     // Start is called before the first frame update
     void Start()
     {
         seedlingName.text = seedling.itemName;
-        seedlingTime.text = "0 / " + seedling.minutesToGrow;
+        seedlingTime.text = seedling.growInMinutes + " / " + seedling.minutesToGrow;
         seedlingCuriosity.text = seedling.seedlingCuriosity;
         seedlingImage.sprite = seedling.itemIcon;
+    }
+
+    public void UpdateSeedlingTime()
+    {
+        seedlingTime.text = seedling.growInMinutes + " / " + seedling.minutesToGrow;
     }
 
     public void ChoseSeedling()
     {
         timer.SetActive(true);
         seedlingSelector.SetActive(false);
+
+        //telling timer what seedling you are working on
+        timer.GetComponent<CountdownTimer>().plantedSeedling = seedling;
         Debug.Log("You have chosen " + seedling.itemName);
     }
 }

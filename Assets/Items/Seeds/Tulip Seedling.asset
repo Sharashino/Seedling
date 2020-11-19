@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f379308710a8c9549a30ef48763e07f1, type: 3}
-  m_Name: Tulip Seeds
+  m_Script: {fileID: 11500000, guid: 10887879cc93c384b919801f9fbcb215, type: 3}
+  m_Name: Tulip Seedling
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 971f2565057026d488d317e86581899e, type: 3}
   itemName: Tulip Seeds
-  itemDesc: You've never grown one of these!
+  itemDesc: Blue tulip seeds
   itemObject: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
     type: 3}
-  itemUsedOnObject: {fileID: 0}
-  canBePickedUp: 1
-  coinsToUnlock: 500
-  minutesToGrow: 360
-  seedlingCuriosity: Tulips are part of the lily family. Their flower buds are known
-    for being perfectly symmetrical.
+  coinsToUnlock: 300
+  minutesToGrow: 600
+  seedlingCuriosity: Fun tulip fact

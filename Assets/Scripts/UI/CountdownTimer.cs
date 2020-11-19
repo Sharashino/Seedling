@@ -23,15 +23,11 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField]
     TMP_Text countDownText;
 
+    public Seed plantedSeedling;
+
     private void Update()
     {
         currentTime = timer;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //StartCoroutine(Timer1());
     }
 
     public void StartTimer()
@@ -59,7 +55,7 @@ public class CountdownTimer : MonoBehaviour
 
     private IEnumerator StartCountdown(GameObject offButtons)
     {
-        startingTime = timer;
+        startingTime = timer / 60;
         offButtons.SetActive(false);
 
         while (timer >= 0)
@@ -70,7 +66,18 @@ public class CountdownTimer : MonoBehaviour
         }
 
         offButtons.SetActive(true);
-        Debug.Log("You spent " + startingTime / 60 + " minutes on your plant");
+
+        //if player spent 1 minute on plant fix syntax
+        if(startingTime == 1)
+        {
+            Debug.Log("You spent " + startingTime + " minute on your plant");
+            plantedSeedling.growInMinutes += 1;
+        }
+        else
+        {
+            Debug.Log("You spent " + startingTime + " minutes on your plant");
+            plantedSeedling.growInMinutes += (int)startingTime;
+        }
     }
 
     private void FormatText()
@@ -132,7 +139,6 @@ public class CountdownTimer : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
-            //Debug.Log("You spent " + timer / 60 + "minutes on your plant");
         }
     }
 }

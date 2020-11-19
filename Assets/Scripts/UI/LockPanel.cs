@@ -6,7 +6,7 @@ using System;
 
 public class LockPanel : MonoBehaviour
 {
-    Seeds seeds;
+    Seed seeds;
     [SerializeField]
     TMP_Text coinsText;
     [SerializeField]
