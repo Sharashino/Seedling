@@ -18,9 +18,6 @@ public class CountdownTimer : MonoBehaviour
     float timer;
 
     [SerializeField]
-    Player player;
-
-    [SerializeField]
     GameObject timerButtons;
 
     [SerializeField]
@@ -76,13 +73,13 @@ public class CountdownTimer : MonoBehaviour
         {
             Debug.Log("You spent " + startingTime + " minute on your " +gameManager.plantedSeed.itemName);
             gameManager.plantedSeed.growInMinutes += 1;
-            player.allTimeSpent += 1;
+            gameManager.allTimeSpent += 1;
         }
         else
         {
             Debug.Log("You spent " + startingTime + " minutes on your " +gameManager.plantedSeed.itemName);
             gameManager.plantedSeed.growInMinutes += (int)startingTime;
-            player.allTimeSpent += (int)startingTime;
+            gameManager.allTimeSpent += (int)startingTime;
         }
     }
 

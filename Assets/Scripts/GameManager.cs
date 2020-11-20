@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
+    public string playerName;
+    public int allTimeSpent;
+    public int playerCoins;
     [SerializeField]
-    Player player;
-    
+    TMP_Text playerCoinsText;
+
     [SerializeField]
     GameObject seedlingSelector;
 
@@ -18,6 +22,25 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player.LoadPlayer();
+        playerName = ES3.Load<string>("playerName");
+        playerCoins = ES3.Load<int>("playerCoins");
+        playerCoinsText.text = playerCoins.ToString();
     }
+    private void SaveData()
+    {
+        ES3.Save<string>("playerCoins", playerName);
+        ES3.Save<int>("allTimeSpent", allTimeSpent);
+    }
+
+
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause)
+        {
+            SaveData();
+        }
+    }
+
+   
+   
 }

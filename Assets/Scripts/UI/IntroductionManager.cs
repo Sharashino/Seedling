@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class IntroductionManager : MonoBehaviour
 {
     [SerializeField]
-    Player player;
+    GameManager gameManager;
     [SerializeField]
     Image bigImage;
     [SerializeField]
@@ -43,7 +43,7 @@ public class IntroductionManager : MonoBehaviour
     {
         if(!hasRun)
         {
-            player.playerCoins += 100;
+            ES3.Save("playerCoins", 100);
             hasRun = true;
         }
     }
@@ -72,8 +72,8 @@ public class IntroductionManager : MonoBehaviour
 
     public void NextStage()
     {
-        player.playerName = nameInputField.text;
-        SaveSystem.SaveData(player);
+        //Saving player name
+        ES3.Save("playerName", nameInputField.text);
         inputGroup.SetActive(false);
         LastStage();
     }
