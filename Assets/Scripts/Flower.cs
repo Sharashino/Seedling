@@ -33,6 +33,5 @@ public class Flower : MonoBehaviour
         Destroy(flowerToHarvest);
 
         //Making Ground plantable again
-        flowerGround.GetComponentInParent<Pot>().isOccupied = false;
     }
 }

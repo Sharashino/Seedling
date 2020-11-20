@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 7539906995714841708}
   - component: {fileID: 7539906995714841709}
   - component: {fileID: 7539906995714841710}
-  - component: {fileID: 8575183559286441031}
-  - component: {fileID: 4393357541783505052}
+  - component: {fileID: 3364117554872090004}
   m_Layer: 0
   m_Name: Rose Seedling
   m_TagString: Seedling
@@ -58,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7539906995714841710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8575183559286441031
+--- !u!114 &3364117554872090004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,26 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7539906995714841711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grownPlant: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
+  flowerName: Rose Flower
+  flowerGround: {fileID: 0}
+  flowerObject: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
     type: 3}
-  isPlanted: 0
-  timesWatered: 0
-  plantFirstStage: 3
-  plantSecondStage: 6
-  plantThirdStage: 9
---- !u!114 &4393357541783505052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539906995714841711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4c8fa49b9c971468713a3083408a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1a024f045ff43a54ca43a215a28303d8, type: 2}

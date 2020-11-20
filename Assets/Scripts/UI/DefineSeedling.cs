@@ -7,7 +7,13 @@ using UnityEngine.UI;
 public class DefineSeedling : MonoBehaviour
 {
     [SerializeField]
+    GameObject groundToPlant;
+
+    [SerializeField]
     GameObject timer;
+
+    [SerializeField]
+    GameObject gameManager;
 
     [SerializeField]
     GameObject seedlingSelector;
@@ -35,18 +41,14 @@ public class DefineSeedling : MonoBehaviour
         seedlingImage.sprite = seedling.itemIcon;
     }
 
-    public void UpdateSeedlingTime()
-    {
-        seedlingTime.text = seedling.growInMinutes + " / " + seedling.minutesToGrow;
-    }
-
     public void ChoseSeedling()
     {
         timer.SetActive(true);
         seedlingSelector.SetActive(false);
 
-        //telling timer what seedling you are working on
-        timer.GetComponent<CountdownTimer>().plantedSeedling = seedling;
+        //telling GameManager what seedling you are working on
+        gameManager.GetComponent<GameManager>().plantedSeed = seedling;
+        groundToPlant.GetComponent<Ground>().PlantASeedling(seedling);
         Debug.Log("You have chosen " + seedling.itemName);
     }
 }

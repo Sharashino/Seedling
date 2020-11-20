@@ -18,12 +18,16 @@ public class CountdownTimer : MonoBehaviour
     float timer;
 
     [SerializeField]
+    Player player;
+
+    [SerializeField]
     GameObject timerButtons;
 
     [SerializeField]
     TMP_Text countDownText;
 
-    public Seed plantedSeedling;
+    [SerializeField]
+    GameManager gameManager;
 
     private void Update()
     {
@@ -70,13 +74,15 @@ public class CountdownTimer : MonoBehaviour
         //if player spent 1 minute on plant fix syntax
         if(startingTime == 1)
         {
-            Debug.Log("You spent " + startingTime + " minute on your plant");
-            plantedSeedling.growInMinutes += 1;
+            Debug.Log("You spent " + startingTime + " minute on your " +gameManager.plantedSeed.itemName);
+            gameManager.plantedSeed.growInMinutes += 1;
+            player.allTimeSpent += 1;
         }
         else
         {
-            Debug.Log("You spent " + startingTime + " minutes on your plant");
-            plantedSeedling.growInMinutes += (int)startingTime;
+            Debug.Log("You spent " + startingTime + " minutes on your " +gameManager.plantedSeed.itemName);
+            gameManager.plantedSeed.growInMinutes += (int)startingTime;
+            player.allTimeSpent += (int)startingTime;
         }
     }
 
