@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 485314473356339602}
   - component: {fileID: 485314473356339603}
   - component: {fileID: 485314473356339600}
-  - component: {fileID: 2928615552733573177}
-  - component: {fileID: 883785600938679753}
+  - component: {fileID: 2815311922396444947}
   m_Layer: 0
   m_Name: Tulip Seedling
   m_TagString: Seedling
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 485314473356339601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.4000001, z: 2}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &485314473356339600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2928615552733573177
+--- !u!114 &2815311922396444947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,26 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 485314473356339601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grownPlant: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
+  flowerName: Tulip Flower
+  flowerGround: {fileID: 0}
+  flowerObject: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
     type: 3}
-  isPlanted: 0
-  timesWatered: 0
-  plantFirstStage: 4
-  plantSecondStage: 8
-  plantThirdStage: 12
---- !u!114 &883785600938679753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485314473356339601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4c8fa49b9c971468713a3083408a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 49933ec96697ddb418baae434575205b, type: 2}
