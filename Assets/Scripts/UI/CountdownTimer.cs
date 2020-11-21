@@ -17,8 +17,7 @@ public class CountdownTimer : MonoBehaviour
     float startingTime = 0f;
     float timer;
 
-    [SerializeField]
-    GameObject timerButtons;
+    public GameObject timerButtons;
 
     [SerializeField]
     TMP_Text countDownText;
@@ -33,7 +32,10 @@ public class CountdownTimer : MonoBehaviour
 
     public void StartTimer()
     {
-        StartCoroutine(StartCountdown(timerButtons));
+        if(currentTime != 0)
+        {
+            StartCoroutine(StartCountdown(timerButtons));
+        }
     }
 
     public void AddTime()
