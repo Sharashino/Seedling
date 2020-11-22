@@ -18,5 +18,6 @@ MonoBehaviour:
   itemObject: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
     type: 3}
   coinsToUnlock: 300
-  minutesToGrow: 600
+  minutesToGrow: 360
+  playerTimeSpent: 0
   seedlingCuriosity: Fun tulip fact

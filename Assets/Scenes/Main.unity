@@ -234,10 +234,13 @@ MonoBehaviour:
   playerName: 
   allTimeSpent: 0
   playerCoins: 0
+  irisTimeSpent: 0
+  roseTimeSpent: 0
+  tulipTimeSpent: 0
+  plantedSeed: {fileID: 0}
   playerCoinsText: {fileID: 1684766596}
   seedlingSelector: {fileID: 564818654}
   seedlingTime: {fileID: 0}
-  plantedSeed: {fileID: 0}
 --- !u!4 &437343989
 Transform:
   m_ObjectHideFlags: 0
@@ -372,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedlingSelector: {fileID: 564818654}
+  timer: {fileID: 811889843}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,12 +700,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 564818660}
-        m_TargetAssemblyTypeName: SeedlingSelector, Assembly-CSharp
-        m_MethodName: EnableDisableSelector
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: OnMenuPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 564818654}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -6,12 +6,11 @@ using System;
 
 public class LockPanel : MonoBehaviour
 {
-    Seed seeds;
+    Seed seedling;
     [SerializeField]
     TMP_Text coinsText;
     [SerializeField]
     GameManager gameManager;
-    public bool isLocked;
     [SerializeField]
     GameObject buttonPanel;
     [SerializeField]
@@ -21,17 +20,17 @@ public class LockPanel : MonoBehaviour
 
     private void Start()
     {
-        isLocked = true;
+        seedling = buttonPanel.GetComponent<DefineSeedling>().seedling;
         PanelLock();
-        seeds = buttonPanel.GetComponent<DefineSeedling>().seedling;
-        requiredCoins.text = seeds.coinsToUnlock.ToString();
+        requiredCoins.text = seedling.coinsToUnlock.ToString();
     }
 
     public void UnlockPanel()
     {
-        if (gameManager.playerCoins >= seeds.coinsToUnlock)
+        if (gameManager.playerCoins >= seedling.coinsToUnlock)
         {
-            gameManager.playerCoins -= seeds.coinsToUnlock;
+            gameManager.playerCoins -= seedling.coinsToUnlock;
+            seedling.isUnlocked = true;
             UpdateCoins();
             lockPanel.gameObject.SetActive(false);
             Debug.Log("You have unlocked " +gameObject.GetComponent<DefineSeedling>().seedling.itemName);
@@ -44,7 +43,7 @@ public class LockPanel : MonoBehaviour
 
     public void PanelLock()
     {
-        if(isLocked)
+        if(!seedling.isUnlocked)
         {
             lockPanel.gameObject.SetActive(true);
         }

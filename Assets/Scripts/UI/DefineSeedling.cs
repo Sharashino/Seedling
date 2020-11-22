@@ -36,14 +36,20 @@ public class DefineSeedling : MonoBehaviour
     void Start()
     {
         seedlingName.text = seedling.itemName;
-        seedlingTime.text = seedling.growInMinutes + " / " + seedling.minutesToGrow;
+        seedlingTime.text = seedling.playerTimeSpent + " / " + seedling.minutesToGrow;
         seedlingCuriosity.text = seedling.seedlingCuriosity;
         seedlingImage.sprite = seedling.itemIcon;
     }
 
+    public void UpdatePanel()
+    {
+        seedlingTime.text = seedling.playerTimeSpent + " / " + seedling.minutesToGrow;
+    }
+
+
     public void ChoseSeedling()
     {
-        if(gameManager.GetComponent<GameManager>().plantedSeed != seedling)
+        if(gameManager.GetComponent<GameManager>().plantedSeed == null)
         {
             timer.SetActive(true);
             seedlingSelector.SetActive(false);
@@ -52,6 +58,11 @@ public class DefineSeedling : MonoBehaviour
             gameManager.GetComponent<GameManager>().plantedSeed = seedling;
             groundToPlant.GetComponent<Ground>().PlantASeedling(seedling);
             Debug.Log("You have chosen " + seedling.itemName);
+        }
+        else if(gameManager.GetComponent<GameManager>().plantedSeed == seedling)
+        {
+            timer.SetActive(true);
+            seedlingSelector.SetActive(false);
         }
         else
         {

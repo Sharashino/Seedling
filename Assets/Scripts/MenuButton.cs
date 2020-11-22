@@ -25,7 +25,9 @@ public class MenuButton : MonoBehaviour
             //stop timer when player enables seedling selector
             //disable timer
             seedlingSelector.SetActive(true);
+            seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
             timer.SetActive(false);
         }
     }
+
 }
