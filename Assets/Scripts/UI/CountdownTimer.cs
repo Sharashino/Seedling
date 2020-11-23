@@ -24,6 +24,8 @@ public class CountdownTimer : MonoBehaviour
 
     [SerializeField]
     GameManager gameManager;
+    [SerializeField]
+    GameObject notificationDisplayer;
 
     private void Update()
     {
@@ -74,7 +76,6 @@ public class CountdownTimer : MonoBehaviour
         if(startingTime == 1)
         {
             Debug.Log("You spent " + startingTime + " minute on your " +gameManager.plantedSeed.itemName);
-            gameManager.plantedSeed.playerTimeSpent += 1;
             gameManager.allTimeSpent += 1;
             gameManager.playerCoins += 1;
             gameManager.UpdateCoins();
@@ -82,7 +83,6 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             Debug.Log("You spent " + startingTime + " minutes on your " +gameManager.plantedSeed.itemName);
-            gameManager.plantedSeed.playerTimeSpent += (int)startingTime;
             gameManager.allTimeSpent += (int)startingTime;
             gameManager.playerCoins += (int)startingTime;
             gameManager.UpdateCoins();

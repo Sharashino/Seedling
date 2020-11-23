@@ -7,7 +7,6 @@ public class Seed : Item
 {
     public int coinsToUnlock;
     public int minutesToGrow;
-    public int playerTimeSpent;
     public bool isUnlocked = false;
     public string seedlingCuriosity;
 

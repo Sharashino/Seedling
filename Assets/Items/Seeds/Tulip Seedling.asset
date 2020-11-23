@@ -19,5 +19,5 @@ MonoBehaviour:
     type: 3}
   coinsToUnlock: 300
   minutesToGrow: 360
-  playerTimeSpent: 0
+  isUnlocked: 0
   seedlingCuriosity: Fun tulip fact

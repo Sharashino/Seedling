@@ -35,6 +35,6 @@ MonoBehaviour:
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
   addAllPrefabsToManager: 1
-  logDebugInfo: 0
+  logDebugInfo: 1
   logWarnings: 1
   logErrors: 1

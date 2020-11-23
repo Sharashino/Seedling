@@ -12,6 +12,8 @@ public class LockPanel : MonoBehaviour
     [SerializeField]
     GameManager gameManager;
     [SerializeField]
+    GameObject notificationDisplayer;
+    [SerializeField]
     GameObject buttonPanel;
     [SerializeField]
     GameObject lockPanel;
@@ -33,11 +35,11 @@ public class LockPanel : MonoBehaviour
             seedling.isUnlocked = true;
             UpdateCoins();
             lockPanel.gameObject.SetActive(false);
-            Debug.Log("You have unlocked " +gameObject.GetComponent<DefineSeedling>().seedling.itemName);
+            notificationDisplayer.GetComponent<NotificationDisplayer>().SeedlingUnlocked(seedling);
         }
         else
         {
-            Debug.Log("You dont have enough coins");
+            notificationDisplayer.GetComponent<NotificationDisplayer>().NotEnoughCoins();
         }
     }
 

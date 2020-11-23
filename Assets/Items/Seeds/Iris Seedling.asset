@@ -19,5 +19,5 @@ MonoBehaviour:
     type: 3}
   coinsToUnlock: 250
   minutesToGrow: 240
-  playerTimeSpent: 0
+  isUnlocked: 0
   seedlingCuriosity: Fun iris fact
