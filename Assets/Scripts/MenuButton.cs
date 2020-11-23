@@ -5,13 +5,17 @@ using UnityEngine;
 public class MenuButton : MonoBehaviour
 {
     [SerializeField]
+    GameManager gameManager;
+
+    [SerializeField]
     GameObject seedlingSelector;
     
     [SerializeField]
     GameObject timer;
+
     public void OnMenuPress()
     {
-        if(seedlingSelector.activeSelf)
+        if(seedlingSelector.activeSelf && gameManager.plantedSeed != null)
         {
             //when player clicks on menu button disable seedling selector
             //enable timer
@@ -19,6 +23,13 @@ public class MenuButton : MonoBehaviour
             seedlingSelector.SetActive(false);
             timer.SetActive(true);
             timer.GetComponent<CountdownTimer>().StartTimer();
+        }
+        else if(seedlingSelector.activeSelf && gameManager.plantedSeed == null)
+        {
+            //when player has no seedling planted disable selector
+            //also disable timer
+            seedlingSelector.SetActive(false);
+            timer.SetActive(false);
         }
         else
         {

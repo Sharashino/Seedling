@@ -19,5 +19,5 @@ MonoBehaviour:
     type: 3}
   coinsToUnlock: 100
   minutesToGrow: 120
-  isUnlocked: 0
+  isUnlocked: 1
   seedlingCuriosity: Fun rose fact

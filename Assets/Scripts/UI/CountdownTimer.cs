@@ -75,14 +75,14 @@ public class CountdownTimer : MonoBehaviour
         //if player spent 1 minute on plant fix syntax
         if(startingTime == 1)
         {
-            Debug.Log("You spent " + startingTime + " minute on your " +gameManager.plantedSeed.itemName);
+            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling(1, gameManager.plantedSeed);
             gameManager.allTimeSpent += 1;
             gameManager.playerCoins += 1;
             gameManager.UpdateCoins();
         }
         else
         {
-            Debug.Log("You spent " + startingTime + " minutes on your " +gameManager.plantedSeed.itemName);
+            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
             gameManager.allTimeSpent += (int)startingTime;
             gameManager.playerCoins += (int)startingTime;
             gameManager.UpdateCoins();

@@ -38,6 +38,19 @@ public class NotificationDisplayer : MonoBehaviour
         notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
         StartCoroutine(FadeText());
     }
+    public void TimeSpentOnSeedling(int timeSpent, Seed plantedSeedling)
+    {
+        notifier.SetActive(true);
+        if(timeSpent == 1)
+        {
+            notifierText.text = "You have spent " + timeSpent + " minute on " + plantedSeedling.itemName + "!";
+        }
+        else
+        {
+            notifierText.text = "You have spent " + timeSpent + " minutes on " + plantedSeedling.itemName + "!";
+        }
+        StartCoroutine(FadeText());
+    }
 
     IEnumerator FadeText()
     {
@@ -57,4 +70,5 @@ public class NotificationDisplayer : MonoBehaviour
         notifierText.color = color;
     }
 
+   
 }
