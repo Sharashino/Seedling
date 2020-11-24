@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 53}
+  m_AnchoredPosition: {x: 0, y: 42.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020778714457335
@@ -126,12 +126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notificationDisplayer: {fileID: 0}
+  groundToPlant: {fileID: 0}
+  timer: {fileID: 0}
+  gameManager: {fileID: 0}
   seedlingSelector: {fileID: 0}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
   seedlingCuriosity: {fileID: 3283020779890318455}
   seedlingImage: {fileID: 3283020778714457328}
-  seedling: {fileID: 11400000, guid: 41bdf9927ee38de47be32a0047b4d528, type: 2}
+  seedling: {fileID: 0}
 --- !u!114 &3283020779066277619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad989ff3d83b548810dcba25a4f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  isLocked: 0
+  coinsText: {fileID: 0}
+  gameManager: {fileID: 0}
+  notificationDisplayer: {fileID: 0}
   buttonPanel: {fileID: 3283020778766948480}
   lockPanel: {fileID: 3283020780641721684}
   requiredCoins: {fileID: 3283020779716373328}
@@ -319,7 +324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 13.700007}
-  m_SizeDelta: {x: 205.75989, y: 318.5333}
+  m_SizeDelta: {x: 220, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020779042099412
 CanvasRenderer:
@@ -414,6 +419,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notificationDisplayer: {fileID: 0}
+  groundToPlant: {fileID: 0}
+  timer: {fileID: 0}
+  gameManager: {fileID: 0}
   seedlingSelector: {fileID: 3283020778766948480}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
@@ -493,8 +502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 114}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -2.48, y: 114}
+  m_SizeDelta: {x: 195.03735, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020779202462693
 CanvasRenderer:
@@ -588,7 +597,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 9.925194, y: 0, z: -1.3534241, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -703,7 +712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 122}
+  m_AnchoredPosition: {x: 0, y: 107.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020779338550315
@@ -762,8 +771,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -798,7 +807,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 17.149796, y: 0, z: 17.835815, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1108,7 +1117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.34, y: -24.6}
+  m_AnchoredPosition: {x: 0.34, y: -11.1}
   m_SizeDelta: {x: 186.96008, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020779890318454
@@ -1203,7 +1212,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10.134346, y: 0, z: 10.88504, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1323,8 +1332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 13.700001}
-  m_SizeDelta: {x: 105.75989, y: 218.53294}
+  m_AnchoredPosition: {x: 0.00002670288, y: 14.067001}
+  m_SizeDelta: {x: 119.99997, y: 219.26624}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3283020780641721641
 CanvasRenderer:
@@ -1504,7 +1513,7 @@ PrefabInstance:
     - target: {fileID: 2104168489841466312, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.2
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2104168489841466312, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
@@ -1520,6 +1529,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855619976012342322, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855619976012342322, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4855619976012342322, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
@@ -1565,6 +1584,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869557989088792448, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869557989088792448, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4869557989088792448, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}

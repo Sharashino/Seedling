@@ -88,7 +88,6 @@ public class DefineSeedling : MonoBehaviour
         if(gameManager.GetComponent<GameManager>().plantedSeed == null)
         {
             timer.SetActive(true);
-            seedlingSelector.SetActive(false);
 
             //telling GameManager what seedling you are working on
             gameManager.GetComponent<GameManager>().plantedSeed = seedling;
@@ -99,7 +98,6 @@ public class DefineSeedling : MonoBehaviour
         else if(gameManager.GetComponent<GameManager>().plantedSeed == seedling)
         {
             timer.SetActive(true);
-            seedlingSelector.SetActive(false);
         }
         else
         {
