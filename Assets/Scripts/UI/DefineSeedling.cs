@@ -95,6 +95,16 @@ public class DefineSeedling : MonoBehaviour
             notificationDisplayer.GetComponent<NotificationDisplayer>().PlantASeedling(seedling);
             Debug.Log("You have chosen " + seedling.itemName);
         }
+        else if (gameManager.GetComponent<GameManager>().plantedSeed != seedling)
+        {
+            timer.SetActive(true);
+
+            //telling GameManager what seedling you are working on
+            gameManager.GetComponent<GameManager>().plantedSeed = seedling;
+            groundToPlant.GetComponent<Ground>().PlantASeedling(seedling);
+            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantASeedling(seedling);
+            Debug.Log("You have chosen " + seedling.itemName);
+        }
         else if(gameManager.GetComponent<GameManager>().plantedSeed == seedling)
         {
             timer.SetActive(true);

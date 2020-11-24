@@ -8,7 +8,8 @@ public class MenuSlider : MonoBehaviour
     GameObject panelMenu;
     [SerializeField]
     GameObject seedlingSelector;
-  
+    [SerializeField]
+    GameObject timer;
     public void ShowHideMenu()
     {
         if (panelMenu != null)
@@ -21,7 +22,19 @@ public class MenuSlider : MonoBehaviour
                 bool isOpen = panelMenuAnimator.GetBool("showBar");
                 bool isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
 
-                panelMenuAnimator.SetBool("showBar", !isOpen);
+
+                //if SeedlingSelector is open hide it and open MenuBar
+                //if it isnt just open MenuBar and hide timer
+                if(isSelectorOpen)
+                {
+                    panelMenuAnimator.SetBool("showBar", !isOpen);
+                    seedlingSelectorAnimator.SetBool("showSelector", !isSelectorOpen);
+                }
+                else
+                {
+                    panelMenuAnimator.SetBool("showBar", !isOpen);
+                }
+
 
             }
         } 

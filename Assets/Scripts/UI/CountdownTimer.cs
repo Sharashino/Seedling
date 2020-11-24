@@ -26,6 +26,8 @@ public class CountdownTimer : MonoBehaviour
     GameManager gameManager;
     [SerializeField]
     GameObject notificationDisplayer;
+    [SerializeField]
+    GameObject seedlingSelector;
 
     private void Update()
     {
@@ -79,6 +81,22 @@ public class CountdownTimer : MonoBehaviour
             gameManager.allTimeSpent += 1;
             gameManager.playerCoins += 1;
             gameManager.UpdateCoins();
+
+            //add one minute to a seedling you have planted
+            switch (gameManager.plantedSeed.itemName)
+            {
+                case "Iris Seeds":
+                    gameManager.irisTimeSpent += 1;
+                    break;
+                case "Rose Seeds":
+                    gameManager.roseTimeSpent += 1;
+                    break;
+                case "Tulip Seeds":
+                    gameManager.tulipTimeSpent += 1;
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {
@@ -86,7 +104,26 @@ public class CountdownTimer : MonoBehaviour
             gameManager.allTimeSpent += (int)startingTime;
             gameManager.playerCoins += (int)startingTime;
             gameManager.UpdateCoins();
+
+            //add time to a seedling you have planted
+            switch (gameManager.plantedSeed.itemName)
+            {
+                case "Iris Seeds":
+                    gameManager.irisTimeSpent += (int)startingTime;
+                    break;
+                case "Rose Seeds":
+                    gameManager.roseTimeSpent += (int)startingTime;
+                    break;
+                case "Tulip Seeds":
+                    gameManager.tulipTimeSpent += (int)startingTime;
+                    break;
+                default:
+                    break;
+            }
         }
+        
+        //after done with timer update seedling selector timers
+        seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
     }
 
     private void FormatText()
