@@ -20,6 +20,7 @@ namespace ES3Internal
 #if UNITY_EDITOR
         private const int CollectDependenciesDepth = 5;
         protected static bool isEnteringPlayMode = false;
+        static readonly HideFlags[] invalidHideFlags = new HideFlags[] { HideFlags.DontSave, HideFlags.DontSaveInBuild, HideFlags.DontSaveInEditor, HideFlags.HideAndDontSave };
 #endif
 
         private static System.Random rng;
@@ -298,9 +299,9 @@ namespace ES3Internal
             }
         }
 
-        public void RemoveNullValues()
+        public void RemoveNullOrInvalidValues()
         {
-            var nullKeys = idRef.Where(pair => pair.Value == null)
+            var nullKeys = idRef.Where(pair => pair.Value == null || CanBeSaved(pair.Value))
                                 .Select(pair => pair.Key).ToList();
             foreach (var key in nullKeys)
                 idRef.Remove(key);
@@ -578,16 +579,10 @@ namespace ES3Internal
 
             var type = obj.GetType();
 
-            // Check if any of the hide flags determine that it should not be saved.
-            if ((((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInBuild) == HideFlags.DontSaveInBuild) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInEditor) == HideFlags.DontSaveInEditor) ||
-                 ((obj.hideFlags & HideFlags.HideAndDontSave) == HideFlags.HideAndDontSave)))
-            {
-                // Meshes are marked with HideAndDontSave, but shouldn't be ignored.
-                if (type == typeof(Mesh) || type == typeof(Material))
-                    return true;
-            }
+            foreach (var flag in invalidHideFlags)
+                if (obj.hideFlags.HasFlag(flag))
+                    if (!(obj is Mesh || obj is Material))
+                        return false;
 
             // Exclude the Easy Save 3 Manager, and all components attached to it.
             if (obj.name == "Easy Save 3 Manager")

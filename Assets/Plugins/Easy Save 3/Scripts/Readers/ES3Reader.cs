@@ -346,8 +346,6 @@ public abstract class ES3Reader : System.IDisposable
         // Get the baseWriter using the given Stream.
         if (settings.format == ES3.Format.JSON)
             return new ES3JSONReader(stream, settings);
-        else if (settings.format == ES3.Format.Binary_Alpha)
-            return new ES3BinaryReader(stream, settings);
 		return null;
 	}
 
@@ -368,8 +366,6 @@ public abstract class ES3Reader : System.IDisposable
 		// Get the baseWriter using the given Stream.
 		if(settings.format == ES3.Format.JSON)
 			return new ES3JSONReader(stream, settings);
-        else if(settings.format == ES3.Format.Binary_Alpha)
-            return new ES3BinaryReader(stream, settings);
         return null;
 	}
 
@@ -380,8 +376,6 @@ public abstract class ES3Reader : System.IDisposable
 		// Get the baseWriter using the given Stream.
 		if(settings.format == ES3.Format.JSON)
 			return new ES3JSONReader(stream, settings);
-        else if (settings.format == ES3.Format.Binary_Alpha)
-            return new ES3BinaryReader(stream, settings);
         return null;
 	}
 
@@ -390,8 +384,6 @@ public abstract class ES3Reader : System.IDisposable
 		// Get the baseWriter using the given Stream.
 		if(settings.format == ES3.Format.JSON)
 			return new ES3JSONReader(stream, settings, readHeaderAndFooter);
-        else if (settings.format == ES3.Format.Binary_Alpha)
-            return new ES3BinaryReader(stream, settings, readHeaderAndFooter);
         return null;
 	}
 

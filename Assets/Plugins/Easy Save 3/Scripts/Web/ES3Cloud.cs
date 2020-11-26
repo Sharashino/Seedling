@@ -218,7 +218,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="es3File">An ES3File containing the data we want to upload.</param>
 	public IEnumerator UploadFile(ES3File es3File)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, "", "", DateTimeToUnixTimestamp(DateTime.Now));
+		return UploadFile(es3File.GetBytes(), es3File.settings, "", "", DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>
@@ -226,7 +226,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="user">The unique name of the user this file belongs to, if the file isn't globally accessible.</param>
 	public IEnumerator UploadFile(ES3File es3File, string user)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, "", DateTimeToUnixTimestamp(DateTime.Now));
+		return UploadFile(es3File.GetBytes(), es3File.settings, user, "", DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>
@@ -235,7 +235,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="password">The password of the user this file belongs to.</param>
 	public IEnumerator UploadFile(ES3File es3File, string user, string password)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, password, DateTimeToUnixTimestamp(DateTime.Now));
+		return UploadFile(es3File.GetBytes(), es3File.settings, user, password, DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>

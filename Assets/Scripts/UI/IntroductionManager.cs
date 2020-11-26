@@ -53,16 +53,17 @@ public class IntroductionManager : MonoBehaviour
     private void FirstGameRun()
     {
         hasRun = true;
-        ES3.Save<bool>("hasRun", true);
+        ES3.Save("hasRun", true);
         ES3.Save("playerCoins", 100);
         StartCoroutine(FadeLogoImage());
     }
 
     private void AnotherGameRun()
     {
-        var playerName = ES3.Load<string>("playerName");
+        var playerName = "xd";
+        gameManager.playerName = ES3.LoadString("playerName", playerName);
         inputGroup.SetActive(false);
-        niceToMeetYouText.text = "Hello " + playerName + "!";
+        niceToMeetYouText.text = "Hello " + gameManager.playerName + "!";
         StartCoroutine(FadeLogoAndText());
     }
 
