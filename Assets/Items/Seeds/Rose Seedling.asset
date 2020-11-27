@@ -18,6 +18,7 @@ MonoBehaviour:
   itemObject: {fileID: 7539906995714841711, guid: 315490e2464014b4d98e2089b6a8fe33,
     type: 3}
   coinsToUnlock: 100
-  minutesToGrow: 120
+  minutesToGrow: 60
   isUnlocked: 1
-  seedlingCuriosity: Fun rose fact
+  seedlingCuriosity: In Greek Mythology, Aphrodite created rose from tears she cried
+    over her beloved Adonis.

@@ -69,6 +69,7 @@ public class LockPanel : MonoBehaviour
             lockPanel.gameObject.SetActive(false);
         }
     }
+
     private void UpdateCoins()
     {
         coinsText.text = gameManager.playerCoins.ToString();

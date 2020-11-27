@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuSlider : MonoBehaviour
 {
+    [SerializeField]
+    Sprite hideSprite;
+    [SerializeField]
+    Sprite showSprite;
+    [SerializeField]
+    Button showHideMenuBar;
+
     [SerializeField]
     GameObject panelMenu;
     [SerializeField]
@@ -14,21 +22,49 @@ public class MenuSlider : MonoBehaviour
     GameObject seedlingSelector;
     [SerializeField]
     GameObject timer;
+
+    Animator menuBarAnimator;
+    Animator seedlingSelectorAnimator;
+    Animator trophyBarAnimator;
+    Animator trophyPanelAnimator;
+
+    public bool isOpen = true;
+    bool isSelectorOpen;
+    bool isTrophyBarOpen;
+    bool isTrophyPanelOpen;
+
+    private void Awake()
+    {
+        
+    }
+
+    private void Update()
+    {
+        if(!isOpen)
+        {
+            showHideMenuBar.image.sprite = showSprite;
+        }
+        else
+        {
+            showHideMenuBar.image.sprite = hideSprite;
+        }
+    }
+
     public void ShowHideMenu()
     {
         if (panelMenu != null)
         {
-            Animator menuBarAnimator = panelMenu.GetComponent<Animator>();
-            Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
-            Animator trophyBarAnimator = trophyBar.GetComponent<Animator>();
-            Animator trophyPanelAnimator = trophyPanel.GetComponent<Animator>();
+            menuBarAnimator = panelMenu.GetComponent<Animator>();
+            seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
+            trophyBarAnimator = trophyBar.GetComponent<Animator>();
+            trophyPanelAnimator = trophyPanel.GetComponent<Animator>();
 
             if (menuBarAnimator != null)
             {
-                bool isOpen = menuBarAnimator.GetBool("showBar");
-                bool isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
-                bool isTrophyBarOpen = trophyBarAnimator.GetBool("showTrophyBar");
-                bool isTrophyPanelOpen = trophyPanelAnimator.GetBool("showTrophyPanel");
+                isOpen = menuBarAnimator.GetBool("showBar");
+                isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
+                isTrophyBarOpen = trophyBarAnimator.GetBool("showTrophyBar");
+                isTrophyPanelOpen = trophyPanelAnimator.GetBool("showTrophyPanel");
 
                 //if SeedlingSelector is open hide it and open MenuBar
                 if(isSelectorOpen)
@@ -57,9 +93,9 @@ public class MenuSlider : MonoBehaviour
                 {
                     menuBarAnimator.SetBool("showBar", !isOpen);
                 }
-
-
             }
         } 
     }
+
+    
 }

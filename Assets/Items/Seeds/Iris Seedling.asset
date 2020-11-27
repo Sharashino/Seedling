@@ -18,6 +18,7 @@ MonoBehaviour:
   itemObject: {fileID: 9195059183565728674, guid: 414cecf65ca836641983a49ccc865461,
     type: 3}
   coinsToUnlock: 250
-  minutesToGrow: 240
+  minutesToGrow: 120
   isUnlocked: 0
-  seedlingCuriosity: Fun iris fact
+  seedlingCuriosity: Iris are named from the Greek word for a rainbow, which is also
+    name for the Greek goddess of the rainbow!
