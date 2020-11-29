@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playerName = ES3.Load<string>("playerName");
+
+        if(playerName == "xd")
+        {
+            isIndianaJohnesUnlocked = true;
+        }
+
         playerCoins = ES3.Load<int>("playerCoins", 0);
 
         irisTimeSpent = ES3.Load("irisTimeSpent", 0);
@@ -56,8 +62,23 @@ public class GameManager : MonoBehaviour
         playerCoinsText.text = playerCoins.ToString();
     }
 
+    public void CheckForTrophy()
+    {
+        if(isIrisUnlocked && isRoseUnlocked && isTulipUnlocked)
+        {
+            isSeedlerUnlocked = true;
+        }
+
+
+    }
+
     public void UpdateCoins()
     {
+        if(playerCoins >= 1000)
+        {
+            isRichartUnlocked = true;
+        }
+
         playerCoinsText.text = playerCoins.ToString();
     }
 

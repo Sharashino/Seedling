@@ -51,6 +51,7 @@ public class LockPanel : MonoBehaviour
             UpdateCoins();
             lockPanel.gameObject.SetActive(false);
             notificationDisplayer.GetComponent<NotificationDisplayer>().SeedlingUnlocked(seedling);
+            gameManager.GetComponent<GameManager>().CheckForTrophy();
         }
         else
         {
