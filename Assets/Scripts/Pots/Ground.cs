@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+    public AudioSource plantSeedlingClip;
     public ParticleSystem plantParticles;
     public GameObject grownPlant;
     public GameObject potGround;
@@ -35,6 +36,7 @@ public class Ground : MonoBehaviour
 
             seedlingTransform.parent = potGround.transform;
             CreatePlantParticles();
+            PlayPlantSound();
         }
         else
         {
@@ -56,11 +58,17 @@ public class Ground : MonoBehaviour
 
             seedlingTransform.parent = potGround.transform;
             CreatePlantParticles();
+            PlayPlantSound();
         }
     }
 
     void CreatePlantParticles()
     {
         plantParticles.Play();
+    }
+
+    void PlayPlantSound()
+    {
+        plantSeedlingClip.Play();
     }
 }
