@@ -60,7 +60,7 @@ public class LockPanel : MonoBehaviour
     }
 
     public void PanelLock()
-    {
+    { 
         if(!seedling.isUnlocked)
         {
             lockPanel.gameObject.SetActive(true);

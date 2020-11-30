@@ -21,6 +21,7 @@ public class SlideInfoPanel : MonoBehaviour
             {
                 bool isInfoPanelOpen = panelInfoAnimator.GetBool("showInfoPanel");
                 bool isMenuBarOpen = menuBarAnimator.GetBool("showBar");
+
                 panelInfoAnimator.SetBool("showInfoPanel", !isInfoPanelOpen);
                 menuBarAnimator.SetBool("showBar", !isMenuBarOpen);
             }

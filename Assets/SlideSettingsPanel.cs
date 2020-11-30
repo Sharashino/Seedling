@@ -29,4 +29,15 @@ public class SlideSettingsPanel : MonoBehaviour
             }
         }
     }
+
+    public void OnDonateButton()
+    {
+        Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
+    }
+
+    public void OnResetDataButton()
+    {
+        ES3.DeleteFile("SaveFile.es3");
+        Application.Quit();
+    }
 }

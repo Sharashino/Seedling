@@ -63,7 +63,7 @@ public class IntroductionManager : MonoBehaviour
         var playerName = "xd";
         gameManager.playerName = ES3.LoadString("playerName", playerName);
         inputGroup.SetActive(false);
-        niceToMeetYouText.text = "Hello " + gameManager.playerName + "!";
+        niceToMeetYouText.text = "Welcome back " + gameManager.playerName + "!";
         StartCoroutine(FadeLogoAndText());
     }
 

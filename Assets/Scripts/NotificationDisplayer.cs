@@ -19,7 +19,12 @@ public class NotificationDisplayer : MonoBehaviour
     {
         notifier.SetActive(false);
     }
-
+    public void TrophyUnlocked(string trophyName)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You have unlocked new " +trophyName + " trophy!";
+        StartCoroutine(FadeText());
+    }
     public void NotEnoughCoins()
     {
         notifier.SetActive(true);

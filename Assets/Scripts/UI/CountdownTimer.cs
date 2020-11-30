@@ -21,7 +21,8 @@ public class CountdownTimer : MonoBehaviour
 
     [SerializeField]
     TMP_Text countDownText;
-
+    [SerializeField]
+    ParticleSystem growParticles;
     [SerializeField]
     GameManager gameManager;
     [SerializeField]
@@ -86,7 +87,13 @@ public class CountdownTimer : MonoBehaviour
             switch (gameManager.plantedSeed.itemName)
             {
                 case "Iris Seeds":
-                    gameManager.irisTimeSpent += 1;
+                    {
+                        gameManager.irisTimeSpent += 120;
+                        if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
+                        {
+                            Debug.Log("ready to harvest");
+                        }
+                    }
                     break;
                 case "Rose Seeds":
                     gameManager.roseTimeSpent += 1;
@@ -97,6 +104,7 @@ public class CountdownTimer : MonoBehaviour
                 default:
                     break;
             }
+
         }
         else
         {
@@ -109,7 +117,13 @@ public class CountdownTimer : MonoBehaviour
             switch (gameManager.plantedSeed.itemName)
             {
                 case "Iris Seeds":
-                    gameManager.irisTimeSpent += (int)startingTime;
+                    {
+                        gameManager.irisTimeSpent += (int)startingTime;
+                        if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
+                        {
+                            Debug.Log("ready to harvest");
+                        }
+                    }
                     break;
                 case "Rose Seeds":
                     gameManager.roseTimeSpent += (int)startingTime;
@@ -122,8 +136,14 @@ public class CountdownTimer : MonoBehaviour
             }
         }
         
-        //after done with timer update seedling selector timers
+        //after done with timer update seedling selector timers and spawn particles
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
+        CreateGrowParticles();
+    }
+
+    public void CreateGrowParticles()
+    {
+        growParticles.Play();
     }
 
     private void FormatText()

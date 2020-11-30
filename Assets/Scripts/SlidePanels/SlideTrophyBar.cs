@@ -7,6 +7,10 @@ using TMPro;
 public class SlideTrophyBar : MonoBehaviour
 {
     [SerializeField]
+    NotificationDisplayer notificationDisplayer;
+    [SerializeField]
+    GameManager gameManager;
+    [SerializeField]
     Button coinTrophyButton, seedlerTrophyButton, dolarsTrophyButton, easterEggTrophyButton;
     [SerializeField]
     GameObject trophyPanel;
@@ -14,13 +18,42 @@ public class SlideTrophyBar : MonoBehaviour
     GameObject trophyBar;
     [SerializeField]
     GameObject menuBar;
-
+    
     private void Start()
     {
         coinTrophyButton.onClick.AddListener(() => ShowTrophy(coinTrophyButton));
         seedlerTrophyButton.onClick.AddListener(() => ShowTrophy(seedlerTrophyButton));
         dolarsTrophyButton.onClick.AddListener(() => ShowTrophy(dolarsTrophyButton));
         easterEggTrophyButton.onClick.AddListener(() => ShowTrophy(easterEggTrophyButton));
+    }
+
+    //checking if you unlocked trophies and displaying notification
+    public void UpdateTrophyPanel()
+    {
+        if(gameManager.isRichartUnlocked)
+        {
+            coinTrophyButton.GetComponent<Image>().color = Color.white;
+            coinTrophyButton.GetComponentInChildren<TMP_Text>().text = coinTrophyButton.GetComponent<DefineTrophy>().trophyName;
+        }
+        else if(gameManager.isSeedlerUnlocked)
+        {
+            seedlerTrophyButton.GetComponent<Image>().color = Color.white;
+            seedlerTrophyButton.GetComponentInChildren<TMP_Text>().text = seedlerTrophyButton.GetComponent<DefineTrophy>().trophyName;
+        }
+        else if(gameManager.isSupporterUnlocked)
+        {
+            dolarsTrophyButton.GetComponent<Image>().color = Color.white;
+            dolarsTrophyButton.GetComponentInChildren<TMP_Text>().text = dolarsTrophyButton.GetComponent<DefineTrophy>().trophyName;
+        }
+        else if(gameManager.isIndianaJohnesUnlocked)
+        {
+            easterEggTrophyButton.GetComponent<Image>().color = Color.white;
+            easterEggTrophyButton.GetComponentInChildren<TMP_Text>().text = easterEggTrophyButton.GetComponent<DefineTrophy>().trophyName;
+        }
+        else
+        {
+            Debug.Log("no changes in trophies :(");
+        }
     }
 
     public void ShowHideTrophyBar()
@@ -35,6 +68,8 @@ public class SlideTrophyBar : MonoBehaviour
             {
                 bool isTrophyPanelOpen = panelTrophyAnimator.GetBool("showTrophyBar");
                 bool isMenuBarOpen = menuBarAnimator.GetBool("showBar");
+
+                UpdateTrophyPanel();
 
                 if(!isMenuBarOpen)
                 {

@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     TMP_Text playerCoinsText;
-
+    [SerializeField]
+    NotificationDisplayer notificationDisplayer;
     [SerializeField]
     GameObject seedlingSelector;
 
@@ -67,16 +68,16 @@ public class GameManager : MonoBehaviour
         if(isIrisUnlocked && isRoseUnlocked && isTulipUnlocked)
         {
             isSeedlerUnlocked = true;
+            notificationDisplayer.TrophyUnlocked("Seedler");
         }
-
-
     }
 
     public void UpdateCoins()
     {
-        if(playerCoins >= 1000)
+        if(playerCoins >= 1000 && !isRichartUnlocked)
         {
             isRichartUnlocked = true;
+            notificationDisplayer.TrophyUnlocked("Richart");
         }
 
         playerCoinsText.text = playerCoins.ToString();

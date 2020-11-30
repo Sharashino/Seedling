@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public ParticleSystem growParticles;
+    public ParticleSystem plantParticles;
     public GameObject grownPlant;
     public GameObject potGround;
     public bool hasSeedling = false;
@@ -29,12 +29,12 @@ public class Ground : MonoBehaviour
             //Moving seedling to the centre of the pot
             Vector3 position = seedlingTransform.position;
             position.x = potTransform.position.x;
-            position.y = potTransform.position.y + 0.05f;
+            position.y = potTransform.position.y + 0.13f;
             position.z = potTransform.position.z;
             seedlingTransform.position = position;
 
             seedlingTransform.parent = potGround.transform;
-            CreateGrowParticles();
+            CreatePlantParticles();
         }
         else
         {
@@ -50,17 +50,17 @@ public class Ground : MonoBehaviour
             //Moving seedling to the centre of the pot
             Vector3 position = seedlingTransform.position;
             position.x = potTransform.position.x;
-            position.y = potTransform.position.y + 0.05f;
+            position.y = potTransform.position.y + 0.13f;
             position.z = potTransform.position.z;
             seedlingTransform.position = position;
 
             seedlingTransform.parent = potGround.transform;
-            CreateGrowParticles();
+            CreatePlantParticles();
         }
     }
 
-    void CreateGrowParticles()
+    void CreatePlantParticles()
     {
-        growParticles.Play();
+        plantParticles.Play();
     }
 }
