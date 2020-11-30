@@ -19,6 +19,13 @@ public class NotificationDisplayer : MonoBehaviour
     {
         notifier.SetActive(false);
     }
+    public void HarvestPlant(Seed seedToHarvest)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "Harvest your plant first!";
+        StartCoroutine(FadeText());
+    }
+
     public void PlantReadyToHarvest(Seed seedToHarvest)
     {
         notifier.SetActive(true);

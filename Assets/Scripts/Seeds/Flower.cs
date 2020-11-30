@@ -11,15 +11,14 @@ public class Flower : MonoBehaviour
     private GameObject flower;
         
     //When Flower got Watered Down enough times
-    public void GrowFlower(GameObject seedlingToGrowFrom, GameObject plantedOnGround)
+    public void GrowFlower(GameObject seedlingToGrowFrom)
     {
         //Getting Ground and spawning Grown Flower on it
-        flowerGround = plantedOnGround;
-        flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.25f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
+        flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.1f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
         flower.name = flowerName;
 
         //Setting up Ground as Flower parent
-        flower.transform.parent = plantedOnGround.transform;
+        flower.transform.parent = seedlingToGrowFrom.transform.parent;
 
         Debug.Log("Your " +flowerName +" has grown up!");
     }

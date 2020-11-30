@@ -8,6 +8,7 @@ public class Seed : Item
     public int coinsToUnlock;
     public int minutesToGrow;
     public bool isUnlocked = false;
+    public bool canBeHarvested = false;
     public string seedlingCuriosity;
 
     public override void Use()

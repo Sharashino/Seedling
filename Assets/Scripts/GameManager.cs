@@ -63,6 +63,30 @@ public class GameManager : MonoBehaviour
         playerCoinsText.text = playerCoins.ToString();
     }
 
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit mouseHit;
+
+            if(Physics.Raycast(ray, out mouseHit))
+            {
+                if(mouseHit.collider.gameObject.GetComponent<Flower>() != null)
+                {
+                    if(plantedSeed.canBeHarvested == true)
+                    {
+                        Debug.Log("Can be harvested");
+                    }
+                    else
+                    {
+                        Debug.Log("Cant be harvested");
+                    }
+                }
+            }
+        }
+    }
+
     public void CheckForTrophy()
     {
         if(isIrisUnlocked && isRoseUnlocked && isTulipUnlocked)
