@@ -6,12 +6,13 @@ using System;
 
 public class LockPanel : MonoBehaviour
 {
-    Seed seeds;
+    Seed seedling;
     [SerializeField]
     TMP_Text coinsText;
     [SerializeField]
     GameManager gameManager;
-    public bool isLocked;
+    [SerializeField]
+    GameObject notificationDisplayer;
     [SerializeField]
     GameObject buttonPanel;
     [SerializeField]
@@ -21,30 +22,46 @@ public class LockPanel : MonoBehaviour
 
     private void Start()
     {
-        isLocked = true;
+        seedling = buttonPanel.GetComponent<DefineSeedling>().seedling;
         PanelLock();
-        seeds = buttonPanel.GetComponent<DefineSeedling>().seedling;
-        requiredCoins.text = seeds.coinsToUnlock.ToString();
+        requiredCoins.text = seedling.coinsToUnlock.ToString();
     }
 
     public void UnlockPanel()
     {
-        if (gameManager.playerCoins >= seeds.coinsToUnlock)
+        if (gameManager.playerCoins >= seedling.coinsToUnlock)
         {
-            gameManager.playerCoins -= seeds.coinsToUnlock;
+            gameManager.playerCoins -= seedling.coinsToUnlock;
+            switch (seedling.itemName)
+            {
+                case "Iris Seeds":
+                    gameManager.isIrisUnlocked = true;
+                    break;
+                case "Rose Seeds":
+                    gameManager.isRoseUnlocked = true;
+                    break;
+                case "Tulip Seeds":
+                    gameManager.isTulipUnlocked = true;
+                    break;
+                default:
+                    break;
+            }
+
+            seedling.isUnlocked = true;
             UpdateCoins();
             lockPanel.gameObject.SetActive(false);
-            Debug.Log("You have unlocked " +gameObject.GetComponent<DefineSeedling>().seedling.itemName);
+            notificationDisplayer.GetComponent<NotificationDisplayer>().SeedlingUnlocked(seedling);
+            gameManager.GetComponent<GameManager>().CheckForTrophy();
         }
         else
         {
-            Debug.Log("You dont have enough coins");
+            notificationDisplayer.GetComponent<NotificationDisplayer>().NotEnoughCoins();
         }
     }
 
     public void PanelLock()
-    {
-        if(isLocked)
+    { 
+        if(!seedling.isUnlocked)
         {
             lockPanel.gameObject.SetActive(true);
         }
@@ -53,6 +70,7 @@ public class LockPanel : MonoBehaviour
             lockPanel.gameObject.SetActive(false);
         }
     }
+
     private void UpdateCoins()
     {
         coinsText.text = gameManager.playerCoins.ToString();

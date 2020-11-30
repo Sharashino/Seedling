@@ -1,3 +1,8 @@
+3.3.1f11
+- Fixed issue where using ES3.CacheFile with an encrypted file could fail.
+- Fixed issue where Directory.GetFiles cannot process a full path on certain configurations.
+- Accounted for case where HideFlags are changed during build process.
+
 3.3.1f10
 - Full support for projects which use multiple scenes at once.
 - Added ES3.Encrypt and ES3.Decrypt methods.

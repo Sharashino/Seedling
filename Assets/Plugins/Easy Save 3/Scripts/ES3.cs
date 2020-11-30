@@ -13,12 +13,12 @@ public static class ES3
 	public enum Directory		{ PersistentDataPath, DataPath }
 	public enum EncryptionType 	{ None, AES };
     public enum CompressionType { None, Gzip};
-    public enum Format 			{ JSON, Binary_Alpha };
+    public enum Format 			{ JSON };
 	public enum ReferenceMode	{ ByRef, ByValue, ByRefAndValue};
 
     #region ES3.Save
 
-    /*// <summary>Saves the value to the default file with the given key.</summary>
+    // <summary>Saves the value to the default file with the given key.</summary>
     /// <param name="key">The key we want to use to identify our value in the file.</param>
     /// <param name="value">The value we want to save.</param>
     public static void Save(string key, object value)
@@ -56,7 +56,7 @@ public static class ES3
             writer.Write<object>(key, value);
             writer.Save();
         }
-    }*/
+    }
 
     /// <summary>Saves the value to the default file with the given key.</summary>
     /// <param name="T">The type of the data that we want to save.</param>
@@ -519,9 +519,9 @@ public static class ES3
     /// <param name="key">The key which identifies the value we want to load.</param>
     /// <param name="defaultValue">The value we want to return if the file or key does not exist.</param>
     /// <param name="filePath">The relative or absolute path of the file we want to load from.</param>
-    public static string LoadString(string key, string defaultValue, string filePath="")
+    public static string LoadString(string key, string defaultValue, string filePath=null)
     {
-        return Load<string>(key, defaultValue, new ES3Settings(filePath));
+        return Load<string>(key, filePath, defaultValue, new ES3Settings(filePath));
     }
 
     #endregion
@@ -558,6 +558,9 @@ public static class ES3
 
         using (var stream = ES3Stream.CreateStream(settings, ES3FileMode.Read))
         {
+            if (stream == null)
+                throw new System.IO.FileNotFoundException("File "+settings.path+" could not be found");
+
             if (stream.GetType() == typeof(System.IO.Compression.GZipStream))
             {
                 var gZipStream = (System.IO.Compression.GZipStream)stream;
@@ -1246,7 +1249,15 @@ public static class ES3
     /// <summary>Gets an array of all of the file names in a directory.</summary>
     public static string[] GetFiles()
     {
-        return GetFiles(new ES3Settings());
+        var settings = new ES3Settings();
+        if (settings.location == ES3.Location.File)
+        {
+            if (settings.directory == ES3.Directory.PersistentDataPath)
+                settings.path = Application.persistentDataPath;
+            else 
+                settings.path = Application.dataPath;
+        }
+        return GetFiles(settings);
     }
 
     /// <summary>Gets an array of all of the file names in a directory.</summary>

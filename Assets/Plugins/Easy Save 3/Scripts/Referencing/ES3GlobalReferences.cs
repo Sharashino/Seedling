@@ -97,7 +97,7 @@ namespace ES3Internal
                     if (type != typeof(Mesh) && type != typeof(Material))
                         continue;
                 }
-                newRefId.Add(obj, kvp.Value);
+                newRefId[obj] = kvp.Value;
             }
             refId = newRefId;
         }

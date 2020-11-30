@@ -11,7 +11,7 @@ public class IntroductionManager : MonoBehaviour
     [SerializeField]
     GameManager gameManager;
     [SerializeField]
-    Image bigImage;
+    Image seedlingLogoImage;
     [SerializeField]
     TMP_InputField nameInputField;
     [SerializeField]
@@ -22,52 +22,49 @@ public class IntroductionManager : MonoBehaviour
     GameObject nextButton;
 
     TouchScreenKeyboard keyboard;
-    public TMP_Text text;
+    //public TMP_Text text;
     public string keyboardText;
 
     //fading object speed
     float fadeSpeed = 0.01f;
 
-    bool hasRun = false;
+    public bool hasRun;
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(WaitTime());
+        hasRun = ES3.Load("hasRun", false);
         niceToMeetYouText.gameObject.SetActive(false);
 
-        GiveCoins();
-    }
-
-    private void GiveCoins()
-    {
-        if(!hasRun)
+        //if player has run game for the first
+        if (!hasRun)
         {
-            ES3.Save("playerCoins", 100);
-            hasRun = true;
+            FirstGameRun();
         }
+        else
+        {
+            AnotherGameRun();
+        }   
     }
-
-
-    // Update is called once per frame
     void Update()
     {
         NextButtonToggler();
-
-        if(TouchScreenKeyboard.visible == false && keyboard != null)
-        {
-            if(keyboard.status == TouchScreenKeyboard.Status.Visible)
-            {
-                keyboardText = keyboard.text;
-                text.text = "Hello " + keyboardText;
-                keyboard = null;
-            }
-        }
     }
 
-    public void OpenKeyboard()
+    private void FirstGameRun()
     {
-        keyboard = TouchScreenKeyboard.Open(" ", TouchScreenKeyboardType.Default);
+        hasRun = true;
+        ES3.Save("hasRun", true);
+        ES3.Save("playerCoins", 100);
+        StartCoroutine(FadeLogoImage());
+    }
+
+    private void AnotherGameRun()
+    {
+        var playerName = "xd";
+        gameManager.playerName = ES3.LoadString("playerName", playerName);
+        inputGroup.SetActive(false);
+        niceToMeetYouText.text = "Welcome back " + gameManager.playerName + "!";
+        StartCoroutine(FadeLogoAndText());
     }
 
     public void NextStage()
@@ -75,18 +72,33 @@ public class IntroductionManager : MonoBehaviour
         //Saving player name
         ES3.Save("playerName", nameInputField.text);
         inputGroup.SetActive(false);
-        LastStage();
-    }
-
-    private void LastStage()
-    {
         niceToMeetYouText.gameObject.SetActive(true);
-        StartCoroutine(WaitTime());
+        StartCoroutine(FadeWelcomeText());
     }
 
-    IEnumerator FadeText()
+    IEnumerator FadeLogoAndText()
     {
-        while(niceToMeetYouText.color.a > 0)
+        //wait 2 seconds before fading out
+        yield return new WaitForSeconds(2);
+
+        while (seedlingLogoImage.color.a > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            Color color = seedlingLogoImage.color;
+            color.a -= fadeSpeed;
+            seedlingLogoImage.color = color;
+        }
+        seedlingLogoImage.gameObject.SetActive(false);
+        niceToMeetYouText.gameObject.SetActive(true);
+        StartCoroutine(FadeWelcomeText());
+    }
+
+    IEnumerator FadeWelcomeText()
+    {
+        //wait 2 seconds before fading out
+        yield return new WaitForSeconds(2);
+
+        while (niceToMeetYouText.color.a > 0)
         {
             yield return new WaitForEndOfFrame();
             Color color = niceToMeetYouText.color;
@@ -96,32 +108,19 @@ public class IntroductionManager : MonoBehaviour
         SceneManager.LoadScene("main");
     }
 
-    //Wait 2 sec with seedling logo then fade it away
-    IEnumerator WaitTime()
+    IEnumerator FadeLogoImage()
     {
+        //wait 2 seconds before fading out
         yield return new WaitForSeconds(2);
 
-        if(inputGroup.activeSelf)
-        {
-            StartCoroutine(FadeImage());
-        }
-        else
-        {
-            StartCoroutine(FadeText());
-        }
-    }
-
-    //Fade out seedling logo image
-    IEnumerator FadeImage()
-    {
-        while (bigImage.color.a > 0)
+        while (seedlingLogoImage.color.a > 0)
         {
             yield return new WaitForEndOfFrame();
-            Color color = bigImage.color;
+            Color color = seedlingLogoImage.color;
             color.a -= fadeSpeed;
-            bigImage.color = color;
+            seedlingLogoImage.color = color;
         }
-        bigImage.gameObject.SetActive(false);
+        seedlingLogoImage.gameObject.SetActive(false);
     }
 
     //Toggle next button off when input field is empty

@@ -93,8 +93,11 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     private static void UpdateAssembliesContainingES3Types()
     {
 #if UNITY_2017_3_OR_NEWER
+
         var assemblies = UnityEditor.Compilation.CompilationPipeline.GetAssemblies();
         var defaults = ES3Settings.defaultSettingsScriptableObject;
+        var currentAssemblyNames = defaults.settings.assemblyNames;
+
         var assemblyNames = new List<string>();
 
         foreach (var assembly in assemblies)
@@ -110,8 +113,15 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
             catch { }
         }
 
-        defaults.settings.assemblyNames = assemblyNames.ToArray();
-        EditorUtility.SetDirty(defaults);
+        // Only update if the list has changed.
+        for (int i = 0; i < currentAssemblyNames.Length; i++)
+        {
+            if (currentAssemblyNames[i] != assemblyNames[i])
+            {
+                defaults.settings.assemblyNames = assemblyNames.ToArray();
+                EditorUtility.SetDirty(defaults);
+            }
+        }
 #endif
     }
 

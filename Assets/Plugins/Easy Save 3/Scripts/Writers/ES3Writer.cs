@@ -409,8 +409,6 @@ public abstract class ES3Writer : IDisposable
 		// Get the baseWriter using the given Stream.
 		if(settings.format == ES3.Format.JSON)
 			return new ES3JSONWriter(stream, settings, writeHeaderAndFooter, overwriteKeys);
-        else if (settings.format == ES3.Format.Binary_Alpha)
-            return new ES3BinaryWriter(stream, settings, writeHeaderAndFooter, overwriteKeys);
         else
 			return null;
 	}
