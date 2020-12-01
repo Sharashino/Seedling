@@ -19,6 +19,12 @@ public class NotificationDisplayer : MonoBehaviour
     {
         notifier.SetActive(false);
     }
+    public void PlantHarvested(string flowerName)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You harvested "+flowerName +"!";
+        StartCoroutine(FadeText());
+    }
     public void HarvestPlant(Seed seedToHarvest)
     {
         notifier.SetActive(true);

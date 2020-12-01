@@ -26,10 +26,11 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField]
     GameManager gameManager;
     [SerializeField]
-    GameObject notificationDisplayer;
+    NotificationDisplayer notificationDisplayer;
     [SerializeField]
     GameObject seedlingSelector;
-
+    [SerializeField]
+    Ground seedlingGround;
     private void Update()
     {
         currentTime = timer;
@@ -39,13 +40,14 @@ public class CountdownTimer : MonoBehaviour
     {
         if(currentTime != 0)
         {
+            //If player can harvest his plant show notification and dont start the timer
             switch (gameManager.plantedSeed.itemName)
             {
                 case "Iris Seeds":
                     {
                         if(gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().HarvestPlant(gameManager.plantedSeed);
+                            notificationDisplayer.HarvestPlant(gameManager.plantedSeed);
                             break;
                         }
                         else
@@ -58,7 +60,7 @@ public class CountdownTimer : MonoBehaviour
                     {
                         if (gameManager.roseTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().HarvestPlant(gameManager.plantedSeed);
+                            notificationDisplayer.HarvestPlant(gameManager.plantedSeed);
                             break;
                         }
                         else
@@ -71,7 +73,7 @@ public class CountdownTimer : MonoBehaviour
                     {
                         if (gameManager.roseTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().HarvestPlant(gameManager.plantedSeed);
+                            notificationDisplayer.HarvestPlant(gameManager.plantedSeed);
                             break;
                         }
                         else
@@ -121,7 +123,6 @@ public class CountdownTimer : MonoBehaviour
         //if player spent 1 minute on plant fix syntax
         if(startingTime == 1)
         {
-            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling(1, gameManager.plantedSeed);
             gameManager.allTimeSpent += 1;
             gameManager.playerCoins += 1;
             gameManager.UpdateCoins();
@@ -135,20 +136,28 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.irisTimeSpent += 1;
                         if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
-                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(seedlingGround.newSeedling);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling(1, gameManager.plantedSeed);
                         }
                     }
                     break;
                 case "Rose Seeds":
                     {
-                        gameManager.roseTimeSpent += 60;
+                        gameManager.roseTimeSpent += 1;
                         if (gameManager.roseTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
-                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(seedlingGround.newSeedling);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling(1, gameManager.plantedSeed);
                         }
                     }
                     break;
@@ -157,9 +166,13 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.tulipTimeSpent += 1;
                         if (gameManager.tulipTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
-                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                            gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(seedlingGround.newSeedling);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling(1, gameManager.plantedSeed);
                         }
                     }
                     break;
@@ -169,12 +182,12 @@ public class CountdownTimer : MonoBehaviour
         }
         else
         {
-            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
+            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
             gameManager.allTimeSpent += (int)startingTime;
             gameManager.playerCoins += (int)startingTime;
             gameManager.UpdateCoins();
 
-            //add time to a seedling you have planted
+            //add fixedTime to a seedling you have planted and show notification
             switch (gameManager.plantedSeed.itemName)
             {
                 case "Iris Seeds":
@@ -182,9 +195,13 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.irisTimeSpent += (int)startingTime;
                         if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
                             gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
                         }
                     }
                     break;
@@ -193,9 +210,13 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.roseTimeSpent += (int)startingTime;
                         if (gameManager.roseTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
                             gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
                         }
                     }
                     break;
@@ -204,9 +225,13 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.tulipTimeSpent += (int)startingTime;
                         if (gameManager.tulipTimeSpent >= gameManager.plantedSeed.minutesToGrow)
                         {
-                            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantReadyToHarvest(gameManager.plantedSeed);
+                            notificationDisplayer.PlantReadyToHarvest(gameManager.plantedSeed);
                             gameManager.plantedSeed.canBeHarvested = true;
                             gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject);
+                        }
+                        else
+                        {
+                            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
                         }
                     }
                     break;
@@ -215,15 +240,11 @@ public class CountdownTimer : MonoBehaviour
             }
         }
         
-        //after done with timer update seedling selector timers and spawn particles
+        //after done with timer update seedling selector timers 
+        //spawn particles and reset timer 
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
-        CreateGrowParticles();
-        timer = 0;
-    }
-
-    public void CreateGrowParticles()
-    {
         growParticles.Play();
+        timer = 0;
     }
 
     private void FormatText()

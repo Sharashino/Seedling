@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     NotificationDisplayer notificationDisplayer;
     [SerializeField]
     GameObject seedlingSelector;
-
+    [SerializeField]
+    AudioSource harvestFlowerSound;
     [Header("Player basic info")]
     public string playerName;
     public int playerCoins;
@@ -72,15 +73,40 @@ public class GameManager : MonoBehaviour
 
             if(Physics.Raycast(ray, out mouseHit))
             {
-                if(mouseHit.collider.gameObject.GetComponent<Flower>() != null)
+                if(mouseHit.collider.tag == "Flower")
                 {
                     if(plantedSeed.canBeHarvested == true)
                     {
                         Debug.Log("Can be harvested");
-                    }
-                    else
-                    {
-                        Debug.Log("Cant be harvested");
+                        playerCoins += 100;
+                        UpdateCoins();
+                        notificationDisplayer.PlantHarvested(mouseHit.collider.name);
+                        plantedSeed.itemObject.GetComponent<Flower>().HarvestFlower(mouseHit.collider.gameObject);
+                        plantedSeed.canBeHarvested = false;
+                        harvestFlowerSound.Play();
+                        //reset player time spent on plant after harvesting
+                        switch (plantedSeed.itemName)
+                        {
+                            case "Iris Seeds":
+                                {
+                                    irisTimeSpent = 0;
+                                }
+                                break;
+                            case "Rose Seeds":
+                                {
+                                    roseTimeSpent = 0;
+                                }
+                                break;
+                            case "Tulip Seeds":
+                                {
+                                    tulipTimeSpent = 0;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+
+                        plantedSeed = null;
                     }
                 }
             }

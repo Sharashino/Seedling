@@ -11,7 +11,7 @@ public class Ground : MonoBehaviour
     public GameObject grownPlant;
     public GameObject potGround;
     public bool hasSeedling = false;
-    GameObject newSeedling;
+    public GameObject newSeedling;
     public void PlantASeedling(Seed seedlingToPlant)
     {
         //if ground has no seedling plant a new one
