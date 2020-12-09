@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9195059183565728674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.02, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowerName: Iris Flower
-  flowerGround: {fileID: 0}
   flowerObject: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
+    type: 3}
+  grownFlower: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}

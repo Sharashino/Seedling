@@ -19,10 +19,30 @@ public class NotificationDisplayer : MonoBehaviour
     {
         notifier.SetActive(false);
     }
+    public void PlantHarvested(string flowerName)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You harvested "+flowerName +"!";
+        StartCoroutine(FadeText());
+    }
+    public void HarvestPlant(Seed seedToHarvest)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "Harvest your plant first!";
+        StartCoroutine(FadeText());
+    }
+
+    public void PlantReadyToHarvest(Seed seedToHarvest)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "Your " +seedToHarvest.itemName +" is ready to be harvested!";
+        StartCoroutine(FadeText());
+    }
+
     public void TrophyUnlocked(string trophyName)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have unlocked new " +trophyName + " trophy!";
+        notifierText.text = "You have unlocked new  trophy " +trophyName +" !";
         StartCoroutine(FadeText());
     }
     public void NotEnoughCoins()

@@ -20,5 +20,6 @@ MonoBehaviour:
   coinsToUnlock: 300
   minutesToGrow: 240
   isUnlocked: 0
+  canBeHarvested: 0
   seedlingCuriosity: "At one point in history, tulips were the most expensive flower.
     They were more valuable than most people\u2019s homes!"

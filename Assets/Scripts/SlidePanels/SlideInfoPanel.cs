@@ -28,15 +28,8 @@ public class SlideInfoPanel : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnPageCheck()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.OpenURL("www.sharashino.dev");
     }
 }

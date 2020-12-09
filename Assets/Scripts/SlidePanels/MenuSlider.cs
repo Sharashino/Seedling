@@ -11,7 +11,6 @@ public class MenuSlider : MonoBehaviour
     Sprite showSprite;
     [SerializeField]
     Button showHideMenuBar;
-
     [SerializeField]
     GameObject panelMenu;
     [SerializeField]
@@ -52,6 +51,8 @@ public class MenuSlider : MonoBehaviour
 
     public void ShowHideMenu()
     {
+        seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
+
         if (panelMenu != null)
         {
             menuBarAnimator = panelMenu.GetComponent<Animator>();
