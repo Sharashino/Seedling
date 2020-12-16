@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class LockPanel : MonoBehaviour
 {
-    Seed seedling;
-    [SerializeField]
-    TMP_Text coinsText;
-    [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
-    GameObject notificationDisplayer;
-    [SerializeField]
-    GameObject buttonPanel;
-    [SerializeField]
-    GameObject lockPanel;
-    [SerializeField]
-    TMP_Text requiredCoins;
+    [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject notificationDisplayer;
+    [SerializeField] private GameObject buttonPanel;
+    [SerializeField] private GameObject lockPanel;
+    [SerializeField] private TMP_Text requiredCoins;
+
+    private Seed seedling;
 
     private void Start()
     {
-        seedling = buttonPanel.GetComponent<DefineSeedling>().seedling;
+        seedling = buttonPanel.GetComponent<DefineSeedling>().ReturnSeed();
         PanelLock();
         requiredCoins.text = seedling.coinsToUnlock.ToString();
     }
 
-    public void UnlockPanel()
+    private void UnlockPanel()
     {
         if (gameManager.playerCoins >= seedling.coinsToUnlock)
         {
@@ -59,9 +53,9 @@ public class LockPanel : MonoBehaviour
         }
     }
 
-    public void PanelLock()
-    { 
-        if(!seedling.isUnlocked)
+    private void PanelLock()
+    {
+        if (!seedling.isUnlocked)
         {
             lockPanel.gameObject.SetActive(true);
         }
@@ -75,5 +69,4 @@ public class LockPanel : MonoBehaviour
     {
         coinsText.text = gameManager.playerCoins.ToString();
     }
-
 }

@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class SlideTrophyPanel : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
-    GameObject trophyPanel;
-    [SerializeField]
-    Image trophyImage;
-    [SerializeField]
-    TMP_Text trophyName;
-    [SerializeField]
-    TMP_Text trophyDesc;
-    public void ShowHideTrophyPanel()
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject trophyPanel;
+    [SerializeField] private Image trophyImage;
+    [SerializeField] private TMP_Text trophyName;
+    [SerializeField] private TMP_Text trophyDesc;
+
+    private void ShowHideTrophyPanel()
     {
         if (trophyPanel != null)
         {
@@ -31,7 +26,7 @@ public class SlideTrophyPanel : MonoBehaviour
         }
     }
 
-    public void DefineShowTrophyPanel(Button clickedButton) 
+    private void DefineShowTrophyPanel(Button clickedButton) 
     {
         var Trophy = clickedButton.GetComponent<DefineTrophy>();
         trophyImage.sprite = clickedButton.GetComponent<Image>().sprite;
@@ -83,5 +78,10 @@ public class SlideTrophyPanel : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void GetClickedTrophy(Button clickedButton)
+    {
+        DefineShowTrophyPanel(clickedButton);
     }
 }

@@ -5,38 +5,25 @@ using UnityEngine.UI;
 
 public class MenuSlider : MonoBehaviour
 {
-    [SerializeField]
-    Sprite hideSprite;
-    [SerializeField]
-    Sprite showSprite;
-    [SerializeField]
-    Button showHideMenuBar;
 
-    [SerializeField]
-    GameObject panelMenu;
-    [SerializeField]
-    GameObject trophyBar;
-    [SerializeField]
-    GameObject trophyPanel;
-    [SerializeField]
-    GameObject seedlingSelector;
-    [SerializeField]
-    GameObject timer;
+    [SerializeField] private Sprite hideSprite;
+    [SerializeField] private Sprite showSprite;
+    [SerializeField] private Button showHideMenuBar;
+    [SerializeField] private GameObject panelMenu;
+    [SerializeField] private GameObject trophyBar;
+    [SerializeField] private GameObject trophyPanel;
+    [SerializeField] private GameObject seedlingSelector;
+    [SerializeField] private GameObject timer;
 
-    Animator menuBarAnimator;
-    Animator seedlingSelectorAnimator;
-    Animator trophyBarAnimator;
-    Animator trophyPanelAnimator;
+    private Animator menuBarAnimator;
+    private Animator seedlingSelectorAnimator;
+    private Animator trophyBarAnimator;
+    private Animator trophyPanelAnimator;
 
-    public bool isOpen = true;
-    bool isSelectorOpen;
-    bool isTrophyBarOpen;
-    bool isTrophyPanelOpen;
-
-    private void Awake()
-    {
-        
-    }
+    private bool isOpen = true;
+    private bool isSelectorOpen;
+    private bool isTrophyBarOpen;
+    private bool isTrophyPanelOpen;
 
     private void Update()
     {

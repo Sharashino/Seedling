@@ -1,34 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class IntroductionManager : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
-    Image seedlingLogoImage;
-    [SerializeField]
-    TMP_InputField nameInputField;
-    [SerializeField]
-    TMP_Text niceToMeetYouText;
-    [SerializeField]
-    GameObject inputGroup;
-    [SerializeField]
-    GameObject nextButton;
-
-    TouchScreenKeyboard keyboard;
-    //public TMP_Text text;
-    public string keyboardText;
-
-    //fading object speed
-    float fadeSpeed = 0.01f;
-
-    public bool hasRun;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Image seedlingLogoImage;
+    [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private TMP_Text niceToMeetYouText;
+    [SerializeField] private GameObject inputGroup;
+    [SerializeField] private GameObject nextButton;
+    [SerializeField] private float fadeSpeed = 0.01f;
+    private bool hasRun;
 
     void Start()
     {
@@ -43,7 +28,7 @@ public class IntroductionManager : MonoBehaviour
         else
         {
             AnotherGameRun();
-        }   
+        }
     }
     void Update()
     {
@@ -88,6 +73,7 @@ public class IntroductionManager : MonoBehaviour
             color.a -= fadeSpeed;
             seedlingLogoImage.color = color;
         }
+
         seedlingLogoImage.gameObject.SetActive(false);
         niceToMeetYouText.gameObject.SetActive(true);
         StartCoroutine(FadeWelcomeText());

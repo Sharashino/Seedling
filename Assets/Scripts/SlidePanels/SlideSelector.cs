@@ -1,22 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SlideSelector : MonoBehaviour
 {
-    [SerializeField]
-    GameObject seedlingSelector;
-    [SerializeField]
-    GameObject panelMenu;
-    [SerializeField]
-    GameObject timer;
+    [SerializeField] private GameObject seedlingSelector;
+    [SerializeField] private GameObject panelMenu;
+    [SerializeField] private GameObject timer;
     
-
-    private void Start()
-    {
-        //panelMenu.SetActive(false);
-    }
-
     public void ShowHideSelector()
     {
         if (panelMenu != null)

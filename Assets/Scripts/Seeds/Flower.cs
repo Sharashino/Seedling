@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
-    public string flowerName;
-    public GameObject flowerGround;
-    public GameObject flowerObject;
-    
+    [SerializeField] private string flowerName;
+    [SerializeField] private GameObject flowerGround;
+    [SerializeField] private GameObject flowerObject;
     private GameObject flower;
         
     //When Flower got Watered Down enough times

@@ -9,9 +9,4 @@ public class Seed : Item
     public int minutesToGrow;
     public bool isUnlocked = false;
     public string seedlingCuriosity;
-
-    public override void Use()
-    {
-        Debug.Log("Using seed: " + itemName);
-    }
 }

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public ParticleSystem plantParticles;
-    public GameObject grownPlant;
-    public GameObject potGround;
-    public bool hasSeedling = false;
-    GameObject newSeedling;
+    [SerializeField] private ParticleSystem plantParticles;
+    private GameObject potGround;
+    private bool hasSeedling = false;
+    private GameObject newSeedling;
     public void PlantASeedling(Seed seedlingToPlant)
     {
         //if ground has no seedling plant a new one
@@ -19,7 +14,6 @@ public class Ground : MonoBehaviour
         {
             hasSeedling = true;
             newSeedling = Instantiate(seedlingToPlant.itemObject);
-            grownPlant = seedlingToPlant.itemObject;
             newSeedling.name = seedlingToPlant.name;
 
             //Getting Seedling and Pot Transforms
@@ -31,16 +25,16 @@ public class Ground : MonoBehaviour
             position.x = potTransform.position.x;
             position.y = potTransform.position.y + 0.13f;
             position.z = potTransform.position.z;
+            
             seedlingTransform.position = position;
-
             seedlingTransform.parent = potGround.transform;
+
             CreatePlantParticles();
         }
         else
         {
             Destroy(newSeedling);
             newSeedling = Instantiate(seedlingToPlant.itemObject);
-            grownPlant = seedlingToPlant.itemObject;
             newSeedling.name = seedlingToPlant.name;
 
             //Getting Seedling and Pot Transforms
@@ -52,14 +46,15 @@ public class Ground : MonoBehaviour
             position.x = potTransform.position.x;
             position.y = potTransform.position.y + 0.13f;
             position.z = potTransform.position.z;
+            
             seedlingTransform.position = position;
-
             seedlingTransform.parent = potGround.transform;
+
             CreatePlantParticles();
         }
     }
 
-    void CreatePlantParticles()
+    private void CreatePlantParticles()
     {
         plantParticles.Play();
     }

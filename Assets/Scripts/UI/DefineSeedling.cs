@@ -6,36 +6,19 @@ using UnityEngine.UI;
 
 public class DefineSeedling : MonoBehaviour
 {
-    [SerializeField]
-    GameObject notificationDisplayer;
 
-    [SerializeField]
-    GameObject groundToPlant;
+    [SerializeField] private GameObject notificationDisplayer;
+    [SerializeField] private GameObject groundToPlant;
+    [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject gameManager;
+    [SerializeField] private GameObject seedlingSelector;
+    [SerializeField] private TMP_Text seedlingName;
+    [SerializeField] private TMP_Text seedlingTime;
+    [SerializeField] private TMP_Text seedlingCuriosity;
+    [SerializeField] private Image seedlingImage;
+    [SerializeField] private Seed seedling;
+    private GameManager playerManager;
 
-    [SerializeField]
-    GameObject timer;
-
-    [SerializeField]
-    GameObject gameManager;
-
-    [SerializeField]
-    GameObject seedlingSelector;
-
-    [SerializeField]
-    TMP_Text seedlingName;
-
-    [SerializeField]
-    TMP_Text seedlingTime;
-
-    [SerializeField]
-    TMP_Text seedlingCuriosity;
-
-    [SerializeField]
-    Image seedlingImage;
-
-    public Seed seedling;
-
-    GameManager playerManager;
     private void Awake()
     {
         playerManager = gameManager.GetComponent<GameManager>();
@@ -82,10 +65,9 @@ public class DefineSeedling : MonoBehaviour
         }
     }
 
-
     public void ChoseSeedling()
     {
-        if(gameManager.GetComponent<GameManager>().plantedSeed == null)
+        if (gameManager.GetComponent<GameManager>().plantedSeed == null)
         {
             timer.SetActive(true);
 
@@ -105,7 +87,7 @@ public class DefineSeedling : MonoBehaviour
             notificationDisplayer.GetComponent<NotificationDisplayer>().PlantASeedling(seedling);
             Debug.Log("You have chosen " + seedling.itemName);
         }
-        else if(gameManager.GetComponent<GameManager>().plantedSeed == seedling)
+        else if (gameManager.GetComponent<GameManager>().plantedSeed == seedling)
         {
             timer.SetActive(true);
         }
@@ -113,6 +95,10 @@ public class DefineSeedling : MonoBehaviour
         {
             Debug.Log("You arleady planted this seedling!");
         }
-       
+    }
+
+    public Seed ReturnSeed()
+    {
+        return seedling;
     }
 }

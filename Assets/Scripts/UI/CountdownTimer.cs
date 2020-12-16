@@ -1,34 +1,22 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class CountdownTimer : MonoBehaviour
 {
-    int hours;
-    int minutes;
-    int seconds;
+    [SerializeField] private float currentTime = 0f;
+    [SerializeField] private float startingTime = 0f;
+    [SerializeField] private GameObject timerButtons;
+    [SerializeField] private TMP_Text countDownText;
+    [SerializeField] private ParticleSystem growParticles;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject notificationDisplayer;
+    [SerializeField] private GameObject seedlingSelector;
 
-    [SerializeField]
-    float currentTime = 0f;
-    [SerializeField]
-    float startingTime = 0f;
-    float timer;
-
-    public GameObject timerButtons;
-
-    [SerializeField]
-    TMP_Text countDownText;
-    [SerializeField]
-    ParticleSystem growParticles;
-    [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
-    GameObject notificationDisplayer;
-    [SerializeField]
-    GameObject seedlingSelector;
+    private float timer;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
     private void Update()
     {
@@ -37,7 +25,7 @@ public class CountdownTimer : MonoBehaviour
 
     public void StartTimer()
     {
-        if(currentTime != 0)
+        if (currentTime != 0)
         {
             StartCoroutine(StartCountdown(timerButtons));
         }
@@ -60,7 +48,6 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
-
     private IEnumerator StartCountdown(GameObject offButtons)
     {
         startingTime = timer / 60;
@@ -76,7 +63,7 @@ public class CountdownTimer : MonoBehaviour
         offButtons.SetActive(true);
 
         //if player spent 1 minute on plant fix syntax
-        if(startingTime == 1)
+        if (startingTime == 1)
         {
             notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling(1, gameManager.plantedSeed);
             gameManager.allTimeSpent += 1;
@@ -104,7 +91,6 @@ public class CountdownTimer : MonoBehaviour
                 default:
                     break;
             }
-
         }
         else
         {
@@ -135,13 +121,12 @@ public class CountdownTimer : MonoBehaviour
                     break;
             }
         }
-        
         //after done with timer update seedling selector timers and spawn particles
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
         CreateGrowParticles();
     }
 
-    public void CreateGrowParticles()
+    private void CreateGrowParticles()
     {
         growParticles.Play();
     }
@@ -151,15 +136,15 @@ public class CountdownTimer : MonoBehaviour
         hours = (int)(timer / 3600) % 24;
         minutes = (int)(timer / 60) % 60;
         seconds = (int)(timer % 60);
-        
+
         countDownText.text = "";
 
         #region hours
-        if (hours <= 9) 
-        { 
-            countDownText.text += "0" +hours + ":"; 
+        if (hours <= 9)
+        {
+            countDownText.text += "0" + hours + ":";
         }
-        else if(hours >= 10)
+        else if (hours >= 10)
         {
             countDownText.text += hours + ":";
         }
@@ -170,11 +155,11 @@ public class CountdownTimer : MonoBehaviour
         #endregion
 
         #region minutes
-        if (minutes <= 9) 
+        if (minutes <= 9)
         {
             countDownText.text += "0" + minutes + ":";
         }
-        else if(minutes >= 10)
+        else if (minutes >= 10)
         {
             countDownText.text += minutes + ":";
 
@@ -191,7 +176,7 @@ public class CountdownTimer : MonoBehaviour
             countDownText.text += "0" + seconds;
 
         }
-        else if(seconds >= 10)
+        else if (seconds >= 10)
         {
             countDownText.text += seconds;
 

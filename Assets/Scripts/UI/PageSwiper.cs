@@ -1,21 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    [SerializeField]
-    Vector3 panelLocation;
-    [SerializeField]
-    float percentThreshold = 0.2f;
-    float easing = 0.5f;
-    [SerializeField]
-    int totalPages;
+    [SerializeField] Vector3 panelLocation;
+    [SerializeField] float percentThreshold = 0.2f;
+    [SerializeField] int totalPages;
+
     int currentPage = 1;
-    
-    void Start()
+    float easing = 0.5f;
+
+    private void Start()
     {
         panelLocation = transform.position;
     }
@@ -30,15 +26,15 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         float percentage = (eventData.pressPosition.x - eventData.position.x) / Screen.width;
 
-        if(Mathf.Abs(percentage) >= percentThreshold)
+        if (Mathf.Abs(percentage) >= percentThreshold)
         {
             Vector3 newLocation = panelLocation;
-            if(percentage > 0 && currentPage < totalPages)
+            if (percentage > 0 && currentPage < totalPages)
             {
                 currentPage++;
                 newLocation += new Vector3(-Screen.width, 0, 0);
             }
-            else if(percentage < 0 && currentPage > 1)
+            else if (percentage < 0 && currentPage > 1)
             {
                 currentPage--;
                 newLocation += new Vector3(Screen.width, 0, 0);
@@ -52,7 +48,7 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    IEnumerator SmoothMove(Vector3 startPos, Vector3 endPos, float seconds)
+    private IEnumerator SmoothMove(Vector3 startPos, Vector3 endPos, float seconds)
     {
         float t = 0f;
 
@@ -62,6 +58,5 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
             transform.position = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0f, 1f, t));
             yield return null;
         }
-    }    
-
+    }
 }

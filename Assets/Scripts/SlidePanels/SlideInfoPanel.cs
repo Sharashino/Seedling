@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SlideInfoPanel : MonoBehaviour
 {
-    [SerializeField]
-    GameObject infoPanel;
-    [SerializeField]
-    GameObject menuBar;
+    [SerializeField] private GameObject infoPanel;
+    [SerializeField] private GameObject menuBar;
 
     public void ShowHideInfoPanel()
     {
@@ -26,17 +22,5 @@ public class SlideInfoPanel : MonoBehaviour
                 menuBarAnimator.SetBool("showBar", !isMenuBarOpen);
             }
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

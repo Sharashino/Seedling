@@ -6,18 +6,13 @@ using TMPro;
 
 public class SlideTrophyBar : MonoBehaviour
 {
-    [SerializeField]
-    NotificationDisplayer notificationDisplayer;
-    [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
-    Button coinTrophyButton, seedlerTrophyButton, dolarsTrophyButton, easterEggTrophyButton;
-    [SerializeField]
-    GameObject trophyPanel;
-    [SerializeField]
-    GameObject trophyBar;
-    [SerializeField]
-    GameObject menuBar;
+
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Button coinTrophyButton, seedlerTrophyButton, dolarsTrophyButton, easterEggTrophyButton;
+    [SerializeField] private GameObject trophyPanel;
+    [SerializeField] private GameObject trophyBar;
+    [SerializeField] private GameObject menuBar;
     
     private void Start()
     {
@@ -28,7 +23,7 @@ public class SlideTrophyBar : MonoBehaviour
     }
 
     //checking if you unlocked trophies and displaying notification
-    public void UpdateTrophyPanel()
+    private void UpdateTrophyPanel()
     {
         if(gameManager.isRichartUnlocked)
         {
@@ -56,7 +51,7 @@ public class SlideTrophyBar : MonoBehaviour
         }
     }
 
-    public void ShowHideTrophyBar()
+    private void ShowHideTrophyBar()
     {
         if (trophyBar != null)
         {
@@ -88,11 +83,10 @@ public class SlideTrophyBar : MonoBehaviour
         }
     }
 
-
     //pass clicked button to show trophy panel
-    public void ShowTrophy(Button clickedButton)
+    private void ShowTrophy(Button clickedButton)
     {
-        trophyPanel.GetComponent<SlideTrophyPanel>().DefineShowTrophyPanel(clickedButton);
+        trophyPanel.GetComponent<SlideTrophyPanel>().GetClickedTrophy(clickedButton);
     }
 
 }
