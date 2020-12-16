@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class NotificationDisplayer : MonoBehaviour
 {
@@ -44,6 +45,13 @@ public class NotificationDisplayer : MonoBehaviour
         notifier.SetActive(true);
         notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
         
+        StartCoroutine(FadeText());
+    }
+    public void YouPlantedThisArleady()
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You are grownig this seedling already!";
+
         StartCoroutine(FadeText());
     }
 

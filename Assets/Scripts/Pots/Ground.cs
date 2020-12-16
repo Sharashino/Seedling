@@ -6,6 +6,7 @@ public class Ground : MonoBehaviour
     [SerializeField] private GameObject potGround;
     private bool hasSeedling = false;
     private GameObject newSeedling;
+
     public void PlantASeedling(Seed seedlingToPlant)
     {
         //if ground has no seedling plant a new one
@@ -19,14 +20,10 @@ public class Ground : MonoBehaviour
             //Getting Seedling and Pot Transforms
             Transform seedlingTransform = newSeedling.GetComponent<Transform>();
             Transform potTransform = potGround.GetComponent<Transform>();
-
-            //Moving seedling to the centre of the pot
-            Vector3 position = seedlingTransform.position;
-            position.x = potTransform.position.x;
-            position.y = potTransform.position.y + 0.13f;
-            position.z = potTransform.position.z;
             
-            seedlingTransform.position = position;
+            Vector3 seedlingPosition = GetPotGroundPositionNParent(seedlingTransform, potTransform);
+
+            seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
 
             CreatePlantParticles();
@@ -42,16 +39,24 @@ public class Ground : MonoBehaviour
             Transform potTransform = potGround.GetComponent<Transform>();
 
             //Moving seedling to the centre of the pot
-            Vector3 position = seedlingTransform.position;
-            position.x = potTransform.position.x;
-            position.y = potTransform.position.y + 0.13f;
-            position.z = potTransform.position.z;
+            Vector3 seedlingPosition = GetPotGroundPositionNParent(seedlingTransform, potTransform);
             
-            seedlingTransform.position = position;
+            seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
 
             CreatePlantParticles();
         }
+    }
+
+    private Vector3 GetPotGroundPositionNParent(Transform seedlingTransform, Transform potTransform)
+    {
+        //Moving seedling to the centre of the pot
+        Vector3 position = seedlingTransform.position;
+        position.x = potTransform.position.x;
+        position.y = potTransform.position.y + 0.13f;
+        position.z = potTransform.position.z;
+
+        return position;
     }
 
     private void CreatePlantParticles()

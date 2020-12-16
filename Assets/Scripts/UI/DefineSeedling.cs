@@ -6,23 +6,16 @@ using UnityEngine.UI;
 
 public class DefineSeedling : MonoBehaviour
 {
-
-    [SerializeField] private GameObject notificationDisplayer;
-    [SerializeField] private GameObject groundToPlant;
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
+    [SerializeField] private Ground groundToPlant;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject timer;
-    [SerializeField] private GameObject gameManager;
     [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text seedlingName;
     [SerializeField] private TMP_Text seedlingTime;
     [SerializeField] private TMP_Text seedlingCuriosity;
     [SerializeField] private Image seedlingImage;
     [SerializeField] private Seed seedling;
-    private GameManager playerManager;
-
-    private void Awake()
-    {
-        playerManager = gameManager.GetComponent<GameManager>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +27,13 @@ public class DefineSeedling : MonoBehaviour
         switch (seedlingName.text.ToString())
         {
             case "Iris Seeds":
-                seedlingTime.text = playerManager.irisTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.irisTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             case "Rose Seeds":
-                seedlingTime.text = playerManager.roseTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.roseTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = playerManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             default:
                 break;
@@ -52,13 +45,13 @@ public class DefineSeedling : MonoBehaviour
         switch (seedlingName.text.ToString())
         {
             case "Iris Seeds":
-                seedlingTime.text = playerManager.irisTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.irisTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             case "Rose Seeds":
-                seedlingTime.text = playerManager.roseTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.roseTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = playerManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             default:
                 break;
@@ -72,28 +65,27 @@ public class DefineSeedling : MonoBehaviour
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            gameManager.GetComponent<GameManager>().plantedSeed = seedling;
-            groundToPlant.GetComponent<Ground>().PlantASeedling(seedling);
-            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantASeedling(seedling);
-            Debug.Log("You have chosen " + seedling.itemName);
+            gameManager.plantedSeed = seedling;
+            groundToPlant.PlantASeedling(seedling);
+            notificationDisplayer.PlantASeedling(seedling);
         }
         else if (gameManager.GetComponent<GameManager>().plantedSeed != seedling)
         {
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            gameManager.GetComponent<GameManager>().plantedSeed = seedling;
-            groundToPlant.GetComponent<Ground>().PlantASeedling(seedling);
-            notificationDisplayer.GetComponent<NotificationDisplayer>().PlantASeedling(seedling);
-            Debug.Log("You have chosen " + seedling.itemName);
+            gameManager.plantedSeed = seedling;
+            groundToPlant.PlantASeedling(seedling);
+            notificationDisplayer.PlantASeedling(seedling);
         }
         else if (gameManager.GetComponent<GameManager>().plantedSeed == seedling)
         {
             timer.SetActive(true);
+            notificationDisplayer.YouPlantedThisArleady();
         }
         else
         {
-            Debug.Log("You arleady planted this seedling!");
+            notificationDisplayer.YouPlantedThisArleady();
         }
     }
 

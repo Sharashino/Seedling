@@ -3387,12 +3387,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 437343987}
+      objectReference: {fileID: 437343988}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: groundToPlant
       value: 
-      objectReference: {fileID: 1938009780}
+      objectReference: {fileID: 1938009782}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: seedlingSelector
@@ -3402,7 +3402,7 @@ PrefabInstance:
         type: 3}
       propertyPath: notificationDisplayer
       value: 
-      objectReference: {fileID: 2107225681}
+      objectReference: {fileID: 2107225683}
     - target: {fileID: 2577390260685322654, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -8743,12 +8743,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928812813}
   m_CullTransparentMesh: 0
---- !u!1 &1938009780 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4769628233182045191, guid: c320b0a1900ac14418fbb09318ce4fa3,
+--- !u!114 &1938009782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6780877923724081226, guid: c320b0a1900ac14418fbb09318ce4fa3,
     type: 3}
   m_PrefabInstance: {fileID: 1790190345}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6128cf1e3513504f8d34dac3859bcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938266972
 GameObject:
   m_ObjectHideFlags: 0
@@ -9715,12 +9721,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 437343987}
+      objectReference: {fileID: 437343988}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: groundToPlant
       value: 
-      objectReference: {fileID: 1938009780}
+      objectReference: {fileID: 1938009782}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: seedlingSelector
@@ -9730,7 +9736,7 @@ PrefabInstance:
         type: 3}
       propertyPath: notificationDisplayer
       value: 
-      objectReference: {fileID: 2107225681}
+      objectReference: {fileID: 2107225683}
     - target: {fileID: 2577390260685322654, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -10552,12 +10558,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 437343987}
+      objectReference: {fileID: 437343988}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: groundToPlant
       value: 
-      objectReference: {fileID: 1938009780}
+      objectReference: {fileID: 1938009782}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: seedlingSelector
@@ -10567,7 +10573,7 @@ PrefabInstance:
         type: 3}
       propertyPath: notificationDisplayer
       value: 
-      objectReference: {fileID: 2107225681}
+      objectReference: {fileID: 2107225683}
     - target: {fileID: 3283020778766948480, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: m_Name
