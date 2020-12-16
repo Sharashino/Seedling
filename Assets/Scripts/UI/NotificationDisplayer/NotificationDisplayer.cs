@@ -8,7 +8,6 @@ public class NotificationDisplayer : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject notifier;
     [SerializeField] private TMP_Text notifierText;
-
     private float fadeSpeed = 0.02f;
 
     void Start()

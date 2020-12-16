@@ -30,6 +30,7 @@ public class IntroductionManager : MonoBehaviour
             AnotherGameRun();
         }
     }
+
     void Update()
     {
         NextButtonToggler();
@@ -61,7 +62,7 @@ public class IntroductionManager : MonoBehaviour
         StartCoroutine(FadeWelcomeText());
     }
 
-    IEnumerator FadeLogoAndText()
+    private IEnumerator FadeLogoAndText()
     {
         //wait 2 seconds before fading out
         yield return new WaitForSeconds(2);
@@ -79,7 +80,7 @@ public class IntroductionManager : MonoBehaviour
         StartCoroutine(FadeWelcomeText());
     }
 
-    IEnumerator FadeWelcomeText()
+    private IEnumerator FadeWelcomeText()
     {
         //wait 2 seconds before fading out
         yield return new WaitForSeconds(2);
@@ -94,7 +95,7 @@ public class IntroductionManager : MonoBehaviour
         SceneManager.LoadScene("main");
     }
 
-    IEnumerator FadeLogoImage()
+    private IEnumerator FadeLogoImage()
     {
         //wait 2 seconds before fading out
         yield return new WaitForSeconds(2);

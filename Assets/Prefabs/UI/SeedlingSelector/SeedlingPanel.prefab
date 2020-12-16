@@ -128,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationDisplayer: {fileID: 0}
   groundToPlant: {fileID: 0}
-  timer: {fileID: 0}
   gameManager: {fileID: 0}
+  timer: {fileID: 0}
   seedlingSelector: {fileID: 0}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationDisplayer: {fileID: 0}
   groundToPlant: {fileID: 0}
-  timer: {fileID: 0}
   gameManager: {fileID: 0}
+  timer: {fileID: 0}
   seedlingSelector: {fileID: 3283020778766948480}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
@@ -1425,6 +1425,11 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1029944188556768903, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -106.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2104168489841466312, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1529,6 +1534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037089573815601813, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77.700005
       objectReference: {fileID: 0}
     - target: {fileID: 4855619976012342322, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}

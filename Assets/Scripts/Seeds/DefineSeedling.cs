@@ -60,7 +60,7 @@ public class DefineSeedling : MonoBehaviour
 
     public void ChoseSeedling()
     {
-        if (gameManager.GetComponent<GameManager>().plantedSeed == null)
+        if (gameManager.plantedSeed == null)
         {
             timer.SetActive(true);
 
@@ -69,7 +69,7 @@ public class DefineSeedling : MonoBehaviour
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantASeedling(seedling);
         }
-        else if (gameManager.GetComponent<GameManager>().plantedSeed != seedling)
+        else if (gameManager.plantedSeed != seedling)
         {
             timer.SetActive(true);
 
@@ -78,7 +78,7 @@ public class DefineSeedling : MonoBehaviour
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantASeedling(seedling);
         }
-        else if (gameManager.GetComponent<GameManager>().plantedSeed == seedling)
+        else if (gameManager.plantedSeed == seedling)
         {
             timer.SetActive(true);
             notificationDisplayer.YouPlantedThisArleady();

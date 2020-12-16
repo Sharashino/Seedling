@@ -4,12 +4,11 @@ using UnityEngine.EventSystems;
 
 public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    [SerializeField] Vector3 panelLocation;
-    [SerializeField] float percentThreshold = 0.2f;
-    [SerializeField] int totalPages;
-
-    int currentPage = 1;
-    float easing = 0.5f;
+    [SerializeField] private Vector3 panelLocation;
+    [SerializeField] private float percentThreshold = 0.2f;
+    [SerializeField] private int totalPages;
+    private int currentPage = 1;
+    private float easing = 0.5f;
 
     private void Start()
     {
