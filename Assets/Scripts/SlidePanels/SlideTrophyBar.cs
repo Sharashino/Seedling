@@ -88,5 +88,4 @@ public class SlideTrophyBar : MonoBehaviour
     {
         trophyPanel.GetComponent<SlideTrophyPanel>().GetClickedTrophy(clickedButton);
     }
-
 }

@@ -1,10 +1,10 @@
-﻿using UnityEngine.Audio;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-
+    [SerializeField]
+    private Sound[] sounds;
 
     // Start is called before the first frame update
     void Awake()

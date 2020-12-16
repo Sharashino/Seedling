@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class SlideSettingsPanel : MonoBehaviour
 {
-    [SerializeField]
-    GameObject settingsPanel;
-    [SerializeField]
-    GameObject menuBar;
-    
-    bool showSettingsPanel;
-    bool showMenuBar;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject menuBar;
+    private bool showSettingsPanel;
+    private bool showMenuBar;
+
     public void ShowHideSettingsPanel()
     {
         if(settingsPanel != null)
@@ -39,5 +37,10 @@ public class SlideSettingsPanel : MonoBehaviour
     {
         ES3.DeleteFile("SaveFile.es3");
         Application.Quit();
+    }
+
+    public void OnMuteAudioButton()
+    {
+        //MUTE ALL AUDIO AND SAVE IT
     }
 }

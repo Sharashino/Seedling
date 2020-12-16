@@ -3,7 +3,7 @@
 public class Ground : MonoBehaviour
 {
     [SerializeField] private ParticleSystem plantParticles;
-    private GameObject potGround;
+    [SerializeField] private GameObject potGround;
     private bool hasSeedling = false;
     private GameObject newSeedling;
     public void PlantASeedling(Seed seedlingToPlant)
