@@ -7940,6 +7940,8 @@ MonoBehaviour:
   currentSeedling: {fileID: 0}
   seedlingGround: {fileID: 1938009782}
   notificationDisplayer: {fileID: 2107225683}
+  gameManager: {fileID: 437343988}
+  isReadyToHarvest: 0
 --- !u!4 &1808990536
 Transform:
   m_ObjectHideFlags: 0

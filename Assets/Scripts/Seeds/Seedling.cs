@@ -14,7 +14,5 @@ public class Seedling : MonoBehaviour
 
         //Setting up Ground as Flower parent
         growFlower.transform.parent = plantedOnGround.transform;
-        Destroy(seedlingToGrowFrom);
-        Debug.Log("Your " + growFlower + " has grown up!");
     }
 }

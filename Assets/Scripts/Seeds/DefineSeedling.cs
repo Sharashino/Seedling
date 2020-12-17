@@ -28,13 +28,13 @@ public class DefineSeedling : MonoBehaviour
         switch (seedlingName.text.ToString())
         {
             case "Iris Seeds":
-                seedlingTime.text = gameManager.irisTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             case "Rose Seeds":
-                seedlingTime.text = gameManager.roseTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = gameManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             default:
                 break;
@@ -46,13 +46,13 @@ public class DefineSeedling : MonoBehaviour
         switch (seedlingName.text.ToString())
         {
             case "Iris Seeds":
-                seedlingTime.text = gameManager.irisTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             case "Rose Seeds":
-                seedlingTime.text = gameManager.roseTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = gameManager.tulipTimeSpent + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + seedling.minutesToGrow;
                 break;
             default:
                 break;
@@ -83,6 +83,11 @@ public class DefineSeedling : MonoBehaviour
         {
             timer.SetActive(true);
             notificationDisplayer.YouPlantedThisArleady();
+        }
+        else if(seedlingManager.GetIsReadyToHarvest())
+        {
+            timer.SetActive(true);
+            notificationDisplayer.HarvestReminder();
         }
         else
         {

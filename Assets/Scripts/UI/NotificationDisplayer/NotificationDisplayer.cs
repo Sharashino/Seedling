@@ -39,6 +39,30 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
+    public void PlantedSeedling(Seed chosenSeedling)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
+        
+        StartCoroutine(FadeText());
+    }
+
+    public void GrowSeedling(Seed grownSeedling)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
+
+        StartCoroutine(FadeText());
+    }
+
+    public void YouPlantedThisArleady()
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You are grownig this seedling already!";
+
+        StartCoroutine(FadeText());
+    }
+    
     public void HarvestFlower(Flower flowerToHarvest)
     {
         notifier.SetActive(true);
@@ -47,24 +71,10 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
-    public void PlantedSeedling(Seed chosenSeedling)
+    public void HarvestReminder()
     {
         notifier.SetActive(true);
-        notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
-        
-        StartCoroutine(FadeText());
-    }
-    public void GrowSeedling(Seed grownSeedling)
-    {
-        notifier.SetActive(true);
-        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
-
-        StartCoroutine(FadeText());
-    }
-    public void YouPlantedThisArleady()
-    {
-        notifier.SetActive(true);
-        notifierText.text = "You are grownig this seedling already!";
+        notifierText.text = "You need to harvest your flower first!";
 
         StartCoroutine(FadeText());
     }

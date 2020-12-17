@@ -23,9 +23,9 @@ public class LockPanel : MonoBehaviour
 
     private void UnlockPanel()
     {
-        if (gameManager.playerCoins >= seedling.coinsToUnlock)
+        if (gameManager.GetPlayerCoins() >= seedling.coinsToUnlock)
         {
-            gameManager.playerCoins -= seedling.coinsToUnlock;
+            gameManager.SetPlayerCoins(-seedling.coinsToUnlock);
             switch (seedling.itemName)
             {
                 case "Iris Seeds":
@@ -67,6 +67,6 @@ public class LockPanel : MonoBehaviour
 
     private void UpdateCoins()
     {
-        coinsText.text = gameManager.playerCoins.ToString();
+        coinsText.text = gameManager.GetPlayerCoins().ToString();
     }
 }

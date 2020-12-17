@@ -11,14 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject seedlingSelector;
 
     [Header("Player basic info")]
-    public string playerName;
-    public int playerCoins;
+    [SerializeField] private string playerName;
+    [SerializeField] private int playerCoins;
 
     [Header("Player time spent on plants")]
-    public int allTimeSpent;
-    public int irisTimeSpent;
-    public int roseTimeSpent;
-    public int tulipTimeSpent;
+    [SerializeField] private int allTimeSpent;
+    [SerializeField] private int irisTimeSpent;
+    [SerializeField] private int roseTimeSpent;
+    [SerializeField] private int tulipTimeSpent;
 
     [Header("Player seeds unlocked")]
     public bool isIrisUnlocked;
@@ -98,5 +98,82 @@ public class GameManager : MonoBehaviour
         ES3.Save("isSeedlerUnlocked", isSeedlerUnlocked);
         ES3.Save("isSupporterUnlocked", isSupporterUnlocked);
         ES3.Save("isIndianaJohnesUnlocked", isIndianaJohnesUnlocked);
+    }
+
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
+    public int GetPlayerCoins()
+    {
+        return playerCoins;
+    }
+    public int GetIrisTimeSpent()
+    {
+        return irisTimeSpent;
+    }
+    public int GetRoseTimeSpent()
+    {
+        return roseTimeSpent;
+    }
+    public int GetTulipTimeSpent()
+    {
+        return tulipTimeSpent;
+    }
+    public int GetAllTimeSpent()
+    {
+        return allTimeSpent;
+    }
+    public string SetPlayerName(string name)
+    {
+        return playerName = name;
+    }
+    public int SetPlayerCoins(int coins)
+    {
+        return playerCoins += coins;
+    }
+    public int SetIrisTimeSpent(int time)
+    {
+        if(time == 0)
+        {
+            return irisTimeSpent = 0;
+        }
+        else
+        {
+            return irisTimeSpent += time;
+        }
+    }
+    public int SetRoseTimeSpent(int time)
+    {
+        if (time == 0)
+        {
+            return roseTimeSpent = 0;
+        }
+        else
+        {
+            return roseTimeSpent += time;
+        }
+    }
+    public int SetTulipTimeSpent(int time)
+    {
+        if (time == 0)
+        {
+            return tulipTimeSpent = 0;
+        }
+        else
+        {
+            return tulipTimeSpent += time;
+        }
+    }
+    public int SetAllTimeSpent(int time)
+    {
+        if (time == 0)
+        {
+            return allTimeSpent = 0;
+        }
+        else
+        {
+            return allTimeSpent += time;
+        }
     }
 }

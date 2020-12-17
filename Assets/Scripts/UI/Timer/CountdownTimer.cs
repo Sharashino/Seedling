@@ -67,8 +67,8 @@ public class CountdownTimer : MonoBehaviour
         if (startingTime == 1)
         {
             notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.GetCurrentSeedling());
-            gameManager.allTimeSpent += 1;
-            gameManager.playerCoins += 1;
+            gameManager.SetAllTimeSpent(1);
+            gameManager.SetPlayerCoins(1);
             gameManager.UpdateCoins();
 
             //add one minute to a seedling you have planted
@@ -76,9 +76,9 @@ public class CountdownTimer : MonoBehaviour
             {
                 case "Iris Seeds":
                     {
-                        gameManager.irisTimeSpent += 120;
+                        gameManager.SetIrisTimeSpent(120);
 
-                        if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        if (gameManager.GetIrisTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
@@ -86,9 +86,9 @@ public class CountdownTimer : MonoBehaviour
                     break;
                 case "Rose Seeds":
                     {
-                        gameManager.roseTimeSpent += 1;
+                        gameManager.SetRoseTimeSpent(1);
 
-                        if (gameManager.roseTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        if (gameManager.GetRoseTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
@@ -96,9 +96,9 @@ public class CountdownTimer : MonoBehaviour
                     break;
                 case "Tulip Seeds":
                     {
-                        gameManager.tulipTimeSpent += 1;
+                        gameManager.SetTulipTimeSpent(1);
                         
-                        if (gameManager.tulipTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        if (gameManager.GetTulipTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
@@ -111,8 +111,8 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.GetCurrentSeedling());
-            gameManager.allTimeSpent += (int)startingTime;
-            gameManager.playerCoins += (int)startingTime;
+            gameManager.SetAllTimeSpent((int)startingTime);
+            gameManager.SetPlayerCoins((int)startingTime);
             gameManager.UpdateCoins();
 
             //add time to a seedling you have planted
@@ -120,8 +120,8 @@ public class CountdownTimer : MonoBehaviour
             {
                 case "Iris Seeds":
                     {
-                        gameManager.irisTimeSpent += (int)startingTime;
-                        if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        gameManager.SetRoseTimeSpent((int)startingTime);
+                        if (gameManager.GetIrisTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
@@ -129,8 +129,8 @@ public class CountdownTimer : MonoBehaviour
                     break;
                 case "Rose Seeds":
                     {
-                        gameManager.roseTimeSpent += (int)startingTime;
-                        if (gameManager.roseTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        gameManager.SetRoseTimeSpent((int)startingTime);
+                        if (gameManager.GetRoseTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
@@ -138,8 +138,8 @@ public class CountdownTimer : MonoBehaviour
                     break;
                 case "Tulip Seeds":
                     {
-                        gameManager.tulipTimeSpent += (int)startingTime;
-                        if (gameManager.tulipTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        gameManager.SetTulipTimeSpent((int)startingTime);
+                        if (gameManager.GetTulipTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower(seedlingManager.GetCurrentSeedling());
                         }
