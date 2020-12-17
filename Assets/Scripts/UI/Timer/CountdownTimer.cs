@@ -77,17 +77,35 @@ public class CountdownTimer : MonoBehaviour
                 case "Iris Seeds":
                     {
                         gameManager.irisTimeSpent += 120;
+
                         if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
                             seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
                         }
                     }
                     break;
                 case "Rose Seeds":
-                    gameManager.roseTimeSpent += 1;
+                    {
+                        gameManager.roseTimeSpent += 1;
+
+                        if (gameManager.roseTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
+                        }
+                    }
                     break;
                 case "Tulip Seeds":
-                    gameManager.tulipTimeSpent += 1;
+                    {
+                        gameManager.tulipTimeSpent += 1;
+                        
+                        if (gameManager.tulipTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
+                        }
+                    }
                     break;
                 default:
                     break;
@@ -108,15 +126,30 @@ public class CountdownTimer : MonoBehaviour
                         gameManager.irisTimeSpent += (int)startingTime;
                         if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
-                           // gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject, );
+                            seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
                         }
                     }
                     break;
                 case "Rose Seeds":
-                    gameManager.roseTimeSpent += (int)startingTime;
+                    {
+                        gameManager.roseTimeSpent += (int)startingTime;
+                        if (gameManager.roseTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
+                        }
+                    }
                     break;
                 case "Tulip Seeds":
-                    gameManager.tulipTimeSpent += (int)startingTime;
+                    {
+                        gameManager.tulipTimeSpent += (int)startingTime;
+                        if (gameManager.tulipTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower();
+                            notificationDisplayer.YourSeedlingHasGrownUp(seedlingManager.GetCurrentSeedling());
+                        }
+                    }
                     break;
                 default:
                     break;
@@ -126,7 +159,7 @@ public class CountdownTimer : MonoBehaviour
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
         CreateGrowParticles();
         
-        //resetting the timer
+        //reset the timer
         timer = 0;
     }
 

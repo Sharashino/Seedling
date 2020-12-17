@@ -12,9 +12,9 @@ public class SeedlingManager : MonoBehaviour
         currentSeedling.itemObject.GetComponent<Flower>().GrowFlower(currentSeedling.itemObject, seedlingGround.gameObject);
     }
 
-    public void HarvestFlower()
+    public void HarvestFlower(GameObject flowerToHarvest)
     {
-        throw new NotImplementedException();
+        flowerToHarvest.GetComponent<Flower>().HarvestFlower(flowerToHarvest);
     }
 
     public Seed GetCurrentSeedling()

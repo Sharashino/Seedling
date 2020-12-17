@@ -39,6 +39,14 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
+    public void YourSeedlingHasGrownUp(Seed grownSeedling)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
+
+        StartCoroutine(FadeText());
+    }
+
     public void PlantASeedling(Seed chosenSeedling)
     {
         notifier.SetActive(true);
@@ -46,6 +54,7 @@ public class NotificationDisplayer : MonoBehaviour
         
         StartCoroutine(FadeText());
     }
+
     public void YouPlantedThisArleady()
     {
         notifier.SetActive(true);

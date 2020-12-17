@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class Flower : MonoBehaviour
 {
     [SerializeField] private string flowerName;
@@ -28,5 +27,10 @@ public class Flower : MonoBehaviour
         Destroy(flowerToHarvest);
 
         //Making Ground plantable again
+    }
+
+    public string GetFlowerName()
+    {
+        return flowerName;
     }
 }
