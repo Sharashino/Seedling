@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6366895294701072853}
   - component: {fileID: 6366895294701072854}
   m_Layer: 0
-  m_Name: Rose Plant
+  m_Name: Rose Flower
   m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6366895294701072855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 1, z: 4}
-  m_LocalScale: {x: 0.15, y: 0.6, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.2, z: 0.07}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

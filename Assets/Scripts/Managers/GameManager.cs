@@ -6,17 +6,13 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    TMP_Text playerCoinsText;
-    [SerializeField]
-    NotificationDisplayer notificationDisplayer;
-    [SerializeField]
-    GameObject seedlingSelector;
+    [SerializeField] private TMP_Text playerCoinsText;
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
+    [SerializeField] private GameObject seedlingSelector;
 
     [Header("Player basic info")]
     public string playerName;
     public int playerCoins;
-    public Seed plantedSeed;
 
     [Header("Player time spent on plants")]
     public int allTimeSpent;

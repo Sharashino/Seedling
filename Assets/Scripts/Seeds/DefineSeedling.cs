@@ -9,6 +9,7 @@ public class DefineSeedling : MonoBehaviour
     [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private Ground groundToPlant;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private SeedlingManager seedlingManager;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text seedlingName;
@@ -60,25 +61,25 @@ public class DefineSeedling : MonoBehaviour
 
     public void ChoseSeedling()
     {
-        if (gameManager.plantedSeed == null)
+        if (seedlingManager.GetCurrentSeedling() == null)
         {
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            gameManager.plantedSeed = seedling;
+            seedlingManager.AssingSeedling(seedling);
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantASeedling(seedling);
         }
-        else if (gameManager.plantedSeed != seedling)
+        else if (seedlingManager.GetCurrentSeedling() != seedling)
         {
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            gameManager.plantedSeed = seedling;
+            seedlingManager.AssingSeedling(seedling);
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantASeedling(seedling);
         }
-        else if (gameManager.plantedSeed == seedling)
+        else if (seedlingManager.GetCurrentSeedling() == seedling)
         {
             timer.SetActive(true);
             notificationDisplayer.YouPlantedThisArleady();

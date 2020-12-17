@@ -10,7 +10,8 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private ParticleSystem growParticles;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject notificationDisplayer;
+    [SerializeField] private SeedlingManager seedlingManager;
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private GameObject seedlingSelector;
 
     private float timer;
@@ -65,20 +66,20 @@ public class CountdownTimer : MonoBehaviour
         //if player spent 1 minute on plant fix syntax
         if (startingTime == 1)
         {
-            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling(1, gameManager.plantedSeed);
+            notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.GetCurrentSeedling());
             gameManager.allTimeSpent += 1;
             gameManager.playerCoins += 1;
             gameManager.UpdateCoins();
 
             //add one minute to a seedling you have planted
-            switch (gameManager.plantedSeed.itemName)
+            switch (seedlingManager.GetCurrentSeedling().itemName)
             {
                 case "Iris Seeds":
                     {
                         gameManager.irisTimeSpent += 120;
-                        if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
+                        if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
-                            Debug.Log("ready to harvest");
+                            seedlingManager.GrowFlower();
                         }
                     }
                     break;
@@ -94,20 +95,20 @@ public class CountdownTimer : MonoBehaviour
         }
         else
         {
-            notificationDisplayer.GetComponent<NotificationDisplayer>().TimeSpentOnSeedling((int)startingTime, gameManager.plantedSeed);
+            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.GetCurrentSeedling());
             gameManager.allTimeSpent += (int)startingTime;
             gameManager.playerCoins += (int)startingTime;
             gameManager.UpdateCoins();
 
             //add time to a seedling you have planted
-            switch (gameManager.plantedSeed.itemName)
+            switch (seedlingManager.GetCurrentSeedling().itemName)
             {
                 case "Iris Seeds":
                     {
                         gameManager.irisTimeSpent += (int)startingTime;
-                        if (gameManager.irisTimeSpent >= gameManager.plantedSeed.minutesToGrow)
+                        if (gameManager.irisTimeSpent >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                         {
-                            Debug.Log("ready to harvest");
+                           // gameManager.plantedSeed.itemObject.GetComponent<Flower>().GrowFlower(gameManager.plantedSeed.itemObject, );
                         }
                     }
                     break;
@@ -124,6 +125,9 @@ public class CountdownTimer : MonoBehaviour
         //after done with timer update seedling selector timers and spawn particles
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
         CreateGrowParticles();
+        
+        //resetting the timer
+        timer = 0;
     }
 
     private void CreateGrowParticles()

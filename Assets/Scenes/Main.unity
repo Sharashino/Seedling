@@ -1336,7 +1336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &316270188 stripped
 RectTransform:
@@ -2003,7 +2003,6 @@ MonoBehaviour:
   seedlingSelector: {fileID: 564818654}
   playerName: 
   playerCoins: 0
-  plantedSeed: {fileID: 0}
   allTimeSpent: 0
   irisTimeSpent: 0
   roseTimeSpent: 0
@@ -2627,7 +2626,7 @@ Transform:
   - {fileID: 392861162}
   - {fileID: 522689835}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -2719,7 +2718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &804555470
 GameObject:
@@ -2821,7 +2820,7 @@ RectTransform:
   - {fileID: 996815925}
   - {fileID: 15883637}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3393,6 +3392,11 @@ PrefabInstance:
       propertyPath: groundToPlant
       value: 
       objectReference: {fileID: 1938009782}
+    - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
+        type: 3}
+      propertyPath: seedlingManager
+      value: 
+      objectReference: {fileID: 1808990535}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: seedlingSelector
@@ -5662,7 +5666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!1 &1280222060
 GameObject:
@@ -7845,7 +7849,7 @@ PrefabInstance:
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
@@ -7904,6 +7908,52 @@ PrefabInstance:
       objectReference: {fileID: 1021929686}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c320b0a1900ac14418fbb09318ce4fa3, type: 3}
+--- !u!1 &1808990534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808990536}
+  - component: {fileID: 1808990535}
+  m_Layer: 0
+  m_Name: SeedlingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1808990535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808990534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951a578635b331546aa2762f8c45c4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSeedling: {fileID: 0}
+  grownSeedling: {fileID: 0}
+  seedlingGround: {fileID: 1938009782}
+--- !u!4 &1808990536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808990534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1823486285
 GameObject:
   m_ObjectHideFlags: 0
@@ -9729,6 +9779,11 @@ PrefabInstance:
       objectReference: {fileID: 1938009782}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
+      propertyPath: seedlingManager
+      value: 
+      objectReference: {fileID: 1808990535}
+    - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
+        type: 3}
       propertyPath: seedlingSelector
       value: 
       objectReference: {fileID: 564818654}
@@ -10366,6 +10421,11 @@ PrefabInstance:
       objectReference: {fileID: 1266274986}
     - target: {fileID: 2660429819386199832, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
         type: 3}
+      propertyPath: seedlingManager
+      value: 
+      objectReference: {fileID: 1808990535}
+    - target: {fileID: 2660429819386199832, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
+        type: 3}
       propertyPath: seedlingSelector
       value: 
       objectReference: {fileID: 564818654}
@@ -10373,7 +10433,7 @@ PrefabInstance:
         type: 3}
       propertyPath: notificationDisplayer
       value: 
-      objectReference: {fileID: 2107225681}
+      objectReference: {fileID: 2107225683}
     - target: {fileID: 3085670959394134670, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10564,6 +10624,11 @@ PrefabInstance:
       propertyPath: groundToPlant
       value: 
       objectReference: {fileID: 1938009782}
+    - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
+        type: 3}
+      propertyPath: seedlingManager
+      value: 
+      objectReference: {fileID: 1808990535}
     - target: {fileID: 374559200846797405, guid: 78f3089695f14544483c904f15c9a14d,
         type: 3}
       propertyPath: seedlingSelector

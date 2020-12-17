@@ -19,6 +19,6 @@ MonoBehaviour:
     type: 3}
   coinsToUnlock: 250
   minutesToGrow: 120
-  isUnlocked: 0
+  isUnlocked: 1
   seedlingCuriosity: Iris are named from the Greek word for a rainbow, which is also
     name for the Greek goddess of the rainbow!

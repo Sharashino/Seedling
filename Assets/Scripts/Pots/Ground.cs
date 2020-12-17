@@ -21,7 +21,7 @@ public class Ground : MonoBehaviour
             Transform seedlingTransform = newSeedling.GetComponent<Transform>();
             Transform potTransform = potGround.GetComponent<Transform>();
             
-            Vector3 seedlingPosition = GetPotGroundPositionNParent(seedlingTransform, potTransform);
+            Vector3 seedlingPosition = GetPotGroundPosition(seedlingTransform, potTransform);
 
             seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
@@ -39,7 +39,7 @@ public class Ground : MonoBehaviour
             Transform potTransform = potGround.GetComponent<Transform>();
 
             //Moving seedling to the centre of the pot
-            Vector3 seedlingPosition = GetPotGroundPositionNParent(seedlingTransform, potTransform);
+            Vector3 seedlingPosition = GetPotGroundPosition(seedlingTransform, potTransform);
             
             seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
@@ -48,7 +48,7 @@ public class Ground : MonoBehaviour
         }
     }
 
-    private Vector3 GetPotGroundPositionNParent(Transform seedlingTransform, Transform potTransform)
+    public Vector3 GetPotGroundPosition(Transform seedlingTransform, Transform potTransform)
     {
         //Moving seedling to the centre of the pot
         Vector3 position = seedlingTransform.position;

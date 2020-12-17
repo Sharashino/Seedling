@@ -3,7 +3,6 @@
 public class Flower : MonoBehaviour
 {
     [SerializeField] private string flowerName;
-    [SerializeField] private GameObject flowerGround;
     [SerializeField] private GameObject flowerObject;
     private GameObject flower;
         
@@ -11,8 +10,7 @@ public class Flower : MonoBehaviour
     public void GrowFlower(GameObject seedlingToGrowFrom, GameObject plantedOnGround)
     {
         //Getting Ground and spawning Grown Flower on it
-        flowerGround = plantedOnGround;
-        flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.25f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
+        flower = Instantiate(flowerObject, new Vector3(seedlingToGrowFrom.transform.position.x, seedlingToGrowFrom.transform.position.y + 0.20f, seedlingToGrowFrom.transform.position.z), seedlingToGrowFrom.transform.rotation);
         flower.name = flowerName;
 
         //Setting up Ground as Flower parent
