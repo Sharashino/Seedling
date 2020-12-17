@@ -39,22 +39,28 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
-    public void YourSeedlingHasGrownUp(Seed grownSeedling)
+    public void HarvestFlower(Flower flowerToHarvest)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
+        notifierText.text = "You have harvested " + flowerToHarvest.GetFlowerName() + "!";
 
         StartCoroutine(FadeText());
     }
 
-    public void PlantASeedling(Seed chosenSeedling)
+    public void PlantedSeedling(Seed chosenSeedling)
     {
         notifier.SetActive(true);
         notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
         
         StartCoroutine(FadeText());
     }
+    public void GrowSeedling(Seed grownSeedling)
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
 
+        StartCoroutine(FadeText());
+    }
     public void YouPlantedThisArleady()
     {
         notifier.SetActive(true);

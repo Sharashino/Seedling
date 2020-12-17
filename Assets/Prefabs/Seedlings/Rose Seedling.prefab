@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7539906995714841708}
   - component: {fileID: 7539906995714841709}
   - component: {fileID: 7539906995714841710}
-  - component: {fileID: 3364117554872090004}
+  - component: {fileID: 2584730708460984634}
   m_Layer: 0
   m_Name: Rose Seedling
   m_TagString: Seedling
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3364117554872090004
+--- !u!114 &2584730708460984634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7539906995714841711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a654ef1043dcf4d965179978c7548e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowerName: Rose Flower
-  flowerGround: {fileID: 0}
-  flowerObject: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
+  seedlingName: Rose Seedling
+  seedlingObject: {fileID: 7539906995714841711}
+  seedlingFlower: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
     type: 3}

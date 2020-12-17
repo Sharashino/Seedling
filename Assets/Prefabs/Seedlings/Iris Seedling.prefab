@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9195059183565728687}
   - component: {fileID: 9195059183565728684}
   - component: {fileID: 9195059183565728685}
-  - component: {fileID: -5074262771775944874}
+  - component: {fileID: -198459229105206022}
   m_Layer: 0
   m_Name: Iris Seedling
   m_TagString: Seedling
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5074262771775944874
+--- !u!114 &-198459229105206022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9195059183565728674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a654ef1043dcf4d965179978c7548e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowerName: Iris Flower
-  flowerGround: {fileID: 0}
-  flowerObject: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
+  seedlingName: Iris Seedling
+  seedlingObject: {fileID: 9195059183565728674}
+  seedlingFlower: {fileID: 3540193564956093054, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}

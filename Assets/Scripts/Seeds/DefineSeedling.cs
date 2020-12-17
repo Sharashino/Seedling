@@ -66,18 +66,18 @@ public class DefineSeedling : MonoBehaviour
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            seedlingManager.AssingSeedling(seedling);
+            seedlingManager.SetCurrentSeedling(seedling);
             groundToPlant.PlantASeedling(seedling);
-            notificationDisplayer.PlantASeedling(seedling);
+            notificationDisplayer.PlantedSeedling(seedling);
         }
         else if (seedlingManager.GetCurrentSeedling() != seedling)
         {
             timer.SetActive(true);
 
             //telling GameManager what seedling you are working on
-            seedlingManager.AssingSeedling(seedling);
+            seedlingManager.SetCurrentSeedling(seedling);
             groundToPlant.PlantASeedling(seedling);
-            notificationDisplayer.PlantASeedling(seedling);
+            notificationDisplayer.PlantedSeedling(seedling);
         }
         else if (seedlingManager.GetCurrentSeedling() == seedling)
         {

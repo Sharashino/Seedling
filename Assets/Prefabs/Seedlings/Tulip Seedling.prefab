@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 485314473356339602}
   - component: {fileID: 485314473356339603}
   - component: {fileID: 485314473356339600}
-  - component: {fileID: 2815311922396444947}
+  - component: {fileID: -3014083307040928143}
   m_Layer: 0
   m_Name: Tulip Seedling
   m_TagString: Seedling
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2815311922396444947
+--- !u!114 &-3014083307040928143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 485314473356339601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a654ef1043dcf4d965179978c7548e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowerName: Tulip Flower
-  flowerGround: {fileID: 0}
-  flowerObject: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
+  seedlingName: Tulip Seedling
+  seedlingObject: {fileID: 485314473356339601}
+  seedlingFlower: {fileID: 5688738673944872102, guid: 9a3de69916ed0af4e9f7fe8e34fd682d,
     type: 3}
