@@ -1266,6 +1266,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178447957}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &219820203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3085670959755988270, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3085670960052902981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &222891703 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3085670959973667570, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
@@ -1336,7 +1348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &316270188 stripped
 RectTransform:
@@ -2626,7 +2638,7 @@ Transform:
   - {fileID: 392861162}
   - {fileID: 522689835}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -2718,7 +2730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &804555470
 GameObject:
@@ -2820,7 +2832,7 @@ RectTransform:
   - {fileID: 996815925}
   - {fileID: 15883637}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5151,6 +5163,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163469416}
   m_CullTransparentMesh: 0
+--- !u!1 &1209991299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3085670960837170886, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3085670960052902981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231881133
 GameObject:
   m_ObjectHideFlags: 0
@@ -5666,7 +5684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!1 &1280222060
 GameObject:
@@ -7037,6 +7055,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562340869}
   m_CullTransparentMesh: 0
+--- !u!1 &1577120605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1577120607}
+  - component: {fileID: 1577120606}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1577120606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577120605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d62969a6be9b214b9770999ade4a0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seedlingManager: {fileID: 1808990535}
+  gameManager: {fileID: 437343988}
+  timer: {fileID: 811889843}
+  timerButtons: {fileID: 1209991299}
+  timerText: {fileID: 219820203}
+--- !u!4 &1577120607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577120605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603236085
 GameObject:
   m_ObjectHideFlags: 0
@@ -7849,7 +7915,7 @@ PrefabInstance:
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2408755847125734994, guid: c320b0a1900ac14418fbb09318ce4fa3,
         type: 3}
@@ -7941,6 +8007,8 @@ MonoBehaviour:
   seedlingGround: {fileID: 1938009782}
   notificationDisplayer: {fileID: 2107225683}
   gameManager: {fileID: 437343988}
+  timeManager: {fileID: 1577120606}
+  timerText: {fileID: 219820203}
   isReadyToHarvest: 0
 --- !u!4 &1808990536
 Transform:
@@ -10416,6 +10484,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 437343988}
+    - target: {fileID: 2660429819386199832, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
+        type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 1577120606}
     - target: {fileID: 2660429819386199832, guid: 8e3e9b9cfb7f3724c8a17029d309f6f0,
         type: 3}
       propertyPath: growParticles

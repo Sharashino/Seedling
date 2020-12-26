@@ -70,7 +70,7 @@ public class DefineSeedling : MonoBehaviour
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
-        else if (seedlingManager.GetCurrentSeedling() != seedling)
+        else if (seedlingManager.GetCurrentSeedling() != seedling && !seedlingManager.GetIsReadyToHarvest())
         {
             timer.SetActive(true);
 
@@ -79,7 +79,7 @@ public class DefineSeedling : MonoBehaviour
             groundToPlant.PlantASeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
-        else if (seedlingManager.GetCurrentSeedling() == seedling)
+        else if (seedlingManager.GetCurrentSeedling() == seedling && !seedlingManager.GetIsReadyToHarvest())
         {
             timer.SetActive(true);
             notificationDisplayer.YouPlantedThisArleady();

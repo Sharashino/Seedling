@@ -1,5 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
+using UnityEngine.EventSystems;
 
 public class SeedlingManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SeedlingManager : MonoBehaviour
     [SerializeField] private Ground seedlingGround;
     [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private TimeManager timeManager;
+    [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isReadyToHarvest;
 
     private void Update()
@@ -37,6 +40,10 @@ public class SeedlingManager : MonoBehaviour
 
     public void HarvestFlower(Flower flowerToHarvest)
     {
+        timeManager.SetTimerButtons(true);
+        timeManager.SetTimerText("00:00:00");
+
+
         flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
         notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
 
@@ -88,4 +95,5 @@ public class SeedlingManager : MonoBehaviour
     {
         return isReadyToHarvest = isReady;
     }
+
 }

@@ -50,7 +50,7 @@ public class NotificationDisplayer : MonoBehaviour
     public void GrowSeedling(Seed grownSeedling)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have unlocked " + grownSeedling.itemName + "!";
+        notifierText.text = "Your " + grownSeedling.itemName + " has grown up!";
 
         StartCoroutine(FadeText());
     }
