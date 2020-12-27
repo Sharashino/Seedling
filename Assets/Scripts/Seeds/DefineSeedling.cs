@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DefineSeedling : MonoBehaviour
 {
     [SerializeField] private NotificationDisplayer notificationDisplayer;
-    [SerializeField] private Ground groundToPlant;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private SeedlingManager seedlingManager;
     [SerializeField] private GameObject timer;
@@ -64,19 +63,15 @@ public class DefineSeedling : MonoBehaviour
         if (seedlingManager.GetCurrentSeedling() == null)
         {
             timer.SetActive(true);
-
-            //telling GameManager what seedling you are working on
             seedlingManager.SetCurrentSeedling(seedling);
-            groundToPlant.PlantASeedling(seedling);
+            seedlingManager.PlantSeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
         else if (seedlingManager.GetCurrentSeedling() != seedling && !seedlingManager.GetIsReadyToHarvest())
         {
             timer.SetActive(true);
-
-            //telling GameManager what seedling you are working on
             seedlingManager.SetCurrentSeedling(seedling);
-            groundToPlant.PlantASeedling(seedling);
+            seedlingManager.PlantSeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
         else if (seedlingManager.GetCurrentSeedling() == seedling && !seedlingManager.GetIsReadyToHarvest())

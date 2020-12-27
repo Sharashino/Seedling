@@ -9,14 +9,22 @@ public class SeedlingManager : MonoBehaviour
     [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TimeManager timeManager;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isReadyToHarvest;
+
+    public void PlantSeedling(Seed seedlingToPlant)
+    {
+        seedlingGround.PlantASeedling(seedlingToPlant);
+        audioManager.PlaySound("PlaceSeedling");
+    }
 
     public void GrowFlower(Seed seedlingToGrow)
     {
         currentSeedling.itemObject.GetComponent<Seedling>().GrowFlower(currentSeedling.itemObject, seedlingGround.gameObject);
         notificationDisplayer.GrowSeedling(seedlingToGrow);
+        audioManager.PlaySound("GrowthComplete");
         SetIsReadyToHarvest(true);
     }
 
@@ -57,6 +65,7 @@ public class SeedlingManager : MonoBehaviour
         SetCurrentSeedling(null);
         SetIsReadyToHarvest(false);
         gameManager.UpdateCoins();
+        audioManager.PlaySound("HarvestSeedling");
         seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
     }
 
