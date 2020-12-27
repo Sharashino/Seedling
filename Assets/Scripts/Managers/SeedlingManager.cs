@@ -14,7 +14,7 @@ public class SeedlingManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        /*if(Input.GetMouseButtonDown(0))
         {
             RaycastHit mouseHit;
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,7 +28,7 @@ public class SeedlingManager : MonoBehaviour
                     HarvestFlower(flowerToHarvest.GetComponent<Flower>());
                 }
             }
-        }
+        }*/
     }
 
     public void GrowFlower(Seed seedlingToGrow)
