@@ -3,11 +3,21 @@ using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] SeedlingManager seedlingManager;
-    [SerializeField] GameManager gameManager;
-    [SerializeField] GameObject timer;
-    [SerializeField] GameObject timerButtons;
-    [SerializeField] TMP_Text timerText;
+    [SerializeField] private SeedlingManager seedlingManager;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject timerButtons;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private bool isCounting;
+    
+    public bool GetIsCounting()
+    {
+        return isCounting;
+    }
+    public bool SetIsCounting(bool state)
+    {
+        return isCounting = state;
+    }
 
     public void SetTimerText(string text)
     {

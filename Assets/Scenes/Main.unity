@@ -5290,6 +5290,8 @@ MonoBehaviour:
   trophyPanel: {fileID: 1989720340}
   seedlingSelector: {fileID: 564818654}
   timer: {fileID: 811889843}
+  timeManager: {fileID: 1577120606}
+  notificationDisplayer: {fileID: 2107225683}
 --- !u!95 &1231881138
 Animator:
   serializedVersion: 3
@@ -7108,6 +7110,7 @@ MonoBehaviour:
   timer: {fileID: 811889843}
   timerButtons: {fileID: 1209991299}
   timerText: {fileID: 219820203}
+  isCounting: 0
 --- !u!4 &1577120607
 Transform:
   m_ObjectHideFlags: 0
@@ -8027,6 +8030,7 @@ MonoBehaviour:
   notificationDisplayer: {fileID: 2107225683}
   gameManager: {fileID: 437343988}
   timeManager: {fileID: 1577120606}
+  seedlingSelector: {fileID: 564818654}
   timerText: {fileID: 219820203}
   isReadyToHarvest: 0
 --- !u!4 &1808990536
@@ -9346,7 +9350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bddb57e3fa1554396f25946a04f207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedlingManager: {fileID: 0}
+  seedlingManager: {fileID: 1808990535}
   cursorTexture: {fileID: 2800000, guid: e5c4b3c480b6ee144a2e843b9ad3ad57, type: 3}
   cursorClickedTexture: {fileID: 2800000, guid: f02b5b34cf7f29549864de7d2f0326d1,
     type: 3}

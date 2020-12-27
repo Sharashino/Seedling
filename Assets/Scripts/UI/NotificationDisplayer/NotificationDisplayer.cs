@@ -63,6 +63,14 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
     
+    public void WaitTillTimerDone()
+    {
+        notifier.SetActive(true);
+        notifierText.text = "Focus on your task! Wait till your timer is done!";
+
+        StartCoroutine(FadeText());
+    }
+
     public void HarvestFlower(Flower flowerToHarvest)
     {
         notifier.SetActive(true);

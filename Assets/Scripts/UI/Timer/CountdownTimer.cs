@@ -7,13 +7,13 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private float currentTime = 0f;
     [SerializeField] private float startingTime = 0f;
     [SerializeField] private GameObject timerButtons;
+    [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private ParticleSystem growParticles;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private SeedlingManager seedlingManager;
-    [SerializeField] private NotificationDisplayer notificationDisplayer;
-    [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TimeManager timeManager;
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
 
     private float timer;
     private int hours;
@@ -29,6 +29,7 @@ public class CountdownTimer : MonoBehaviour
     {
         if (currentTime != 0)
         {
+            timeManager.SetIsCounting(true);
             StartCoroutine(StartCountdown());
         }
     }
@@ -64,6 +65,7 @@ public class CountdownTimer : MonoBehaviour
         }
 
         timeManager.SetTimerText("Time's up!");
+        timeManager.SetIsCounting(false);
 
         //if player spent 1 minute on plant fix syntax
         if (startingTime == 1)

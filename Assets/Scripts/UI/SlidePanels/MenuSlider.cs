@@ -14,6 +14,8 @@ public class MenuSlider : MonoBehaviour
     [SerializeField] private GameObject trophyPanel;
     [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private GameObject timer;
+    [SerializeField] private TimeManager timeManager;
+    [SerializeField] private NotificationDisplayer notificationDisplayer;
 
     private Animator menuBarAnimator;
     private Animator seedlingSelectorAnimator;
@@ -71,9 +73,13 @@ public class MenuSlider : MonoBehaviour
                     menuBarAnimator.SetBool("showBar", !isOpen);
                     trophyPanelAnimator.SetBool("showTrophyPanel", !isTrophyPanelOpen);
                 }
-                else if(!isTrophyBarOpen && !isTrophyPanelOpen && !isSelectorOpen)
+                else if(!isTrophyBarOpen && !isTrophyPanelOpen && !isSelectorOpen && !timeManager.GetIsCounting())
                 {
                     menuBarAnimator.SetBool("showBar", !isOpen);
+                }
+                else if(timeManager.GetIsCounting())
+                {
+                    notificationDisplayer.WaitTillTimerDone();
                 }
                 //if it isnt just open MenuBar
                 else
