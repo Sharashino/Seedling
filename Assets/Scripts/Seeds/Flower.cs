@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Flower : MonoBehaviour, IPointerClickHandler
+public class Flower : MonoBehaviour
 {
     [SerializeField] private string flowerName;
     [SerializeField] private GameObject flowerObject;
@@ -15,10 +15,5 @@ public class Flower : MonoBehaviour, IPointerClickHandler
     public string GetFlowerName()
     {
         return flowerName;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("click");
     }
 }
