@@ -10,6 +10,7 @@ TagManager:
   - WaterCan
   - Ground
   - Flower
+  - UI
   layers:
   - Default
   - TransparentFX

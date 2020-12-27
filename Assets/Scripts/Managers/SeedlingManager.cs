@@ -9,27 +9,9 @@ public class SeedlingManager : MonoBehaviour
     [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TimeManager timeManager;
+    [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isReadyToHarvest;
-
-    private void Update()
-    {
-        /*if(Input.GetMouseButtonDown(0))
-        {
-            RaycastHit mouseHit;
-            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if(Physics.Raycast(mouseRay, out mouseHit, 100))
-            {
-                GameObject flowerToHarvest = mouseHit.transform.gameObject;
-
-                if (flowerToHarvest.tag == "Flower")
-                {
-                    HarvestFlower(flowerToHarvest.GetComponent<Flower>());
-                }
-            }
-        }*/
-    }
 
     public void GrowFlower(Seed seedlingToGrow)
     {
@@ -75,6 +57,7 @@ public class SeedlingManager : MonoBehaviour
         SetCurrentSeedling(null);
         SetIsReadyToHarvest(false);
         gameManager.UpdateCoins();
+        seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
     }
 
     public bool GetIsReadyToHarvest()

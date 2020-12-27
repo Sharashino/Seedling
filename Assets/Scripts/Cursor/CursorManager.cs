@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CursorManager : MonoBehaviour
 {
+    [SerializeField] SeedlingManager seedlingManager;
     [SerializeField] Texture2D cursorTexture;
     [SerializeField] Texture2D cursorClickedTexture;
     private CursorControls cursorControls;
@@ -25,7 +27,31 @@ public class CursorManager : MonoBehaviour
     private void EndedClick()
     {
         ChangeCursor(cursorTexture);
+        DetectObject();
     }
+
+    private void DetectObject()
+    {
+        Ray mouseRay = Camera.main.ScreenPointToRay(cursorControls.Mouse.Position.ReadValue<Vector2>());
+        RaycastHit hit;
+
+        if(Physics.Raycast(mouseRay, out hit))
+        {
+            if(hit.collider != null)
+            {
+                if(EventSystem.current.IsPointerOverGameObject(-1))
+                {
+                    return;
+                }
+                
+                if(hit.collider.tag == "Flower")
+                {
+                    seedlingManager.HarvestFlower(hit.collider.gameObject.GetComponent<Flower>());
+                }
+            }
+        }
+    }
+
     private void OnEnable()
     {
         cursorControls.Enable();
