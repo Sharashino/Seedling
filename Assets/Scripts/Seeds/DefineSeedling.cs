@@ -25,31 +25,37 @@ public class DefineSeedling : MonoBehaviour
         switch (seedling.itemName)
         {
             case "Iris Seeds":
-                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + ReturnSeed().minutesToGrow;
                 break;
             case "Rose Seeds":
-                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + ReturnSeed().minutesToGrow;
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + ReturnSeed().minutesToGrow;
                 break;
             default:
                 break;
         }
     }
 
-    public void UpdatePanel(string seedlingName)
+    /// <summary>
+    /// A FUCKING BUG MADE ME DO IT IN THE FUCKING UPDATE METHOD SORRY
+    /// </summary>
+    private void Update()
     {
-        switch (seedlingName)
+        switch (seedling.itemName)
         {
             case "Iris Seeds":
-                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+                //Debug.Log(seedlingTime.text);
                 break;
             case "Rose Seeds":
-                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+                //Debug.Log(seedlingTime.text);
                 break;
             case "Tulip Seeds":
-                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + seedling.minutesToGrow;
+                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+                //Debug.Log(seedlingTime.text);
                 break;
             default:
                 break;

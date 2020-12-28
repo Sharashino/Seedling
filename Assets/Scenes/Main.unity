@@ -2481,6 +2481,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617595244083563716, guid: b1f09c966f578fd44a649be5fd6f68bd,
         type: 3}
+      propertyPath: irisTimeSpent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617595244083563716, guid: b1f09c966f578fd44a649be5fd6f68bd,
+        type: 3}
+      propertyPath: roseTimeSpent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617595244083563716, guid: b1f09c966f578fd44a649be5fd6f68bd,
+        type: 3}
+      propertyPath: tulipTimeSpent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617595244083563716, guid: b1f09c966f578fd44a649be5fd6f68bd,
+        type: 3}
       propertyPath: playerCoinsText
       value: 
       objectReference: {fileID: 1684766596}

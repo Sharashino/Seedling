@@ -5,7 +5,6 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField] private SeedlingManager seedlingManager;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject timer;
     [SerializeField] private GameObject timerButtons;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isCounting;
@@ -78,8 +77,6 @@ public class TimeManager : MonoBehaviour
             default:
                 break;
         }
-
-        //seedlingManager.UpdateSeedlingPanels();
     }
 }
 

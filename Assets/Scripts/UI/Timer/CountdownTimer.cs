@@ -7,7 +7,6 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private float currentTime = 0f;
     [SerializeField] private float startingTime = 0f;
     [SerializeField] private GameObject timerButtons;
-    [SerializeField] private GameObject seedlingSelector;
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private ParticleSystem growParticles;
     [SerializeField] private GameManager gameManager;

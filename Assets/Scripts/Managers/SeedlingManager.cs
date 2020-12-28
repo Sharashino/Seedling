@@ -19,9 +19,9 @@ public class SeedlingManager : MonoBehaviour
 
     public void UpdateSeedlingPanels()
     {
-        foreach (Seed seedling in seeds)
+        for (int i = 0; i < seeds.Count; i++)
         {
-            seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel(seedling.itemName);
+            //seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel(seeds[i]);
         }
     }
 
