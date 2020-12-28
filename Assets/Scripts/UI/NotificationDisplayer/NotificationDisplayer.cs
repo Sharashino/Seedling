@@ -47,6 +47,14 @@ public class NotificationDisplayer : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
+    internal void PlantSeedlingFirst()
+    {
+        notifier.SetActive(true);
+        notifierText.text = "You need to plant a seedling first!";
+
+        StartCoroutine(FadeText());
+    }
+
     public void GrowSeedling(Seed grownSeedling)
     {
         notifier.SetActive(true);

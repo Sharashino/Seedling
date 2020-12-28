@@ -6,19 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public static AudioManager instance;
-
-
-
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (instance == null)
-        {
-            instance = this;
-        }
-
-            foreach (Sound sound in sounds)
+        foreach (Sound sound in sounds)
         {
             sound.audioSource = gameObject.AddComponent<AudioSource>();
             sound.audioSource.clip = sound.clip;
@@ -32,6 +22,7 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound("BackgroundSound");
     }
+
     public void PlaySound(string soundName)
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);

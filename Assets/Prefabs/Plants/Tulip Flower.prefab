@@ -110,3 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerName: Tulip Flower
   flowerObject: {fileID: 5688738673944872102}
+  flowerSeedling: {fileID: 11400000, guid: 87f46013ffc2fbe4593754372ce6d22c, type: 2}

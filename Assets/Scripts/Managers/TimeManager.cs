@@ -9,7 +9,19 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject timerButtons;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isCounting;
-    
+
+    private void Update()
+    {
+        if(isCounting)
+        {
+            timerButtons.SetActive(false);
+        }
+        else
+        {
+            timerButtons.SetActive(true);
+        }
+    }
+
     public bool GetIsCounting()
     {
         return isCounting;
@@ -35,7 +47,7 @@ public class TimeManager : MonoBehaviour
         {
             case "Iris Seeds":
                 {
-                    gameManager.SetIrisTimeSpent(120);
+                    gameManager.SetIrisTimeSpent(time);
 
                     if (gameManager.GetIrisTimeSpent() >= seedlingManager.GetCurrentSeedling().minutesToGrow)
                     {
@@ -66,6 +78,8 @@ public class TimeManager : MonoBehaviour
             default:
                 break;
         }
+
+        //seedlingManager.UpdateSeedlingPanels();
     }
 }
 

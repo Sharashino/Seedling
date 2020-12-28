@@ -5,6 +5,7 @@ public class Flower : MonoBehaviour
 {
     [SerializeField] private string flowerName;
     [SerializeField] private GameObject flowerObject;
+    [SerializeField] private Seed flowerSeedling;
 
     public void HarvestFlower(GameObject flowerToHarvest)
     {
@@ -15,5 +16,10 @@ public class Flower : MonoBehaviour
     public string GetFlowerName()
     {
         return flowerName;
+    }
+
+    public Seed GetFlowerSeedling()
+    {
+        return flowerSeedling;
     }
 }

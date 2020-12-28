@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +22,7 @@ public class DefineSeedling : MonoBehaviour
         seedlingCuriosity.text = seedling.seedlingCuriosity;
         seedlingImage.sprite = seedling.itemIcon;
 
-        switch (seedlingName.text.ToString())
+        switch (seedling.itemName)
         {
             case "Iris Seeds":
                 seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;
@@ -40,9 +38,9 @@ public class DefineSeedling : MonoBehaviour
         }
     }
 
-    public void UpdatePanel()
+    public void UpdatePanel(string seedlingName)
     {
-        switch (seedlingName.text.ToString())
+        switch (seedlingName)
         {
             case "Iris Seeds":
                 seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + seedling.minutesToGrow;

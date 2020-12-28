@@ -6,6 +6,7 @@ using UnityEngine;
 public class Seed : Item
 {
     public int coinsToUnlock;
+    public int harvestCoins;
     public int minutesToGrow;
     public bool isUnlocked = false;
     public string seedlingCuriosity;

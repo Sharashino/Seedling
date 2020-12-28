@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class SeedlingManager : MonoBehaviour
 {
@@ -14,10 +15,26 @@ public class SeedlingManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isReadyToHarvest;
 
+    public List<Seed> seeds = new List<Seed>();
+
+    public void UpdateSeedlingPanels()
+    {
+        foreach (Seed seedling in seeds)
+        {
+            seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel(seedling.itemName);
+        }
+    }
+
     public void PlantSeedling(Seed seedlingToPlant)
     {
         seedlingGround.PlantASeedling(seedlingToPlant);
         audioManager.PlaySound("PlaceSeedling");
+    }
+
+    public void DoneGrowing()
+    {
+        UpdateSeedlingPanels();
+        audioManager.PlaySound("DoneGrowing");
     }
 
     public void GrowFlower(Seed seedlingToGrow)
@@ -33,7 +50,6 @@ public class SeedlingManager : MonoBehaviour
         timeManager.SetTimerButtons(true);
         timeManager.SetTimerText("00:00:00");
 
-
         flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
         notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
 
@@ -42,20 +58,20 @@ public class SeedlingManager : MonoBehaviour
             case "Iris Flower":
                 {
                     gameManager.SetIrisTimeSpent(0);
-                    gameManager.SetPlayerCoins(15);
+                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
                 }
                 break;
             case "Rose Flower":
                 {
                     gameManager.SetRoseTimeSpent(0);
-                    gameManager.SetPlayerCoins(30);
+                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
 
                 }
                 break;
             case "Tulip Flower":
                 {
                     gameManager.SetTulipTimeSpent(0);
-                    gameManager.SetPlayerCoins(50);
+                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
                 }
                 break;
             default:
@@ -64,9 +80,9 @@ public class SeedlingManager : MonoBehaviour
 
         SetCurrentSeedling(null);
         SetIsReadyToHarvest(false);
+        UpdateSeedlingPanels();
         gameManager.UpdateCoins();
         audioManager.PlaySound("HarvestSeedling");
-        seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
     }
 
     public bool GetIsReadyToHarvest()

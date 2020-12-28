@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
-using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +28,7 @@ public class GameManager : MonoBehaviour
     public bool isSupporterUnlocked;
     public bool isIndianaJohnesUnlocked;
 
-    private void Start()
+    private void Awake()
     {
         playerName = ES3.Load<string>("playerName");
 
@@ -40,7 +37,7 @@ public class GameManager : MonoBehaviour
             isIndianaJohnesUnlocked = true;
         }
 
-        playerCoins = ES3.Load<int>("playerCoins", 0);
+        playerCoins = ES3.Load("playerCoins", 0);
 
         irisTimeSpent = ES3.Load("irisTimeSpent", 0);
         roseTimeSpent = ES3.Load("roseTimeSpent", 0);

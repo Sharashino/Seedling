@@ -110,3 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerName: Rose Flower
   flowerObject: {fileID: 6366895294701072855}
+  flowerSeedling: {fileID: 11400000, guid: b5bbec94526b94a42b66c7b978b472d1, type: 2}

@@ -29,6 +29,14 @@ public class CountdownTimer : MonoBehaviour
     {
         if (currentTime != 0)
         {
+            if(seedlingManager.GetCurrentSeedling() == null)
+            {
+                notificationDisplayer.PlantSeedlingFirst();
+                timer = 0;
+                FormatText();
+                return;
+            }
+
             timeManager.SetIsCounting(true);
             StartCoroutine(StartCountdown());
         }
@@ -53,8 +61,6 @@ public class CountdownTimer : MonoBehaviour
 
     private IEnumerator StartCountdown()
     {
-        timeManager.SetTimerButtons(false);
-
         startingTime = timer / 60;
 
         while (timer >= 0)
@@ -64,29 +70,26 @@ public class CountdownTimer : MonoBehaviour
             yield return null;
         }
 
-        timeManager.SetTimerText("Time's up!");
-        timeManager.SetIsCounting(false);
-
         //if player spent 1 minute on plant fix syntax
         if (startingTime == 1)
         {
             notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.GetCurrentSeedling());
             gameManager.SetAllTimeSpent(1);
             gameManager.SetPlayerCoins(1);
-            timeManager.SetSpentTime(1);
             gameManager.UpdateCoins();
+            timeManager.SetSpentTime(1);
         }
         else
         {
             notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.GetCurrentSeedling());
             gameManager.SetAllTimeSpent((int)startingTime);
             gameManager.SetPlayerCoins((int)startingTime);
-            timeManager.SetSpentTime((int)startingTime);
             gameManager.UpdateCoins();
+            timeManager.SetSpentTime((int)startingTime);
         }
-
-        //after done with timer update seedling selector timers and spawn particles
-        seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel();
+        
+        timeManager.SetIsCounting(false);
+        seedlingManager.DoneGrowing();
         CreateGrowParticles();
         
         //reset the timer

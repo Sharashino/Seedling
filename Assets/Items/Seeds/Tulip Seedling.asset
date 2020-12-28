@@ -18,6 +18,7 @@ MonoBehaviour:
   itemObject: {fileID: 485314473356339601, guid: ba72e401a5972434a8af603273e729ec,
     type: 3}
   coinsToUnlock: 300
+  harvestCoins: 50
   minutesToGrow: 240
   isUnlocked: 0
   seedlingCuriosity: "At one point in history, tulips were the most expensive flower.

@@ -26,6 +26,7 @@ public class LockPanel : MonoBehaviour
         if (gameManager.GetPlayerCoins() >= seedling.coinsToUnlock)
         {
             gameManager.SetPlayerCoins(-seedling.coinsToUnlock);
+
             switch (seedling.itemName)
             {
                 case "Iris Seeds":
@@ -55,13 +56,46 @@ public class LockPanel : MonoBehaviour
 
     private void PanelLock()
     {
-        if (!seedling.isUnlocked)
+        switch (seedling.itemName)
         {
-            lockPanel.gameObject.SetActive(true);
-        }
-        else
-        {
-            lockPanel.gameObject.SetActive(false);
+            case "Iris Seeds":
+                {
+                    if(gameManager.isIrisUnlocked)
+                    {
+                        lockPanel.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lockPanel.gameObject.SetActive(true);
+                    }
+                    break;
+                }
+            case "Rose Seeds":
+                {
+                    if (gameManager.isRoseUnlocked)
+                    {
+                        lockPanel.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lockPanel.gameObject.SetActive(true);
+                    }
+                    break;
+                }
+            case "Tulip Seeds":
+                {
+                    if (gameManager.isTulipUnlocked)
+                    {
+                        lockPanel.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lockPanel.gameObject.SetActive(true);
+                    }
+                    break;
+                }
+            default:
+                break;
         }
     }
 

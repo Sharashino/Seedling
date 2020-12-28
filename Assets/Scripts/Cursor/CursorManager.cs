@@ -7,6 +7,7 @@ public class CursorManager : MonoBehaviour
     [SerializeField] Texture2D cursorTexture;
     [SerializeField] Texture2D cursorClickedTexture;
     private CursorControls cursorControls;
+    private int UIObjects = -1;
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class CursorManager : MonoBehaviour
         {
             if(hit.collider != null)
             {
-                if(EventSystem.current.IsPointerOverGameObject(-1))
+                if(EventSystem.current.IsPointerOverGameObject(UIObjects))
                 {
                     return;
                 }
