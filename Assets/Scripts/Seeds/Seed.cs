@@ -9,5 +9,6 @@ public class Seed : Item
     public int harvestCoins;
     public int minutesToGrow;
     public bool isUnlocked = false;
+    public bool isDoneGrowing = false;
     public string seedlingCuriosity;
 }

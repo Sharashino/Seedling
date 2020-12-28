@@ -35,6 +35,13 @@ public class CountdownTimer : MonoBehaviour
                 FormatText();
                 return;
             }
+            else if(seedlingManager.GetCurrentSeedling().isDoneGrowing)
+            {
+                notificationDisplayer.HarvestReminder();
+                timer = 0;
+                FormatText();
+                return;
+            }
 
             timeManager.SetIsCounting(true);
             StartCoroutine(StartCountdown());

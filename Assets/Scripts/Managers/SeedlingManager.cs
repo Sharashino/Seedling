@@ -17,14 +17,6 @@ public class SeedlingManager : MonoBehaviour
 
     public List<Seed> seeds = new List<Seed>();
 
-    public void UpdateSeedlingPanels()
-    {
-        for (int i = 0; i < seeds.Count; i++)
-        {
-            //seedlingSelector.GetComponentInChildren<DefineSeedling>().UpdatePanel(seeds[i]);
-        }
-    }
-
     public void PlantSeedling(Seed seedlingToPlant)
     {
         seedlingGround.PlantASeedling(seedlingToPlant);
@@ -33,12 +25,12 @@ public class SeedlingManager : MonoBehaviour
 
     public void DoneGrowing()
     {
-        UpdateSeedlingPanels();
         audioManager.PlaySound("DoneGrowing");
     }
 
     public void GrowFlower(Seed seedlingToGrow)
     {
+        seedlingToGrow.isDoneGrowing = true;
         currentSeedling.itemObject.GetComponent<Seedling>().GrowFlower(currentSeedling.itemObject, seedlingGround.gameObject);
         notificationDisplayer.GrowSeedling(seedlingToGrow);
         audioManager.PlaySound("GrowthComplete");
@@ -47,12 +39,6 @@ public class SeedlingManager : MonoBehaviour
 
     public void HarvestFlower(Flower flowerToHarvest)
     {
-        timeManager.SetTimerButtons(true);
-        timeManager.SetTimerText("00:00:00");
-
-        flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
-        notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
-
         switch (flowerToHarvest.GetFlowerName())
         {
             case "Iris Flower":
@@ -78,10 +64,15 @@ public class SeedlingManager : MonoBehaviour
                 break;
         }
 
+        notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
+        
+        GetCurrentSeedling().isDoneGrowing = false;
+        flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
+
         SetCurrentSeedling(null);
         SetIsReadyToHarvest(false);
-        UpdateSeedlingPanels();
         gameManager.UpdateCoins();
+        timeManager.SetTimerButtons(true);
         audioManager.PlaySound("HarvestSeedling");
     }
 
