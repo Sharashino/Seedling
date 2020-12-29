@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     public bool isSupporterUnlocked;
     public bool isIndianaJohnesUnlocked;
 
+    [Header("Sounds")]
+    [SerializeField] private bool isBackgroundMuted;
+
     private void Awake()
     {
         playerName = ES3.Load<string>("playerName");
@@ -52,6 +55,9 @@ public class GameManager : MonoBehaviour
         isSeedlerUnlocked = ES3.Load("isSeedlerUnlocked", false);
         isSupporterUnlocked = ES3.Load("isSupporterUnlocked", false);
         isIndianaJohnesUnlocked = ES3.Load("isIndianaJohnesUnlocked", false);
+
+        isBackgroundMuted = ES3.Load("isAllMuted", false);
+        isBackgroundMuted = ES3.Load("isBackgroundMuted", false);
 
         playerCoinsText.text = playerCoins.ToString();
     }
@@ -95,6 +101,9 @@ public class GameManager : MonoBehaviour
         ES3.Save("isSeedlerUnlocked", isSeedlerUnlocked);
         ES3.Save("isSupporterUnlocked", isSupporterUnlocked);
         ES3.Save("isIndianaJohnesUnlocked", isIndianaJohnesUnlocked);
+
+        ES3.Save("isAllMuted", isBackgroundMuted);
+        ES3.Save("isBackgroundMuted", isBackgroundMuted);
     }
 
     public string GetPlayerName()
@@ -172,5 +181,20 @@ public class GameManager : MonoBehaviour
         {
             return allTimeSpent += time;
         }
+    }
+
+    public bool GetIsAllMuted()
+    {
+        return isBackgroundMuted;
+    }
+
+    public bool GetIsBackgroundMuted()
+    {
+        return isBackgroundMuted;
+    }
+
+    public bool SetIsBackgroundMuted(bool state)
+    {
+        return isBackgroundMuted = state;
     }
 }

@@ -230,6 +230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
         type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 437343988}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
       propertyPath: sounds.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -704,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &976453412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3146,10 +3151,50 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1459683117}
+    - target: {fileID: 8161248345193701923, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: m_text
+      value: Mute background
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345193701923, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345193701923, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -69.0218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345193701923, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345244640447, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345244640447, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1459683117}
     - target: {fileID: 8161248345244640447, guid: 55598ababb7aba743a34f985bb699489,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1459683117}
+    - target: {fileID: 8161248345244640447, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MuteAllSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161248345244640447, guid: 55598ababb7aba743a34f985bb699489,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55598ababb7aba743a34f985bb699489, type: 3}
