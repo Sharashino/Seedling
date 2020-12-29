@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
             
             foreach (Sound sound in sounds)
             {
-                sound.volume = 0;
+                sound.volume = 1;
             }
 
             gameManager.SetIsBackgroundMuted(false);

@@ -58,7 +58,10 @@ public class GameManager : MonoBehaviour
 
         isBackgroundMuted = ES3.Load("isAllMuted", false);
         isBackgroundMuted = ES3.Load("isBackgroundMuted", false);
+    }
 
+    private void Start()
+    {
         playerCoinsText.text = playerCoins.ToString();
     }
 
