@@ -9,8 +9,4 @@ public class Item : ScriptableObject
     public string itemName = "New item";
     public string itemDesc = "Item description";
     public GameObject itemObject;
-    public virtual void Use()
-    {
-
-    }
 }

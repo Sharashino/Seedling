@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 6366895294701072852}
   - component: {fileID: 6366895294701072853}
   - component: {fileID: 6366895294701072854}
+<<<<<<< HEAD
   - component: {fileID: -8470662432967976060}
+=======
+  - component: {fileID: 5309662460241199635}
+>>>>>>> patch-01
   m_Layer: 0
   m_Name: Rose Flower
   m_TagString: Flower
@@ -96,14 +100,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &-8470662432967976060
 AudioSource:
+=======
+--- !u!114 &5309662460241199635
+MonoBehaviour:
+>>>>>>> patch-01
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6366895294701072855}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: af81472db6936c94fbd910629689ccf4, type: 3}
@@ -192,3 +202,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowerName: Rose Flower
+  flowerObject: {fileID: 6366895294701072855}
+  flowerSeedling: {fileID: 11400000, guid: b5bbec94526b94a42b66c7b978b472d1, type: 2}
+>>>>>>> patch-01

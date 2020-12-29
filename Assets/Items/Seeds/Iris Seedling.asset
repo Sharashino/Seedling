@@ -18,6 +18,7 @@ MonoBehaviour:
   itemObject: {fileID: 9195059183565728674, guid: 414cecf65ca836641983a49ccc865461,
     type: 3}
   coinsToUnlock: 250
+  harvestCoins: 30
   minutesToGrow: 120
   isUnlocked: 0
   canBeHarvested: 0

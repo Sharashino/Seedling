@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3283020778714457328}
   m_Layer: 5
   m_Name: SeedlingImage
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3283020779066277619}
   m_Layer: 5
   m_Name: SeedlingPanel
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,8 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationDisplayer: {fileID: 0}
   groundToPlant: {fileID: 0}
-  timer: {fileID: 0}
   gameManager: {fileID: 0}
+  seedlingManager: {fileID: 0}
+  timer: {fileID: 0}
   seedlingSelector: {fileID: 0}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
@@ -168,7 +169,7 @@ GameObject:
   - component: {fileID: 3283020778778402705}
   m_Layer: 5
   m_Name: UnlockButton
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +302,7 @@ GameObject:
   - component: {fileID: 1705874267465825947}
   m_Layer: 5
   m_Name: SeedlingButton
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,8 +422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationDisplayer: {fileID: 0}
   groundToPlant: {fileID: 0}
-  timer: {fileID: 0}
   gameManager: {fileID: 0}
+  seedlingManager: {fileID: 0}
+  timer: {fileID: 0}
   seedlingSelector: {fileID: 3283020778766948480}
   seedlingName: {fileID: 3283020779338550356}
   seedlingTime: {fileID: 2577390260685322654}
@@ -440,7 +442,7 @@ GameObject:
   - component: {fileID: 3283020779189867656}
   m_Layer: 5
   m_Name: SeedlingInfo
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,7 +483,7 @@ GameObject:
   - component: {fileID: 3283020779202462694}
   m_Layer: 5
   m_Name: LockText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,7 +618,7 @@ GameObject:
   - component: {fileID: 3283020779326508731}
   m_Layer: 5
   m_Name: CoinImage
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -691,7 +693,7 @@ GameObject:
   - component: {fileID: 3283020779338550356}
   m_Layer: 5
   m_Name: SeedlingNameText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,7 +828,7 @@ GameObject:
   - component: {fileID: 3283020779693636151}
   m_Layer: 5
   m_Name: UnlockButtonText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -961,7 +963,7 @@ GameObject:
   - component: {fileID: 3283020779716373328}
   m_Layer: 5
   m_Name: CoinsRequiredText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1096,7 +1098,7 @@ GameObject:
   - component: {fileID: 3283020779890318455}
   m_Layer: 5
   m_Name: SeedlingFactText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1231,7 +1233,7 @@ GameObject:
   - component: {fileID: 3283020780080344953}
   m_Layer: 5
   m_Name: PadlockImage
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1306,7 +1308,7 @@ GameObject:
   - component: {fileID: 3283020780641721642}
   m_Layer: 5
   m_Name: SeedlingLockPanel
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1425,6 +1427,16 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1029944188556768902, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029944188556768903, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -106.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2104168489841466312, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1529,6 +1541,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404044406786665069, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037089573815601813, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77.700005
       objectReference: {fileID: 0}
     - target: {fileID: 4855619976012342322, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
@@ -1635,10 +1657,20 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5120113156961842021, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 9107021953053340996, guid: 0e2d6c3db9870aa429af7c052b931067,
         type: 3}
       propertyPath: m_Name
       value: SeedlingTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107021953053340996, guid: 0e2d6c3db9870aa429af7c052b931067,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2d6c3db9870aa429af7c052b931067, type: 3}
