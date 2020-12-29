@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
         playerCoinsText.text = playerCoins.ToString();
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnApplicationQuit()
     {
         ES3.Save("playerName", playerName);
