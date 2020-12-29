@@ -108,14 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a654ef1043dcf4d965179978c7548e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  flowerName: Rose Flower
-  flowerObject: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
-=======
   seedlingName: Rose Seedling
   seedlingObject: {fileID: 7539906995714841711}
   seedlingFlower: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
->>>>>>> patch-01
-    type: 3}
-  grownFlower: {fileID: 6366895294701072855, guid: 144683c1de6443f4b8465aa0aa6ac27c,
     type: 3}
