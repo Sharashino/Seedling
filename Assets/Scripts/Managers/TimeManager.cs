@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
@@ -18,6 +18,45 @@ public class TimeManager : MonoBehaviour
         else
         {
             timerButtons.SetActive(true);
+        }
+    }
+
+    public void SetSeedlingSpentTime(int time)
+    {
+        switch (seedlingManager.CurrentSeedling.seedlingType)
+        {
+            case SeedlingTypes.IrisSeed:
+                {
+                    gameManager.IrisTimeSpent = time;
+
+                    if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                    {
+                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                    }
+                }
+                break;
+            case SeedlingTypes.RoseSeed:
+                {
+                    gameManager.RoseTimeSpent = time;
+
+                    if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                    {
+                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                    }
+                }
+                break;
+            case SeedlingTypes.TulipSeed:
+                {
+                    gameManager.TulipTimeSpent = time;
+
+                    if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                    {
+                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
 
@@ -42,45 +81,6 @@ public class TimeManager : MonoBehaviour
         set
         {
             timerButtons.SetActive(value);
-        }
-    }
-
-    public void SetSpentTime(int time)
-    {
-        switch (seedlingManager.CurrentSeedling.itemName)
-        {
-            case "Iris Seeds":
-                {
-                    gameManager.IrisTimeSpent = time;
-
-                    if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
-                    {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
-                    }
-                }
-                break;
-            case "Rose Seeds":
-                {
-                    gameManager.RoseTimeSpent = time;
-
-                    if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
-                    {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
-                    }
-                }
-                break;
-            case "Tulip Seeds":
-                {
-                    gameManager.TulipTimeSpent = time;
-
-                    if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
-                    {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
-                    }
-                }
-                break;
-            default:
-                break;
         }
     }
 }

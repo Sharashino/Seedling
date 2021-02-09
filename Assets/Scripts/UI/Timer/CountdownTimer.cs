@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
+using System.Collections;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -83,7 +83,7 @@ public class CountdownTimer : MonoBehaviour
             gameManager.AllTimeSpent = 1;
             gameManager.PlayerCoins = 1;
             gameManager.UpdateCoins();
-            timeManager.SetSpentTime(1);
+            timeManager.SetSeedlingSpentTime(1);
         }
         else
         {
@@ -91,7 +91,7 @@ public class CountdownTimer : MonoBehaviour
             gameManager.AllTimeSpent = (int)startingTime;
             gameManager.PlayerCoins = (int)startingTime;
             gameManager.UpdateCoins();
-            timeManager.SetSpentTime((int)startingTime);
+            timeManager.SetSeedlingSpentTime((int)startingTime);
         }
         
         timeManager.IsCounting = false;
