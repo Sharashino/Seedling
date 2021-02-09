@@ -9,6 +9,7 @@ public class IntroductionManager : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Image seedlingLogoImage;
     [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private TMP_Text nameInputFieldText;
     [SerializeField] private TMP_Text niceToMeetYouText;
     [SerializeField] private GameObject inputGroup;
     [SerializeField] private GameObject nextButton;
@@ -47,9 +48,9 @@ public class IntroductionManager : MonoBehaviour
     private void AnotherGameRun()
     {
         var playerName = "xd";
-        gameManager.SetPlayerName(ES3.LoadString("playerName", playerName));
+        gameManager.PlayerName = ES3.LoadString("playerName", playerName);
         inputGroup.SetActive(false);
-        niceToMeetYouText.text = "Welcome back " + gameManager.GetPlayerName() + "!";
+        niceToMeetYouText.text = "Welcome back " + gameManager.PlayerName + "!";
         StartCoroutine(FadeLogoAndText());
     }
 
@@ -113,6 +114,8 @@ public class IntroductionManager : MonoBehaviour
     //Toggle next button off when input field is empty
     private void NextButtonToggler()
     {
+        string playerInput = nameInputField.text;
+
         if (nameInputField.text == "")
         {
             nextButton.SetActive(false);

@@ -2,6 +2,7 @@
 
 public class Flower : MonoBehaviour
 {
+    [SerializeField] private FlowerTypes flowerType;
     [SerializeField] private string flowerName;
     [SerializeField] private GameObject flowerObject;
     [SerializeField] private Seed flowerSeedling;
@@ -12,13 +13,27 @@ public class Flower : MonoBehaviour
         Destroy(flowerToHarvest);
     }
 
-    public string GetFlowerName()
+    public string FlowerName
+    { 
+        get
+        {
+            return flowerName;
+        }
+    }
+    
+    public FlowerTypes FlowerType
     {
-        return flowerName;
+        get
+        {
+            return flowerType;
+        }
     }
 
-    public Seed GetFlowerSeedling()
+    public Seed FlowerSeedling
     {
-        return flowerSeedling;
+        get
+        {
+            return flowerSeedling;
+        }
     }
 }

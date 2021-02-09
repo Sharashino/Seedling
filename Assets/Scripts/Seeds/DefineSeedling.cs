@@ -22,16 +22,16 @@ public class DefineSeedling : MonoBehaviour
         seedlingCuriosity.text = seedling.seedlingCuriosity;
         seedlingImage.sprite = seedling.itemIcon;
 
-        switch (seedling.itemName)
+        switch (seedling.seedlingType)
         {
-            case "Iris Seeds":
-                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.IrisSeed:
+                seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
                 break;
-            case "Rose Seeds":
-                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.RoseSeed:
+                seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
                 break;
-            case "Tulip Seeds":
-                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.TulipSeed:
+                seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
                 break;
             default:
                 break;
@@ -43,18 +43,18 @@ public class DefineSeedling : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        switch (seedling.itemName)
+        switch (seedling.seedlingType)
         {
-            case "Iris Seeds":
-                seedlingTime.text = gameManager.GetIrisTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.IrisSeed:
+                seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
                 //Debug.Log(seedlingTime.text);
                 break;
-            case "Rose Seeds":
-                seedlingTime.text = gameManager.GetRoseTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.RoseSeed:
+                seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
                 //Debug.Log(seedlingTime.text);
                 break;
-            case "Tulip Seeds":
-                seedlingTime.text = gameManager.GetTulipTimeSpent() + " / " + ReturnSeed().minutesToGrow;
+            case SeedlingTypes.TulipSeed:
+                seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
                 //Debug.Log(seedlingTime.text);
                 break;
             default:
@@ -64,26 +64,26 @@ public class DefineSeedling : MonoBehaviour
 
     public void ChoseSeedling()
     {
-        if (seedlingManager.GetCurrentSeedling() == null)
+        if (seedlingManager.CurrentSeedling == null)
         {
             timer.SetActive(true);
-            seedlingManager.SetCurrentSeedling(seedling);
+            seedlingManager.CurrentSeedling = seedling;
             seedlingManager.PlantSeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
-        else if (seedlingManager.GetCurrentSeedling() != seedling && !seedlingManager.GetIsReadyToHarvest())
+        else if (seedlingManager.CurrentSeedling != seedling && !seedlingManager.IsReadyToHarvest)
         {
             timer.SetActive(true);
-            seedlingManager.SetCurrentSeedling(seedling);
+            seedlingManager.CurrentSeedling = seedling;
             seedlingManager.PlantSeedling(seedling);
             notificationDisplayer.PlantedSeedling(seedling);
         }
-        else if (seedlingManager.GetCurrentSeedling() == seedling && !seedlingManager.GetIsReadyToHarvest())
+        else if (seedlingManager.CurrentSeedling == seedling && !seedlingManager.IsReadyToHarvest)
         {
             timer.SetActive(true);
             notificationDisplayer.YouPlantedThisArleady();
         }
-        else if(seedlingManager.GetIsReadyToHarvest())
+        else if(seedlingManager.IsReadyToHarvest)
         {
             timer.SetActive(true);
             notificationDisplayer.HarvestReminder();
@@ -94,8 +94,11 @@ public class DefineSeedling : MonoBehaviour
         }
     }
 
-    public Seed ReturnSeed()
+    public Seed Seedling
     {
-        return seedling;
+        get
+        {
+            return seedling;
+        }
     }
 }

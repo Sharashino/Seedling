@@ -28,14 +28,14 @@ public class CountdownTimer : MonoBehaviour
     {
         if (currentTime != 0)
         {
-            if(seedlingManager.GetCurrentSeedling() == null)
+            if(seedlingManager.CurrentSeedling == null)
             {
                 notificationDisplayer.PlantSeedlingFirst();
                 timer = 0;
                 FormatText();
                 return;
             }
-            else if(seedlingManager.GetCurrentSeedling().isDoneGrowing)
+            else if(seedlingManager.CurrentSeedling.isDoneGrowing)
             {
                 notificationDisplayer.HarvestReminder();
                 timer = 0;
@@ -43,7 +43,7 @@ public class CountdownTimer : MonoBehaviour
                 return;
             }
 
-            timeManager.SetIsCounting(true);
+            timeManager.IsCounting = true;
             StartCoroutine(StartCountdown());
         }
     }
@@ -79,22 +79,22 @@ public class CountdownTimer : MonoBehaviour
         //if player spent 1 minute on plant fix syntax
         if (startingTime == 1)
         {
-            notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.GetCurrentSeedling());
-            gameManager.SetAllTimeSpent(1);
-            gameManager.SetPlayerCoins(1);
+            notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.CurrentSeedling);
+            gameManager.AllTimeSpent = 1;
+            gameManager.PlayerCoins = 1;
             gameManager.UpdateCoins();
             timeManager.SetSpentTime(1);
         }
         else
         {
-            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.GetCurrentSeedling());
-            gameManager.SetAllTimeSpent((int)startingTime);
-            gameManager.SetPlayerCoins((int)startingTime);
+            notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.CurrentSeedling);
+            gameManager.AllTimeSpent = (int)startingTime;
+            gameManager.PlayerCoins = (int)startingTime;
             gameManager.UpdateCoins();
             timeManager.SetSpentTime((int)startingTime);
         }
         
-        timeManager.SetIsCounting(false);
+        timeManager.IsCounting = false;
         seedlingManager.DoneGrowing();
         CreateGrowParticles();
         

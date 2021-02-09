@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     public Sound[] sounds;
-
 
     private void Awake()
     {
@@ -22,7 +20,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if(gameManager.GetIsAllMuted())
+        if(gameManager.IsBackgroundMuted)
         {
             return;
         }
@@ -47,7 +45,7 @@ public class AudioManager : MonoBehaviour
 
     public void MuteAllSounds()
     {
-        if(gameManager.GetIsAllMuted())
+        if(gameManager.IsBackgroundMuted)
         {
             PlaySound("BackgroundSound");
             
@@ -56,7 +54,7 @@ public class AudioManager : MonoBehaviour
                 sound.volume = 1;
             }
 
-            gameManager.SetIsBackgroundMuted(false);
+            gameManager.IsBackgroundMuted = false;
         }
         else
         {
@@ -66,7 +64,7 @@ public class AudioManager : MonoBehaviour
                 sound.volume = 0;
             }
             
-            gameManager.SetIsBackgroundMuted(true);
+            gameManager.IsBackgroundMuted = false;
         }
     }
 }

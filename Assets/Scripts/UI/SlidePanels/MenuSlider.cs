@@ -71,11 +71,11 @@ public class MenuSlider : MonoBehaviour
                     menuBarAnimator.SetBool("showBar", !isOpen);
                     trophyPanelAnimator.SetBool("showTrophyPanel", !isTrophyPanelOpen);
                 }
-                else if(!isTrophyBarOpen && !isTrophyPanelOpen && !isSelectorOpen && !timeManager.GetIsCounting())
+                else if(!isTrophyBarOpen && !isTrophyPanelOpen && !isSelectorOpen && !timeManager.IsCounting)
                 {
                     menuBarAnimator.SetBool("showBar", !isOpen);
                 }
-                else if(timeManager.GetIsCounting())
+                else if(timeManager.IsCounting)
                 {
                     notificationDisplayer.WaitTillTimerDone();
                 }

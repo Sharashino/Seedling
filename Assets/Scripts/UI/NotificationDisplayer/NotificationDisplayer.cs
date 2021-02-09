@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
+using System.Collections;
 
 public class NotificationDisplayer : MonoBehaviour
 {
@@ -81,7 +81,7 @@ public class NotificationDisplayer : MonoBehaviour
     public void HarvestFlower(Flower flowerToHarvest)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have harvested " + flowerToHarvest.GetFlowerName() + "!";
+        notifierText.text = "You have harvested " + flowerToHarvest.FlowerName + "!";
 
         StartCoroutine(FadeText());
     }
