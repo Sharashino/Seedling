@@ -34,30 +34,30 @@ public class SeedlingManager : MonoBehaviour
         currentSeedling.itemObject.GetComponent<Seedling>().GrowFlower(currentSeedling.itemObject, seedlingGround.gameObject);
         notificationDisplayer.GrowSeedling(seedlingToGrow);
         audioManager.PlaySound("GrowthComplete");
-        SetIsReadyToHarvest(true);
+        isReadyToHarvest = true;
     }
 
     public void HarvestFlower(Flower flowerToHarvest)
     {
-        switch (flowerToHarvest.GetFlowerName())
+        switch (flowerToHarvest.FlowerType)
         {
-            case "Iris Flower":
+            case FlowerTypes.IrisFlower:
                 {
-                    gameManager.SetIrisTimeSpent(0);
-                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
+                    gameManager.IrisTimeSpent = 0;
+                    gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
                 }
                 break;
-            case "Rose Flower":
+            case FlowerTypes.RoseFlower:
                 {
-                    gameManager.SetRoseTimeSpent(0);
-                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
+                    gameManager.RoseTimeSpent = 0;
+                    gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
 
                 }
                 break;
-            case "Tulip Flower":
+            case FlowerTypes.TulipFlower:
                 {
-                    gameManager.SetTulipTimeSpent(0);
-                    gameManager.SetPlayerCoins(flowerToHarvest.GetFlowerSeedling().harvestCoins);
+                    gameManager.TulipTimeSpent = 0;
+                    gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
                 }
                 break;
             default:
@@ -66,33 +66,37 @@ public class SeedlingManager : MonoBehaviour
 
         notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
         
-        GetCurrentSeedling().isDoneGrowing = false;
+        currentSeedling.isDoneGrowing = false;
         flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
 
-        SetCurrentSeedling(null);
-        SetIsReadyToHarvest(false);
+        currentSeedling = null;
+        IsReadyToHarvest = false;
         gameManager.UpdateCoins();
-        timeManager.SetTimerButtons(true);
+        timeManager.TimerButtons = false;
         audioManager.PlaySound("HarvestSeedling");
     }
 
-    public bool GetIsReadyToHarvest()
+    public bool IsReadyToHarvest
     {
-        return isReadyToHarvest;
+        get
+        {
+            return isReadyToHarvest;
+        }
+        set
+        {
+            isReadyToHarvest = value;
+        }
     }
 
-    public Seed GetCurrentSeedling()
+    public Seed CurrentSeedling
     {
-        return currentSeedling;
+        get
+        {
+            return currentSeedling;
+        }
+        set
+        {
+            currentSeedling = value;
+        }
     }
-
-    public Seed SetCurrentSeedling(Seed seedlingToAssing)
-    {
-        return currentSeedling = seedlingToAssing;
-    }
-    public bool SetIsReadyToHarvest(bool isReady)
-    {
-        return isReadyToHarvest = isReady;
-    }
-
 }

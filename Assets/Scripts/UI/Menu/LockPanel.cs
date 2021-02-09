@@ -16,16 +16,16 @@ public class LockPanel : MonoBehaviour
 
     private void Start()
     {
-        seedling = buttonPanel.GetComponent<DefineSeedling>().ReturnSeed();
+        seedling = buttonPanel.GetComponent<DefineSeedling>().Seedling;
         PanelLock();
         requiredCoins.text = seedling.coinsToUnlock.ToString();
     }
 
     private void UnlockPanel()
     {
-        if (gameManager.GetPlayerCoins() >= seedling.coinsToUnlock)
+        if (gameManager.PlayerCoins >= seedling.coinsToUnlock)
         {
-            gameManager.SetPlayerCoins(-seedling.coinsToUnlock);
+            gameManager.PlayerCoins -= seedling.coinsToUnlock;
 
             switch (seedling.itemName)
             {
@@ -101,6 +101,6 @@ public class LockPanel : MonoBehaviour
 
     private void UpdateCoins()
     {
-        coinsText.text = gameManager.GetPlayerCoins().ToString();
+        coinsText.text = gameManager.PlayerCoins.ToString();
     }
 }

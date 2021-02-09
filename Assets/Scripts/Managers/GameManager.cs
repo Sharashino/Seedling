@@ -114,95 +114,103 @@ public class GameManager : MonoBehaviour
         ES3.Save("isBackgroundMuted", isBackgroundMuted);
     }
 
-    public string GetPlayerName()
+    #region Properties
+
+    public string PlayerName
     {
-        return playerName;
-    }
-    public int GetPlayerCoins()
-    {
-        return playerCoins;
-    }
-    public int GetIrisTimeSpent()
-    {
-        return irisTimeSpent;
-    }
-    public int GetRoseTimeSpent()
-    {
-        return roseTimeSpent;
-    }
-    public int GetTulipTimeSpent()
-    {
-        return tulipTimeSpent;
-    }
-    public int GetAllTimeSpent()
-    {
-        return allTimeSpent;
-    }
-    public string SetPlayerName(string name)
-    {
-        return playerName = name;
-    }
-    public int SetPlayerCoins(int coins)
-    {
-        return playerCoins += coins;
-    }
-    public int SetIrisTimeSpent(int time)
-    {
-        if(time == 0)
+        get
         {
-            return irisTimeSpent = 0;
+            return playerName;
         }
-        else
+        set
         {
-            return irisTimeSpent += time;
-        }
-    }
-    public int SetRoseTimeSpent(int time)
-    {
-        if (time == 0)
-        {
-            return roseTimeSpent = 0;
-        }
-        else
-        {
-            return roseTimeSpent += time;
-        }
-    }
-    public int SetTulipTimeSpent(int time)
-    {
-        if (time == 0)
-        {
-            return tulipTimeSpent = 0;
-        }
-        else
-        {
-            return tulipTimeSpent += time;
-        }
-    }
-    public int SetAllTimeSpent(int time)
-    {
-        if (time == 0)
-        {
-            return allTimeSpent = 0;
-        }
-        else
-        {
-            return allTimeSpent += time;
+            playerName = value;
         }
     }
 
-    public bool GetIsAllMuted()
+    public int PlayerCoins
     {
-        return isBackgroundMuted;
+        get
+        {
+            return playerCoins;
+        }
+        set
+        {
+            playerCoins += value;
+        }
     }
 
-    public bool GetIsBackgroundMuted()
+    public int IrisTimeSpent
     {
-        return isBackgroundMuted;
+        get
+        {
+            return irisTimeSpent;
+        }
+        set
+        {
+            if (value == 0)
+                irisTimeSpent = 0;
+            else
+                irisTimeSpent = value;
+        }
     }
 
-    public bool SetIsBackgroundMuted(bool state)
+    public int RoseTimeSpent
     {
-        return isBackgroundMuted = state;
+        get
+        {
+            return roseTimeSpent;
+        }
+        set
+        {
+            if(value == 0)
+                roseTimeSpent = 0;
+            else
+                roseTimeSpent = value;
+        }
     }
+
+    public int TulipTimeSpent
+    {
+        get
+        {
+            return tulipTimeSpent;
+        }
+        set
+        {
+            if (value == 0)
+                tulipTimeSpent = 0;
+            else
+                tulipTimeSpent = value;
+        }
+    }
+
+    public int AllTimeSpent
+    {
+        get
+        {
+            return allTimeSpent;
+        }
+        set
+        {
+            if (value == 0)
+                allTimeSpent = 0;
+            else
+                allTimeSpent = value;
+        }
+    }
+
+    public bool IsBackgroundMuted
+    {
+        get
+        {
+            return isBackgroundMuted;
+        }
+        set
+        {
+            isBackgroundMuted = value;
+        }
+    }
+
+    #endregion
 }

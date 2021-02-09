@@ -2,11 +2,12 @@
 
 public class Ground : MonoBehaviour
 {
-    public ParticleSystem plantParticles;
-    public GameObject grownPlant;
-    public GameObject potGround;
-    public bool hasSeedling = false;
-    GameObject newSeedling;
+    [SerializeField] private ParticleSystem plantParticles;
+    [SerializeField] private  GameObject grownPlant;
+    [SerializeField] private GameObject potGround;
+    [SerializeField] private bool hasSeedling = false;
+    private GameObject newSeedling;
+
     public void PlantASeedling(Seed seedlingToPlant)
     {
         //if ground has no seedling plant a new one
@@ -25,7 +26,6 @@ public class Ground : MonoBehaviour
 
             seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
-
         }
         else
         {
@@ -42,7 +42,6 @@ public class Ground : MonoBehaviour
             
             seedlingTransform.position = seedlingPosition;
             seedlingTransform.parent = potGround.transform;
-
         }
     }
 
@@ -57,8 +56,6 @@ public class Ground : MonoBehaviour
         Vector3 position = seedlingTransform.position;
         position.x = potTransform.position.x;
         position.y = potTransform.position.y + 0.13f;
-        position.z = potTransform.position.z;
-
 
         return position;
     }

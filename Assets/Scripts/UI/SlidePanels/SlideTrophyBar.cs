@@ -51,7 +51,7 @@ public class SlideTrophyBar : MonoBehaviour
         }
     }
 
-    private void ShowHideTrophyBar()
+    public void ShowHideTrophyBar()
     {
         if (trophyBar != null)
         {
