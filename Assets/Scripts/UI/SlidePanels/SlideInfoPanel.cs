@@ -10,16 +10,13 @@ public class SlideInfoPanel : MonoBehaviour
         if (infoPanel != null)
         {
             Animator panelInfoAnimator = infoPanel.GetComponent<Animator>();
-            Animator menuBarAnimator = menuBar.GetComponent<Animator>();
             //Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
 
             if (panelInfoAnimator != null)
             {
                 bool isInfoPanelOpen = panelInfoAnimator.GetBool("showInfoPanel");
-                bool isMenuBarOpen = menuBarAnimator.GetBool("showBar");
 
                 panelInfoAnimator.SetBool("showInfoPanel", !isInfoPanelOpen);
-                menuBarAnimator.SetBool("showBar", !isMenuBarOpen);
             }
         }
     }

@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //sprawdzenie
+
+
+
         playerName = ES3.Load<string>("playerName");
 
         if(playerName == "xd")

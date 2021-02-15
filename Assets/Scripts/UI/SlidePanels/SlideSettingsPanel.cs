@@ -6,24 +6,22 @@ public class SlideSettingsPanel : MonoBehaviour
 {
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject menuBar;
+    private Animator settingsPanelAnimator;
     private bool showSettingsPanel;
-    private bool showMenuBar;
+
+    private void Awake()
+    {
+        settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
+    }
 
     public void ShowHideSettingsPanel()
     {
         if(settingsPanel != null)
         {
-            Animator settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
-            Animator menuBarAnimator = menuBar.GetComponent<Animator>();
-            
-            
             if (settingsPanelAnimator != null)
             {
                 showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
-                showMenuBar = menuBarAnimator.GetBool("showBar");
-
                 settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
-                menuBarAnimator.SetBool("showBar", !showMenuBar);
             }
         }
     }

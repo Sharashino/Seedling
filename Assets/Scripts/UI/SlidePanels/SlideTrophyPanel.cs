@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SlideTrophyPanel : MonoBehaviour
 {
@@ -10,17 +10,15 @@ public class SlideTrophyPanel : MonoBehaviour
     [SerializeField] private TMP_Text trophyName;
     [SerializeField] private TMP_Text trophyDesc;
 
-    private void ShowHideTrophyPanel()
+    public void ShowHideTrophyPanel()
     {
         if (trophyPanel != null)
         {
             Animator panelTrophyAnimator = trophyPanel.GetComponent<Animator>();
-            //Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
 
             if (panelTrophyAnimator != null)
             {
                 bool isTrophyPanelOpen = panelTrophyAnimator.GetBool("showTrophyPanel");
-
                 panelTrophyAnimator.SetBool("showTrophyPanel", !isTrophyPanelOpen);
             }
         }
@@ -33,47 +31,31 @@ public class SlideTrophyPanel : MonoBehaviour
         trophyDesc.text = Trophy.trophyDesc;
 
         //here we re switching trophy name to show ??? when Trophy locked and its name when unlocked
-        switch (Trophy.trophyName)
+        switch (Trophy.trophyType)
         {
-            case "Richart":
+            case TrophyType.Richart:
                 if(gameManager.isRichartUnlocked)
-                {
                     trophyName.text = Trophy.trophyName;
-                }
                 else
-                {
                     trophyName.text = "???";
-                }
                 break;
-            case "Seedler":
+            case TrophyType.Seedler:
                 if (gameManager.isSeedlerUnlocked)
-                {
                     trophyName.text = Trophy.trophyName;
-                }
                 else
-                {
                     trophyName.text = "???";
-                }
                 break;
-            case "Supporter":
+            case TrophyType.Supporter:
                 if (gameManager.isSupporterUnlocked)
-                {
                     trophyName.text = Trophy.trophyName;
-                }
                 else
-                {
                     trophyName.text = "???";
-                }
                 break;
-            case "Indiana Johnes":
+            case TrophyType.IndianaJohnes:
                 if (gameManager.isIndianaJohnesUnlocked)
-                {
                     trophyName.text = Trophy.trophyName;
-                }
                 else
-                {
                     trophyName.text = "???";
-                }
                 break;
             default:
                 break;

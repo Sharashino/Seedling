@@ -16,9 +16,22 @@ public class IntroductionManager : MonoBehaviour
     [SerializeField] private float fadeSpeed = 0.01f;
     private bool hasRun;
 
+    private void Awake()
+    {
+        var loadFile = new ES3File("SaveFile.es3");
+
+        if (loadFile.KeyExists("hasRun"))
+        {
+            hasRun = ES3.Load<bool>("hasRun");
+        }
+        else
+        {
+            hasRun = false;
+        }
+    }
+
     void Start()
     {
-        hasRun = ES3.Load("hasRun", false);
         niceToMeetYouText.gameObject.SetActive(false);
 
         //if player has run game for the first
