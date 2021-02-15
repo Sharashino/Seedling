@@ -28,32 +28,32 @@ public class SlideTrophyPanel : MonoBehaviour
     {
         var Trophy = clickedButton.GetComponent<DefineTrophy>();
         trophyImage.sprite = clickedButton.GetComponent<Image>().sprite;
-        trophyDesc.text = Trophy.trophyDesc;
+        trophyDesc.text = Trophy.TrophyObject.trophyDesc;
 
         //here we re switching trophy name to show ??? when Trophy locked and its name when unlocked
-        switch (Trophy.trophyType)
+        switch (Trophy.TrophyObject.trophyType)
         {
             case TrophyType.Richart:
                 if(gameManager.isRichartUnlocked)
-                    trophyName.text = Trophy.trophyName;
+                    trophyName.text = Trophy.TrophyObject.trophyName;
                 else
                     trophyName.text = "???";
                 break;
             case TrophyType.Seedler:
                 if (gameManager.isSeedlerUnlocked)
-                    trophyName.text = Trophy.trophyName;
+                    trophyName.text = Trophy.TrophyObject.trophyName;
                 else
                     trophyName.text = "???";
                 break;
             case TrophyType.Supporter:
                 if (gameManager.isSupporterUnlocked)
-                    trophyName.text = Trophy.trophyName;
+                    trophyName.text = Trophy.TrophyObject.trophyName;
                 else
                     trophyName.text = "???";
                 break;
             case TrophyType.IndianaJohnes:
                 if (gameManager.isIndianaJohnesUnlocked)
-                    trophyName.text = Trophy.trophyName;
+                    trophyName.text = Trophy.TrophyObject.trophyName;
                 else
                     trophyName.text = "???";
                 break;

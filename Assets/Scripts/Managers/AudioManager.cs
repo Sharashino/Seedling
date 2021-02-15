@@ -26,17 +26,17 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            PlaySound("BackgroundSound");
+            PlaySound(SoundType.Background);
         }
     }
 
-    public void PlaySound(string soundName)
+    public void PlaySound(SoundType soundType)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(sounds, sound => sound.soundType == soundType);
 
         if(s == null)
         {
-            Debug.Log("Wrong " +s+ " sound name in editor!");
+            Debug.Log("Wrong " +s+ " sound type in editor!");
             return;
         }
 
@@ -47,8 +47,8 @@ public class AudioManager : MonoBehaviour
     {
         if(gameManager.IsBackgroundMuted)
         {
-            PlaySound("BackgroundSound");
-            
+            PlaySound(SoundType.Background);
+
             foreach (Sound sound in sounds)
             {
                 sound.volume = 1;

@@ -1,12 +1,11 @@
-﻿using UnityEngine;
-using TMPro;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
+﻿using TMPro;
+using UnityEngine;
 
 public class SeedlingManager : MonoBehaviour
 {
     [SerializeField] private Seed currentSeedling;
     [SerializeField] private Ground seedlingGround;
+    [SerializeField] private DefineSeedling defineSeedling;
     [SerializeField] private NotificationDisplayer notificationDisplayer;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TimeManager timeManager;
@@ -15,17 +14,15 @@ public class SeedlingManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private bool isReadyToHarvest;
 
-    public List<Seed> seeds = new List<Seed>();
-
     public void PlantSeedling(Seed seedlingToPlant)
     {
         seedlingGround.PlantASeedling(seedlingToPlant);
-        audioManager.PlaySound("PlaceSeedling");
+        audioManager.PlaySound(SoundType.PlantSeedling);
     }
 
     public void DoneGrowing()
     {
-        audioManager.PlaySound("DoneGrowing");
+        audioManager.PlaySound(SoundType.DoneGrowing);
     }
 
     public void GrowFlower(Seed seedlingToGrow)
@@ -33,7 +30,7 @@ public class SeedlingManager : MonoBehaviour
         seedlingToGrow.isDoneGrowing = true;
         currentSeedling.itemObject.GetComponent<Seedling>().GrowFlower(currentSeedling.itemObject, seedlingGround.gameObject);
         notificationDisplayer.GrowSeedling(seedlingToGrow);
-        audioManager.PlaySound("GrowthComplete");
+        audioManager.PlaySound(SoundType.DoneGrowing);
         isReadyToHarvest = true;
     }
 
@@ -73,8 +70,9 @@ public class SeedlingManager : MonoBehaviour
         IsReadyToHarvest = false;
         gameManager.UpdateCoins();
         timeManager.TimerButtons = false;
-        audioManager.PlaySound("HarvestSeedling");
+        audioManager.PlaySound(SoundType.HarvestSeedling);
     }
+
 
     public bool IsReadyToHarvest
     {
@@ -99,4 +97,13 @@ public class SeedlingManager : MonoBehaviour
             currentSeedling = value;
         }
     }
+
+    public DefineSeedling DefineSeedling
+    {
+        get
+        {
+            return defineSeedling;
+        }
+    }
+    
 }

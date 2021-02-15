@@ -28,22 +28,22 @@ public class SlideTrophyBar : MonoBehaviour
         if(gameManager.isRichartUnlocked)
         {
             coinTrophyButton.GetComponent<Image>().color = Color.white;
-            coinTrophyButton.GetComponentInChildren<TMP_Text>().text = coinTrophyButton.GetComponent<DefineTrophy>().trophyName;
+            coinTrophyButton.GetComponentInChildren<TMP_Text>().text = coinTrophyButton.GetComponent<DefineTrophy>().TrophyObject.trophyName;
         }
         else if(gameManager.isSeedlerUnlocked)
         {
             seedlerTrophyButton.GetComponent<Image>().color = Color.white;
-            seedlerTrophyButton.GetComponentInChildren<TMP_Text>().text = seedlerTrophyButton.GetComponent<DefineTrophy>().trophyName;
+            seedlerTrophyButton.GetComponentInChildren<TMP_Text>().text = seedlerTrophyButton.GetComponent<DefineTrophy>().TrophyObject.trophyName;
         }
         else if(gameManager.isSupporterUnlocked)
         {
             dolarsTrophyButton.GetComponent<Image>().color = Color.white;
-            dolarsTrophyButton.GetComponentInChildren<TMP_Text>().text = dolarsTrophyButton.GetComponent<DefineTrophy>().trophyName;
+            dolarsTrophyButton.GetComponentInChildren<TMP_Text>().text = dolarsTrophyButton.GetComponent<DefineTrophy>().TrophyObject.trophyName;
         }
         else if(gameManager.isIndianaJohnesUnlocked)
         {
             easterEggTrophyButton.GetComponent<Image>().color = Color.white;
-            easterEggTrophyButton.GetComponentInChildren<TMP_Text>().text = easterEggTrophyButton.GetComponent<DefineTrophy>().trophyName;
+            easterEggTrophyButton.GetComponentInChildren<TMP_Text>().text = easterEggTrophyButton.GetComponent<DefineTrophy>().TrophyObject.trophyName;
         }
         else
         {

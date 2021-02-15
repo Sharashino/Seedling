@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
         {
             case SeedlingTypes.IrisSeed:
                 {
-                    gameManager.IrisTimeSpent = time;
+                    gameManager.IrisTimeSpent += time;
 
                     if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
                     {
@@ -37,7 +37,7 @@ public class TimeManager : MonoBehaviour
                 break;
             case SeedlingTypes.RoseSeed:
                 {
-                    gameManager.RoseTimeSpent = time;
+                    gameManager.RoseTimeSpent += time;
 
                     if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
                     {
@@ -47,7 +47,7 @@ public class TimeManager : MonoBehaviour
                 break;
             case SeedlingTypes.TulipSeed:
                 {
-                    gameManager.TulipTimeSpent = time;
+                    gameManager.TulipTimeSpent += time;
 
                     if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
                     {
@@ -58,6 +58,8 @@ public class TimeManager : MonoBehaviour
             default:
                 break;
         }
+
+        seedlingManager.DefineSeedling.UpdateSeedlingTimers();
     }
 
     public bool IsCounting

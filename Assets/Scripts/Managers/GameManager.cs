@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
     {
         //sprawdzenie
 
-
-
         playerName = ES3.Load<string>("playerName");
 
         if(playerName == "xd")

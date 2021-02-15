@@ -38,24 +38,18 @@ public class DefineSeedling : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// A FUCKING BUG MADE ME DO IT IN THE FUCKING UPDATE METHOD SORRY
-    /// </summary>
-    private void Update()
+    public void UpdateSeedlingTimers()
     {
         switch (seedling.seedlingType)
         {
             case SeedlingTypes.IrisSeed:
                 seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
-                //Debug.Log(seedlingTime.text);
                 break;
             case SeedlingTypes.RoseSeed:
                 seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
-                //Debug.Log(seedlingTime.text);
                 break;
             case SeedlingTypes.TulipSeed:
                 seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
-                //Debug.Log(seedlingTime.text);
                 break;
             default:
                 break;

@@ -45,11 +45,6 @@ public class Ground : MonoBehaviour
         }
     }
 
-    public void RemoveSeedling()
-    {
-        Destroy(newSeedling);
-    }
-
     public Vector3 GetPotGroundPosition(Transform seedlingTransform, Transform potTransform)
     {
         //Moving seedling to the centre of the pot
@@ -58,5 +53,10 @@ public class Ground : MonoBehaviour
         position.y = potTransform.position.y + 0.13f;
 
         return position;
+    }
+
+    public void RemoveSeedling()
+    {
+        Destroy(newSeedling);
     }
 }

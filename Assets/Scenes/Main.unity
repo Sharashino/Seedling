@@ -264,7 +264,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[5].clip
       value: 
-      objectReference: {fileID: 8300000, guid: ab4d0ece4d949634eb630ac9e916d58f, type: 3}
+      objectReference: {fileID: 8300000, guid: 8c1b9fdfeb66d9d419eeaa88cb00e5cf, type: 3}
     - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
         type: 3}
       propertyPath: sounds.Array.data[5].name
@@ -274,6 +274,31 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[5].volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
+      propertyPath: sounds.Array.data[1].soundType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
+      propertyPath: sounds.Array.data[2].soundType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
+      propertyPath: sounds.Array.data[3].soundType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
+      propertyPath: sounds.Array.data[4].soundType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935263935895817897, guid: 005be7fe381ad254090723e361fcd481,
+        type: 3}
+      propertyPath: sounds.Array.data[5].soundType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5935263935895817898, guid: 005be7fe381ad254090723e361fcd481,
         type: 3}
@@ -349,8 +374,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280295456
+  m_fontColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1612,7 +1637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3, y: -255.92}
+  m_AnchoredPosition: {x: -6.4000025, y: -255.92}
   m_SizeDelta: {x: 71.79993, y: 25.554787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918422989
@@ -2031,6 +2056,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
+--- !u!114 &1366261588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2987776139487179602, guid: cbc9b960ee353d54daf336835941a12c,
+    type: 3}
+  m_PrefabInstance: {fileID: 129380681761298404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e489d6df86ef4548af6b01b9f11f127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1384296096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6618736922816889207, guid: 018a79d6b761bde47b8690aa1d4d72ad,
@@ -3000,6 +3037,11 @@ PrefabInstance:
       objectReference: {fileID: 1459683117}
     - target: {fileID: 2575315147940160713, guid: b045df0fa3a00d24f8ae3e00327b6c24,
         type: 3}
+      propertyPath: defineSeedling
+      value: 
+      objectReference: {fileID: 1366261588}
+    - target: {fileID: 2575315147940160713, guid: b045df0fa3a00d24f8ae3e00327b6c24,
+        type: 3}
       propertyPath: seedlingGround
       value: 
       objectReference: {fileID: 1938009782}
@@ -3863,6 +3905,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6618736921089971404, guid: 018a79d6b761bde47b8690aa1d4d72ad,
         type: 3}
+      propertyPath: trophy
+      value: 
+      objectReference: {fileID: 11400000, guid: d3b92583d24cc834cbf7e411943732aa,
+        type: 2}
+    - target: {fileID: 6618736921089971404, guid: 018a79d6b761bde47b8690aa1d4d72ad,
+        type: 3}
       propertyPath: trophyType
       value: 3
       objectReference: {fileID: 0}
@@ -3943,6 +3991,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6618736921924972301, guid: 018a79d6b761bde47b8690aa1d4d72ad,
         type: 3}
+      propertyPath: trophy
+      value: 
+      objectReference: {fileID: 11400000, guid: b9a96f62c5aa0a4479d385426dfe6453,
+        type: 2}
+    - target: {fileID: 6618736921924972301, guid: 018a79d6b761bde47b8690aa1d4d72ad,
+        type: 3}
       propertyPath: trophyType
       value: 1
       objectReference: {fileID: 0}
@@ -4016,6 +4070,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6618736921998132064, guid: 018a79d6b761bde47b8690aa1d4d72ad,
+        type: 3}
+      propertyPath: trophy
+      value: 
+      objectReference: {fileID: 11400000, guid: a3f4ff45052748b428516e1d3e37bda7,
+        type: 2}
     - target: {fileID: 6618736921998132069, guid: 018a79d6b761bde47b8690aa1d4d72ad,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4143,6 +4203,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6618736922816889202, guid: 018a79d6b761bde47b8690aa1d4d72ad,
         type: 3}
+      propertyPath: trophy
+      value: 
+      objectReference: {fileID: 11400000, guid: 01fa304349e19ec40b0a37670d602a8e,
+        type: 2}
+    - target: {fileID: 6618736922816889202, guid: 018a79d6b761bde47b8690aa1d4d72ad,
+        type: 3}
       propertyPath: trophyType
       value: 2
       objectReference: {fileID: 0}
@@ -4215,6 +4281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618736922816889209, guid: 018a79d6b761bde47b8690aa1d4d72ad,
+        type: 3}
+      propertyPath: m_Name
+      value: SupporterTrophyButton
       objectReference: {fileID: 0}
     - target: {fileID: 6618736922830342625, guid: 018a79d6b761bde47b8690aa1d4d72ad,
         type: 3}

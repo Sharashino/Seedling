@@ -37,24 +37,6 @@ public class MenuSlider : MonoBehaviour
         settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        //ChangeMenuSprite();
-    }
-
-    private void ChangeMenuSprite()
-    {
-        if (!isOpen)
-        {
-            showHideMenuBar.image.sprite = showSprite;
-        }
-        else
-        {
-            showHideMenuBar.image.sprite = hideSprite;
-        }
-
-    }
-
     public void ShowHideMenu()
         {
         if (panelMenu != null)
@@ -62,9 +44,6 @@ public class MenuSlider : MonoBehaviour
             if (menuBarAnimator != null)
             {
                 isOpen = menuBarAnimator.GetBool("showBar");
-
-                ChangeMenuSprite();
-
                 isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
                 isTrophyBarOpen = trophyBarAnimator.GetBool("showTrophyBar");
                 isTrophyPanelOpen = trophyPanelAnimator.GetBool("showTrophyPanel");
@@ -106,7 +85,21 @@ public class MenuSlider : MonoBehaviour
                 {
                     menuBarAnimator.SetBool("showBar", !isOpen);
                 }
+
+                ChangeMenuSprite();
             }
         } 
+    }
+
+    private void ChangeMenuSprite()
+    {
+        if (!isOpen)
+        {
+            showHideMenuBar.image.sprite = showSprite;
+        }
+        else
+        {
+            showHideMenuBar.image.sprite = hideSprite;
+        }
     }
 }
