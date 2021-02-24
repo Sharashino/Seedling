@@ -1,39 +1,45 @@
 ﻿using UnityEngine;
+using Seedling.SO;
+using Seedling.Enums;
+using Seedling.Grounds;
 
-public class Flower : MonoBehaviour
+namespace Seedling.Seeds
 {
-    [SerializeField] private FlowerTypes flowerType;
-    [SerializeField] private string flowerName;
-    [SerializeField] private GameObject flowerObject;
-    [SerializeField] private Seed flowerSeedling;
-
-    public void HarvestFlower(GameObject flowerToHarvest)
+    public class Flower : MonoBehaviour
     {
-        flowerToHarvest.GetComponentInParent<Ground>().RemoveSeedling();
-        Destroy(flowerToHarvest);
-    }
+        [SerializeField] private FlowerType flowerType;
+        [SerializeField] private string flowerName;
+        [SerializeField] private GameObject flowerObject;
+        [SerializeField] private Seed flowerSeedling;
 
-    public string FlowerName
-    { 
-        get
+        public void HarvestFlower(GameObject flowerToHarvest)
         {
-            return flowerName;
+            flowerToHarvest.GetComponentInParent<Ground>().RemoveSeedling();
+            Destroy(flowerToHarvest);
         }
-    }
-    
-    public FlowerTypes FlowerType
-    {
-        get
-        {
-            return flowerType;
-        }
-    }
 
-    public Seed FlowerSeedling
-    {
-        get
+        public string FlowerName
         {
-            return flowerSeedling;
+            get
+            {
+                return flowerName;
+            }
+        }
+
+        public FlowerType FlowerType
+        {
+            get
+            {
+                return flowerType;
+            }
+        }
+
+        public Seed FlowerSeedling
+        {
+            get
+            {
+                return flowerSeedling;
+            }
         }
     }
 }

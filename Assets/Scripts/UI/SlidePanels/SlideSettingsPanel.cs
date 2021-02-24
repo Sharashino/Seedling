@@ -1,46 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SlideSettingsPanel : MonoBehaviour
+namespace Seedling.UI.Panels
 {
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject menuBar;
-    private bool showSettingsPanel;
-    private bool showMenuBar;
-
-    public void ShowHideSettingsPanel()
+    public class SlideSettingsPanel : MonoBehaviour
     {
-        if(settingsPanel != null)
-        {
-            Animator settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
-            Animator menuBarAnimator = menuBar.GetComponent<Animator>();
-            
-            
-            if (settingsPanelAnimator != null)
-            {
-                showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
-                showMenuBar = menuBarAnimator.GetBool("showBar");
+        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private GameObject menuBar;
+        private Animator settingsPanelAnimator;
+        private bool showSettingsPanel;
 
-                settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
-                menuBarAnimator.SetBool("showBar", !showMenuBar);
+        private void Awake()
+        {
+            settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
+        }
+
+        public void ShowHideSettingsPanel()
+        {
+            if (settingsPanel != null)
+            {
+                if (settingsPanelAnimator != null)
+                {
+                    showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
+                    settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
+                }
             }
         }
-    }
 
-    public void OnDonateButton()
-    {
-        Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
-    }
+        public void OnDonateButton()
+        {
+            Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
+        }
 
-    public void OnResetDataButton()
-    {
-        ES3.DeleteFile("SaveFile.es3");
-        Application.Quit();
-    }
+        public void OnResetDataButton()
+        {
+            ES3.DeleteFile("SaveFile.es3");
+            Application.Quit();
+        }
 
-    public void OnMuteAudioButton()
-    {
-        //MUTE ALL AUDIO AND SAVE IT
+        public void OnMuteAudioButton()
+        {
+            //MUTE ALL AUDIO AND SAVE IT
+        }
     }
 }
+

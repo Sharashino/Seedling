@@ -1,7 +1,15 @@
-﻿using UnityEngine;
+﻿using Seedling.SO;
+using UnityEngine;
 
 public class DefineTrophy : MonoBehaviour
 {
-    public string trophyName;
-    public string trophyDesc;
+    [SerializeField] private Trophy trophy;
+   
+    public Trophy TrophyObject
+    {
+        get
+        {
+            return trophy;
+        }
+    }
 }

@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 
-public class SlideInfoPanel : MonoBehaviour
+namespace Seedling.UI.Panels
 {
-    [SerializeField] private GameObject infoPanel;
-    [SerializeField] private GameObject menuBar;
-
-    public void ShowHideInfoPanel()
+    public class SlideInfoPanel : MonoBehaviour
     {
-        if (infoPanel != null)
+        [SerializeField] private GameObject infoPanel;
+        [SerializeField] private GameObject menuBar;
+
+        public void ShowHideInfoPanel()
         {
-            Animator panelInfoAnimator = infoPanel.GetComponent<Animator>();
-            Animator menuBarAnimator = menuBar.GetComponent<Animator>();
-            //Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
-
-            if (panelInfoAnimator != null)
+            if (infoPanel != null)
             {
-                bool isInfoPanelOpen = panelInfoAnimator.GetBool("showInfoPanel");
-                bool isMenuBarOpen = menuBarAnimator.GetBool("showBar");
+                Animator panelInfoAnimator = infoPanel.GetComponent<Animator>();
+                //Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
 
-                panelInfoAnimator.SetBool("showInfoPanel", !isInfoPanelOpen);
-                menuBarAnimator.SetBool("showBar", !isMenuBarOpen);
+                if (panelInfoAnimator != null)
+                {
+                    bool isInfoPanelOpen = panelInfoAnimator.GetBool("showInfoPanel");
+
+                    panelInfoAnimator.SetBool("showInfoPanel", !isInfoPanelOpen);
+                }
             }
         }
     }

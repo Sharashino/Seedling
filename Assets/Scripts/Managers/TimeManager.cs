@@ -1,87 +1,92 @@
 ﻿using TMPro;
 using UnityEngine;
+using Seedling.Enums;
 
-public class TimeManager : MonoBehaviour
+namespace Seedling.Managers
 {
-    [SerializeField] private SeedlingManager seedlingManager;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject timerButtons;
-    [SerializeField] private TMP_Text timerText;
-    [SerializeField] private bool isCounting;
-
-    private void Update()
+    public class TimeManager : MonoBehaviour
     {
-        if(isCounting)
-        {
-            timerButtons.SetActive(false);
-        }
-        else
-        {
-            timerButtons.SetActive(true);
-        }
-    }
+        [SerializeField] private SeedlingManager seedlingManager;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameObject timerButtons;
+        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private bool isCounting;
 
-    public void SetSeedlingSpentTime(int time)
-    {
-        switch (seedlingManager.CurrentSeedling.seedlingType)
+        private void Update()
         {
-            case SeedlingTypes.IrisSeed:
-                {
-                    gameManager.IrisTimeSpent = time;
+            if (isCounting)
+            {
+                timerButtons.SetActive(false);
+            }
+            else
+            {
+                timerButtons.SetActive(true);
+            }
+        }
 
-                    if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+        public void SetSeedlingSpentTime(int time)
+        {
+            switch (seedlingManager.CurrentSeedling.seedlingType)
+            {
+                case SeedlingType.IrisSeed:
                     {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
-                    }
-                }
-                break;
-            case SeedlingTypes.RoseSeed:
-                {
-                    gameManager.RoseTimeSpent = time;
+                        gameManager.IrisTimeSpent += time;
 
-                    if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                        if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                        }
+                    }
+                    break;
+                case SeedlingType.RoseSeed:
                     {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
-                    }
-                }
-                break;
-            case SeedlingTypes.TulipSeed:
-                {
-                    gameManager.TulipTimeSpent = time;
+                        gameManager.RoseTimeSpent += time;
 
-                    if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                        if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                        }
+                    }
+                    break;
+                case SeedlingType.TulipSeed:
                     {
-                        seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                        gameManager.TulipTimeSpent += time;
+
+                        if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeedling.minutesToGrow)
+                        {
+                            seedlingManager.GrowFlower(seedlingManager.CurrentSeedling);
+                        }
                     }
-                }
-                break;
-            default:
-                break;
-        }
-    }
+                    break;
+                default:
+                    break;
+            }
 
-    public bool IsCounting
-    {
-        get
-        {
-            return isCounting;
+            seedlingManager.DefineSeedling.UpdateSeedlingTimers();
         }
-        set
-        {
-            isCounting = value;
-        }
-    }
 
-    public bool TimerButtons
-    {
-        get
+        public bool IsCounting
         {
-            return timerButtons;
+            get
+            {
+                return isCounting;
+            }
+            set
+            {
+                isCounting = value;
+            }
         }
-        set
+
+        public bool TimerButtons
         {
-            timerButtons.SetActive(value);
+            get
+            {
+                return timerButtons;
+            }
+            set
+            {
+                timerButtons.SetActive(value);
+            }
         }
     }
 }
-

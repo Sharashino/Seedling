@@ -1,38 +1,42 @@
 ﻿using UnityEngine;
 
-public class SlideSelector : MonoBehaviour
+namespace Seedling.UI.Panels
 {
-    [SerializeField] private GameObject seedlingSelector;
-    [SerializeField] private GameObject panelMenu;
-    [SerializeField] private GameObject timer;
-    
-    public void ShowHideSelector()
+    public class SlideSelector : MonoBehaviour
     {
-        if (panelMenu != null)
+        [SerializeField] private GameObject seedlingSelector;
+        [SerializeField] private GameObject panelMenu;
+        [SerializeField] private GameObject timer;
+
+        public void ShowHideSelector()
         {
-            Animator panelMenuAnimator = panelMenu.GetComponent<Animator>();
-            Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
-
-            if (panelMenuAnimator != null)
+            if (panelMenu != null)
             {
-                bool isBarOpen = panelMenuAnimator.GetBool("showBar");
-                bool isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
-                bool isTimerOpen = timer.gameObject.activeSelf;
+                Animator panelMenuAnimator = panelMenu.GetComponent<Animator>();
+                Animator seedlingSelectorAnimator = seedlingSelector.GetComponent<Animator>();
 
-                //if MenuBar is open hide MenuBar and show SeedlingSelector
-                //if isnt just show MenuBar
-                if(isBarOpen)
+                if (panelMenuAnimator != null)
                 {
-                    seedlingSelectorAnimator.SetBool("showSelector", !isSelectorOpen);
-                    panelMenuAnimator.SetBool("showBar", !isBarOpen);
-                    timer.SetActive(false);
-                }
-                else
-                {
-                    //also update the seedling selector times
-                    seedlingSelectorAnimator.SetBool("showSelector", !isSelectorOpen);
+                    bool isBarOpen = panelMenuAnimator.GetBool("showBar");
+                    bool isSelectorOpen = seedlingSelectorAnimator.GetBool("showSelector");
+                    bool isTimerOpen = timer.gameObject.activeSelf;
+
+                    //if MenuBar is open hide MenuBar and show SeedlingSelector
+                    //if isnt just show MenuBar
+                    if (isBarOpen)
+                    {
+                        seedlingSelectorAnimator.SetBool("showSelector", !isSelectorOpen);
+                        panelMenuAnimator.SetBool("showBar", !isBarOpen);
+                        timer.SetActive(false);
+                    }
+                    else
+                    {
+                        //also update the seedling selector times
+                        seedlingSelectorAnimator.SetBool("showSelector", !isSelectorOpen);
+                    }
                 }
             }
         }
     }
 }
+
