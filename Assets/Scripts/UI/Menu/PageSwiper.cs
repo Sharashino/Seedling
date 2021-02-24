@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-namespace Seedling.UI.Menu
+namespace Seedling.UI
 {
     public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     {

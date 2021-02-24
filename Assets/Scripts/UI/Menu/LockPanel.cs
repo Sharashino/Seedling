@@ -5,7 +5,7 @@ using Seedling.Enums;
 using Seedling.Seeds;
 using Seedling.Managers;
 
-namespace Seedling.UI.Menu
+namespace Seedling.UI
 {
     public class LockPanel : MonoBehaviour
     {

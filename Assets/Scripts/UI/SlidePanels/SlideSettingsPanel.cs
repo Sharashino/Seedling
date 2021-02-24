@@ -1,44 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SlideSettingsPanel : MonoBehaviour
+namespace Seedling.UI.Panels
 {
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject menuBar;
-    private Animator settingsPanelAnimator;
-    private bool showSettingsPanel;
-
-    private void Awake()
+    public class SlideSettingsPanel : MonoBehaviour
     {
-        settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
-    }
+        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private GameObject menuBar;
+        private Animator settingsPanelAnimator;
+        private bool showSettingsPanel;
 
-    public void ShowHideSettingsPanel()
-    {
-        if(settingsPanel != null)
+        private void Awake()
         {
-            if (settingsPanelAnimator != null)
+            settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
+        }
+
+        public void ShowHideSettingsPanel()
+        {
+            if (settingsPanel != null)
             {
-                showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
-                settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
+                if (settingsPanelAnimator != null)
+                {
+                    showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
+                    settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
+                }
             }
         }
-    }
 
-    public void OnDonateButton()
-    {
-        Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
-    }
+        public void OnDonateButton()
+        {
+            Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
+        }
 
-    public void OnResetDataButton()
-    {
-        ES3.DeleteFile("SaveFile.es3");
-        Application.Quit();
-    }
+        public void OnResetDataButton()
+        {
+            ES3.DeleteFile("SaveFile.es3");
+            Application.Quit();
+        }
 
-    public void OnMuteAudioButton()
-    {
-        //MUTE ALL AUDIO AND SAVE IT
+        public void OnMuteAudioButton()
+        {
+            //MUTE ALL AUDIO AND SAVE IT
+        }
     }
 }
+

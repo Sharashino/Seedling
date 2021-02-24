@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using Seedling.SO;
+using Seedling.UI;
 using UnityEngine.UI;
 using Seedling.Enums;
 using Seedling.Managers;
