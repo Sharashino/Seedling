@@ -1,17 +1,13 @@
-﻿using UnityEngine;
+﻿using Seedling.Enums;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Trophy", menuName = "Trophy")]
-public class Trophy : ScriptableObject
+namespace Seedling.SO
 {
-    public string trophyName;
-    public string trophyDesc;
-    public TrophyType trophyType;
-}
-
-public enum TrophyType
-{
-    Richart,
-    Seedler,
-    Supporter,
-    IndianaJohnes
+    [CreateAssetMenu(fileName = "New Trophy", menuName = "Trophy")]
+    public class Trophy : ScriptableObject
+    {
+        public string trophyName;
+        public string trophyDesc;
+        public TrophyType trophyType;
+    }
 }

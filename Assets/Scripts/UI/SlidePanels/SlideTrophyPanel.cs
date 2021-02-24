@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Seedling.Enums;
+using Seedling.Managers;
 
 public class SlideTrophyPanel : MonoBehaviour
 {

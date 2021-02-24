@@ -1,5 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
+using Seedling.SO;
+using Seedling.Seeds;
+using Seedling.Managers;
 using System.Collections;
 
 public class NotificationDisplayer : MonoBehaviour
@@ -33,7 +36,7 @@ public class NotificationDisplayer : MonoBehaviour
     public void SeedlingUnlocked(Seed unlockedSeed)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have unlocked " + unlockedSeed.itemName + "!";
+        notifierText.text = "You have unlocked " + unlockedSeed.seedName + "!";
         
         StartCoroutine(FadeText());
     }
@@ -41,7 +44,7 @@ public class NotificationDisplayer : MonoBehaviour
     public void PlantedSeedling(Seed chosenSeedling)
     {
         notifier.SetActive(true);
-        notifierText.text = "You have chosen to grow " + chosenSeedling.itemName + "!";
+        notifierText.text = "You have chosen to grow " + chosenSeedling.seedName + "!";
         
         StartCoroutine(FadeText());
     }
@@ -57,7 +60,7 @@ public class NotificationDisplayer : MonoBehaviour
     public void GrowSeedling(Seed grownSeedling)
     {
         notifier.SetActive(true);
-        notifierText.text = "Your " + grownSeedling.itemName + " has grown up!";
+        notifierText.text = "Your " + grownSeedling.seedName + " has grown up!";
 
         StartCoroutine(FadeText());
     }
@@ -100,11 +103,11 @@ public class NotificationDisplayer : MonoBehaviour
         
         if(timeSpent == 1)
         {
-            notifierText.text = "You have spent " + timeSpent + " minute on " + plantedSeedling.itemName + "!";
+            notifierText.text = "You have spent " + timeSpent + " minute on " + plantedSeedling.seedName + "!";
         }
         else
         {
-            notifierText.text = "You have spent " + timeSpent + " minutes on " + plantedSeedling.itemName + "!";
+            notifierText.text = "You have spent " + timeSpent + " minutes on " + plantedSeedling.seedName + "!";
         }
         
         StartCoroutine(FadeText());

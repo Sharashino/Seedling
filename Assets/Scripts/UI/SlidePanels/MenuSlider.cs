@@ -1,6 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Seedling.Managers;
 
 public class MenuSlider : MonoBehaviour
 {

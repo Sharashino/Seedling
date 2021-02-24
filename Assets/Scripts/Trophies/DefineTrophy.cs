@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Seedling.SO;
+using UnityEngine;
 
 public class DefineTrophy : MonoBehaviour
 {

@@ -1,98 +1,104 @@
 ﻿using TMPro;
 using UnityEngine;
+using Seedling.SO;
 using UnityEngine.UI;
+using Seedling.Enums;
+using Seedling.Managers;
 
-public class DefineSeedling : MonoBehaviour
+namespace Seedling.Seeds
 {
-    [SerializeField] private NotificationDisplayer notificationDisplayer;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private SeedlingManager seedlingManager;
-    [SerializeField] private GameObject timer;
-    [SerializeField] private GameObject seedlingSelector;
-    [SerializeField] private TMP_Text seedlingName;
-    [SerializeField] private TMP_Text seedlingTime;
-    [SerializeField] private TMP_Text seedlingCuriosity;
-    [SerializeField] private Image seedlingImage;
-    [SerializeField] private Seed seedling;
-
-    // Start is called before the first frame update
-    void Start()
+    public class DefineSeedling : MonoBehaviour
     {
-        seedlingName.text = seedling.itemName;
-        seedlingCuriosity.text = seedling.seedlingCuriosity;
-        seedlingImage.sprite = seedling.itemIcon;
+        [SerializeField] private NotificationDisplayer notificationDisplayer;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private SeedlingManager seedlingManager;
+        [SerializeField] private GameObject timer;
+        [SerializeField] private GameObject seedlingSelector;
+        [SerializeField] private TMP_Text seedlingName;
+        [SerializeField] private TMP_Text seedlingTime;
+        [SerializeField] private TMP_Text seedlingCuriosity;
+        [SerializeField] private Image seedlingImage;
+        [SerializeField] private Seed seedling;
 
-        switch (seedling.seedlingType)
+        // Start is called before the first frame update
+        void Start()
         {
-            case SeedlingTypes.IrisSeed:
-                seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            case SeedlingTypes.RoseSeed:
-                seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            case SeedlingTypes.TulipSeed:
-                seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            default:
-                break;
-        }
-    }
+            seedlingName.text = seedling.seedName;
+            seedlingCuriosity.text = seedling.seedlingCuriosity;
+            seedlingImage.sprite = seedling.seedIcon;
 
-    public void UpdateSeedlingTimers()
-    {
-        switch (seedling.seedlingType)
-        {
-            case SeedlingTypes.IrisSeed:
-                seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            case SeedlingTypes.RoseSeed:
-                seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            case SeedlingTypes.TulipSeed:
-                seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
-                break;
-            default:
-                break;
+            switch (seedling.seedlingType)
+            {
+                case SeedlingType.IrisSeed:
+                    seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                case SeedlingType.RoseSeed:
+                    seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                case SeedlingType.TulipSeed:
+                    seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                default:
+                    break;
+            }
         }
-    }
 
-    public void ChoseSeedling()
-    {
-        if (seedlingManager.CurrentSeedling == null)
+        public void UpdateSeedlingTimers()
         {
-            timer.SetActive(true);
-            seedlingManager.CurrentSeedling = seedling;
-            seedlingManager.PlantSeedling(seedling);
-            notificationDisplayer.PlantedSeedling(seedling);
+            switch (seedling.seedlingType)
+            {
+                case SeedlingType.IrisSeed:
+                    seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                case SeedlingType.RoseSeed:
+                    seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                case SeedlingType.TulipSeed:
+                    seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
+                    break;
+                default:
+                    break;
+            }
         }
-        else if (seedlingManager.CurrentSeedling != seedling && !seedlingManager.IsReadyToHarvest)
-        {
-            timer.SetActive(true);
-            seedlingManager.CurrentSeedling = seedling;
-            seedlingManager.PlantSeedling(seedling);
-            notificationDisplayer.PlantedSeedling(seedling);
-        }
-        else if (seedlingManager.CurrentSeedling == seedling && !seedlingManager.IsReadyToHarvest)
-        {
-            timer.SetActive(true);
-            notificationDisplayer.YouPlantedThisArleady();
-        }
-        else if(seedlingManager.IsReadyToHarvest)
-        {
-            timer.SetActive(true);
-            notificationDisplayer.HarvestReminder();
-        }
-        else
-        {
-            notificationDisplayer.YouPlantedThisArleady();
-        }
-    }
 
-    public Seed Seedling
-    {
-        get
+        public void ChoseSeedling()
         {
-            return seedling;
+            if (seedlingManager.CurrentSeedling == null)
+            {
+                timer.SetActive(true);
+                seedlingManager.CurrentSeedling = seedling;
+                seedlingManager.PlantSeedling(seedling);
+                notificationDisplayer.PlantedSeedling(seedling);
+            }
+            else if (seedlingManager.CurrentSeedling != seedling && !seedlingManager.IsReadyToHarvest)
+            {
+                timer.SetActive(true);
+                seedlingManager.CurrentSeedling = seedling;
+                seedlingManager.PlantSeedling(seedling);
+                notificationDisplayer.PlantedSeedling(seedling);
+            }
+            else if (seedlingManager.CurrentSeedling == seedling && !seedlingManager.IsReadyToHarvest)
+            {
+                timer.SetActive(true);
+                notificationDisplayer.YouPlantedThisArleady();
+            }
+            else if (seedlingManager.IsReadyToHarvest)
+            {
+                timer.SetActive(true);
+                notificationDisplayer.HarvestReminder();
+            }
+            else
+            {
+                notificationDisplayer.YouPlantedThisArleady();
+            }
+        }
+
+        public Seed Seedling
+        {
+            get
+            {
+                return seedling;
+            }
         }
     }
 }
