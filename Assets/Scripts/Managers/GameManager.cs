@@ -6,6 +6,10 @@ namespace Seedling.Managers
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { get; private set; }
+        public SeedManager seedManager;
+
+
         [SerializeField] private TMP_Text playerCoinsText;
         [SerializeField] private NotificationDisplayer notificationDisplayer;
         [SerializeField] private GameObject seedlingSelector;
@@ -34,9 +38,20 @@ namespace Seedling.Managers
         [Header("Sounds")]
         [SerializeField] private bool isBackgroundMuted;
 
+        public bool IsBackgroundMuted { get => isBackgroundMuted; set => isBackgroundMuted = value; }
+        public string PlayerName { get => playerName; set => playerName = value; }
+        public int PlayerCoins { get => playerCoins; set => playerCoins = value; }
+        public int IrisTimeSpent { get => irisTimeSpent; set => irisTimeSpent = value; }
+        public int RoseTimeSpent { get => roseTimeSpent; set => roseTimeSpent = value; }
+        public int TulipTimeSpent { get => tulipTimeSpent; set => tulipTimeSpent = value; }
+        public int AllTimeSpent { get => allTimeSpent; set => allTimeSpent = value; }
+
         private void Awake()
         {
-            //sprawdzenie
+            if (Instance != null)
+                Instance = this;
+
+            /*//sprawdzenie
 
             playerName = ES3.Load<string>("playerName");
 
@@ -62,12 +77,7 @@ namespace Seedling.Managers
             isIndianaJohnesUnlocked = ES3.Load("isIndianaJohnesUnlocked", false);
 
             isBackgroundMuted = ES3.Load("isAllMuted", false);
-            isBackgroundMuted = ES3.Load("isBackgroundMuted", false);
-        }
-
-        private void Start()
-        {
-            playerCoinsText.text = playerCoins.ToString();
+            isBackgroundMuted = ES3.Load("isBackgroundMuted", false);*/
         }
 
         public void CheckForTrophy()
@@ -118,106 +128,5 @@ namespace Seedling.Managers
             ES3.Save("isAllMuted", isBackgroundMuted);
             ES3.Save("isBackgroundMuted", isBackgroundMuted);
         }
-
-        #region Properties
-
-        public string PlayerName
-        {
-            get
-            {
-                return playerName;
-            }
-            set
-            {
-                playerName = value;
-            }
-        }
-
-        public int PlayerCoins
-        {
-            get
-            {
-                return playerCoins;
-            }
-            set
-            {
-                playerCoins += value;
-            }
-        }
-
-        public int IrisTimeSpent
-        {
-            get
-            {
-                return irisTimeSpent;
-            }
-            set
-            {
-                if (value == 0)
-                    irisTimeSpent = 0;
-                else
-                    irisTimeSpent = value;
-            }
-        }
-
-        public int RoseTimeSpent
-        {
-            get
-            {
-                return roseTimeSpent;
-            }
-            set
-            {
-                if (value == 0)
-                    roseTimeSpent = 0;
-                else
-                    roseTimeSpent = value;
-            }
-        }
-
-        public int TulipTimeSpent
-        {
-            get
-            {
-                return tulipTimeSpent;
-            }
-            set
-            {
-                if (value == 0)
-                    tulipTimeSpent = 0;
-                else
-                    tulipTimeSpent = value;
-            }
-        }
-
-        public int AllTimeSpent
-        {
-            get
-            {
-                return allTimeSpent;
-            }
-            set
-            {
-                if (value == 0)
-                    allTimeSpent = 0;
-                else
-                    allTimeSpent = value;
-            }
-        }
-
-        public bool IsBackgroundMuted
-        {
-            get
-            {
-                return isBackgroundMuted;
-            }
-            set
-            {
-                isBackgroundMuted = value;
-            }
-        }
-
-        #endregion
     }
-
 }

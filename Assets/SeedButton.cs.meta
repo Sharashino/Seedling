@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Scripts/Sound/ButtonSound.cs.meta
-guid: 19e0210fb9f5979449c6f887db53ea4e
-=======
-guid: aa78a709f8aedae4b8ef0c2d9cf9f0cb
->>>>>>> patch-01:Assets/Scripts/Cursor/CursorControls.cs.meta
+guid: 56af339a25480194386eb7435bde4db3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

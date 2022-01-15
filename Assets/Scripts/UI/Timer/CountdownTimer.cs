@@ -13,7 +13,7 @@ namespace Seedling.UI
         [SerializeField] private TMP_Text countDownText;
         [SerializeField] private ParticleSystem growParticles;
         [SerializeField] private GameManager gameManager;
-        [SerializeField] private SeedlingManager seedlingManager;
+        [SerializeField] private SeedManager seedlingManager;
         [SerializeField] private TimeManager timeManager;
         [SerializeField] private NotificationDisplayer notificationDisplayer;
 
@@ -29,16 +29,16 @@ namespace Seedling.UI
 
         public void StartTimer()
         {
-            if (currentTime != 0)
+           /* if (currentTime != 0)
             {
-                if (seedlingManager.CurrentSeedling == null)
+                if (seedlingManager.CurrentSeed == null)
                 {
                     notificationDisplayer.PlantSeedlingFirst();
                     timer = 0;
                     FormatText();
                     return;
                 }
-                else if (seedlingManager.CurrentSeedling.isDoneGrowing)
+                else if (seedlingManager.CurrentSeed.isDoneGrowing)
                 {
                     notificationDisplayer.HarvestReminder();
                     timer = 0;
@@ -48,7 +48,7 @@ namespace Seedling.UI
 
                 timeManager.IsCounting = true;
                 StartCoroutine(StartCountdown());
-            }
+            }*/
         }
 
         public void AddTime()
@@ -82,7 +82,7 @@ namespace Seedling.UI
             //if player spent 1 minute on plant fix syntax
             if (startingTime == 1)
             {
-                notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.CurrentSeedling);
+                notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.CurrentSeed);
                 gameManager.AllTimeSpent = 1;
                 gameManager.PlayerCoins = 1;
                 gameManager.UpdateCoins();
@@ -90,7 +90,7 @@ namespace Seedling.UI
             }
             else
             {
-                notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.CurrentSeedling);
+                notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.CurrentSeed);
                 gameManager.AllTimeSpent = (int)startingTime;
                 gameManager.PlayerCoins = (int)startingTime;
                 gameManager.UpdateCoins();

@@ -1,21 +1,20 @@
-﻿using UnityEngine;
-using Seedling.Enums;
+﻿using Seedling.Enums;
+using UnityEngine;
 
 namespace Seedling.SO
 {
-    [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item/Seeds")]
+    [CreateAssetMenu(fileName = "New Seed", menuName = "Inventory/Item/Seeds")]
     public class Seed : ScriptableObject
     {
         public Sprite seedIcon;
         public string seedName = "New Seed";
         public string seedDesc = "Seed desc";
+        public string seedCuriosity;
         public GameObject seedObject;
-        public SeedlingType seedlingType;
+        public SeedType seedType;
         public int coinsToUnlock;
-        public int harvestCoins;
-        public int minutesToGrow;
+        public int coinsForPlanting;
+        public int growTime;
         public bool isUnlocked = false;
-        public bool isDoneGrowing = false;
-        public string seedlingCuriosity;
     }
 }

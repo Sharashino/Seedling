@@ -31,15 +31,15 @@ namespace Seedling.UI
             {
                 gameManager.PlayerCoins -= seedling.coinsToUnlock;
 
-                switch (seedling.seedlingType)
+                switch (seedling.seedType)
                 {
-                    case SeedlingType.IrisSeed:
+                    case SeedType.IrisSeed:
                         gameManager.isIrisUnlocked = true;
                         break;
-                    case SeedlingType.RoseSeed:
+                    case SeedType.RoseSeed:
                         gameManager.isRoseUnlocked = true;
                         break;
-                    case SeedlingType.TulipSeed:
+                    case SeedType.TulipSeed:
                         gameManager.isTulipUnlocked = true;
                         break;
                     default:
@@ -60,9 +60,9 @@ namespace Seedling.UI
 
         private void PanelLock()
         {
-            switch (seedling.seedlingType)
+            switch (seedling.seedType)
             {
-                case SeedlingType.IrisSeed:
+                case SeedType.IrisSeed:
                     {
                         if (gameManager.isIrisUnlocked)
                         {
@@ -74,7 +74,7 @@ namespace Seedling.UI
                         }
                         break;
                     }
-                case SeedlingType.RoseSeed:
+                case SeedType.RoseSeed:
                     {
                         if (gameManager.isRoseUnlocked)
                         {
@@ -86,7 +86,7 @@ namespace Seedling.UI
                         }
                         break;
                     }
-                case SeedlingType.TulipSeed:
+                case SeedType.TulipSeed:
                     {
                         if (gameManager.isTulipUnlocked)
                         {

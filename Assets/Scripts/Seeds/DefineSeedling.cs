@@ -12,7 +12,7 @@ namespace Seedling.Seeds
     {
         [SerializeField] private NotificationDisplayer notificationDisplayer;
         [SerializeField] private GameManager gameManager;
-        [SerializeField] private SeedlingManager seedlingManager;
+        [SerializeField] private SeedManager seedlingManager;
         [SerializeField] private GameObject timer;
         [SerializeField] private GameObject seedlingSelector;
         [SerializeField] private TMP_Text seedlingName;
@@ -25,37 +25,24 @@ namespace Seedling.Seeds
         void Start()
         {
             seedlingName.text = seedling.seedName;
-            seedlingCuriosity.text = seedling.seedlingCuriosity;
+            seedlingCuriosity.text = seedling.seedCuriosity;
             seedlingImage.sprite = seedling.seedIcon;
 
-            switch (seedling.seedlingType)
-            {
-                case SeedlingType.IrisSeed:
-                    seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
-                    break;
-                case SeedlingType.RoseSeed:
-                    seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
-                    break;
-                case SeedlingType.TulipSeed:
-                    seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
-                    break;
-                default:
-                    break;
-            }
+            UpdateSeedlingTimers();
         }
 
         public void UpdateSeedlingTimers()
         {
-            switch (seedling.seedlingType)
+            switch (seedling.seedType)
             {
-                case SeedlingType.IrisSeed:
-                    seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.minutesToGrow;
+                case SeedType.IrisSeed:
+                    seedlingTime.text = gameManager.IrisTimeSpent + " / " + seedling.growTime;
                     break;
-                case SeedlingType.RoseSeed:
-                    seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.minutesToGrow;
+                case SeedType.RoseSeed:
+                    seedlingTime.text = gameManager.RoseTimeSpent + " / " + seedling.growTime;
                     break;
-                case SeedlingType.TulipSeed:
-                    seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.minutesToGrow;
+                case SeedType.TulipSeed:
+                    seedlingTime.text = gameManager.TulipTimeSpent + " / " + seedling.growTime;
                     break;
                 default:
                     break;
@@ -64,21 +51,21 @@ namespace Seedling.Seeds
 
         public void ChoseSeedling()
         {
-            if (seedlingManager.CurrentSeedling == null)
+            if (seedlingManager.CurrentSeed == null)
             {
                 timer.SetActive(true);
-                seedlingManager.CurrentSeedling = seedling;
+                seedlingManager.CurrentSeed = seedling;
                 seedlingManager.PlantSeedling(seedling);
                 notificationDisplayer.PlantedSeedling(seedling);
             }
-            else if (seedlingManager.CurrentSeedling != seedling && !seedlingManager.IsReadyToHarvest)
+            else if (seedlingManager.CurrentSeed != seedling && !seedlingManager.IsReadyToHarvest)
             {
                 timer.SetActive(true);
-                seedlingManager.CurrentSeedling = seedling;
+                seedlingManager.CurrentSeed = seedling;
                 seedlingManager.PlantSeedling(seedling);
                 notificationDisplayer.PlantedSeedling(seedling);
             }
-            else if (seedlingManager.CurrentSeedling == seedling && !seedlingManager.IsReadyToHarvest)
+            else if (seedlingManager.CurrentSeed == seedling && !seedlingManager.IsReadyToHarvest)
             {
                 timer.SetActive(true);
                 notificationDisplayer.YouPlantedThisArleady();

@@ -1,6 +1,6 @@
 ﻿namespace Seedling.Enums
 {
-    public enum SeedlingType
+    public enum SeedType
     {
         IrisSeed,
         RoseSeed,

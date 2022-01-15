@@ -8,11 +8,15 @@ using Seedling.Grounds;
 
 namespace Seedling.Managers
 {
-    public class SeedlingManager : MonoBehaviour
+    public class SeedManager : MonoBehaviour
     {
-        [SerializeField] private Seed currentSeedling;
+        public static SeedManager Instance;
+
+        public bool HasCurrentSeed => currentSeed != null;
+
+        [SerializeField] private Seed currentSeed;
         [SerializeField] private Ground seedlingGround;
-        [SerializeField] private DefineSeedling defineSeedling;
+        [SerializeField] private DefineSeedling defineSeed;
         [SerializeField] private NotificationDisplayer notificationDisplayer;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private TimeManager timeManager;
@@ -21,10 +25,16 @@ namespace Seedling.Managers
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private bool isReadyToHarvest;
 
+        private void Awake()
+        {
+            if (Instance != null) Instance = this;
+
+        }
+
         public void PlantSeedling(Seed seedlingToPlant)
         {
-            seedlingGround.PlantASeedling(seedlingToPlant);
-            audioManager.PlaySound(SoundType.PlantSeedling);
+            //seedlingGround.PlantASeedling(seedlingToPlant);
+            //audioManager.PlaySound(SoundType.PlantSeedling);
         }
 
         public void DoneGrowing()
@@ -34,8 +44,8 @@ namespace Seedling.Managers
 
         public void GrowFlower(Seed seedlingToGrow)
         {
-            seedlingToGrow.isDoneGrowing = true;
-            currentSeedling.seedObject.GetComponent<SeedlingMB>().GrowFlower(currentSeedling.seedObject, seedlingGround.gameObject);
+            //seedlingToGrow.isDoneGrowing = true;
+            currentSeed.seedObject.GetComponent<SeedlingMB>().GrowFlower(currentSeed.seedObject, seedlingGround.gameObject);
             notificationDisplayer.GrowSeedling(seedlingToGrow);
             audioManager.PlaySound(SoundType.DoneGrowing);
             isReadyToHarvest = true;
@@ -48,20 +58,20 @@ namespace Seedling.Managers
                 case FlowerType.IrisFlower:
                     {
                         gameManager.IrisTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
+                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
                     }
                     break;
                 case FlowerType.RoseFlower:
                     {
                         gameManager.RoseTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
+                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
 
                     }
                     break;
                 case FlowerType.TulipFlower:
                     {
                         gameManager.TulipTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.harvestCoins;
+                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
                     }
                     break;
                 default:
@@ -70,10 +80,10 @@ namespace Seedling.Managers
 
             notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
 
-            currentSeedling.isDoneGrowing = false;
+            //currentSeed.isDoneGrowing = false;
             flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
 
-            currentSeedling = null;
+            currentSeed = null;
             IsReadyToHarvest = false;
             gameManager.UpdateCoins();
             timeManager.TimerButtons = false;
@@ -81,37 +91,23 @@ namespace Seedling.Managers
         }
 
 
-        public bool IsReadyToHarvest
+        public Seed CurrentSeed
         {
-            get
+            get => currentSeed; set
             {
-                return isReadyToHarvest;
-            }
-            set
-            {
-                isReadyToHarvest = value;
+                Debug.Log($"Current seed - {value}");
+                currentSeed = value;
             }
         }
-
-        public Seed CurrentSeedling
+        public DefineSeedling DefineSeed
         {
-            get
+            get => defineSeed; set
             {
-                return currentSeedling;
-            }
-            set
-            {
-                currentSeedling = value;
+                Debug.Log($"Current seed - {value}");
+                defineSeed = value;
             }
         }
-
-        public DefineSeedling DefineSeedling
-        {
-            get
-            {
-                return defineSeedling;
-            }
-        }
+        public bool IsReadyToHarvest { get => isReadyToHarvest; set => isReadyToHarvest = value; }
     }
 }
 
