@@ -53,23 +53,9 @@ namespace Seedling.Managers
             }
         }
 
-        public void PlantSeed(SeedSO seed)
-        {
-            //seedlingGround.PlantASeedling(seedlingToPlant);
-            //audioManager.PlaySound(SoundType.PlantSeedling);
-        }
-
         public void DoneGrowing()
         {
             audioManager.PlaySound(SoundType.DoneGrowing);
-        }
-
-        public void GrowFlower(SeedSO seedlingToGrow)
-        {
-            //seedlingToGrow.isDoneGrowing = true;
-            notificationDisplayer.GrowSeedling(seedlingToGrow);
-            audioManager.PlaySound(SoundType.DoneGrowing);
-            isReadyToHarvest = true;
         }
     }
 }

@@ -34,7 +34,6 @@ namespace Seedling.Managers
 
                         if (gameManager.IrisTimeSpent >= seedlingManager.CurrentSeed.growTime)
                         {
-                            seedlingManager.GrowFlower(seedlingManager.CurrentSeed);
                         }
                     }
                     break;
@@ -44,7 +43,6 @@ namespace Seedling.Managers
 
                         if (gameManager.RoseTimeSpent >= seedlingManager.CurrentSeed.growTime)
                         {
-                            seedlingManager.GrowFlower(seedlingManager.CurrentSeed);
                         }
                     }
                     break;
@@ -54,7 +52,6 @@ namespace Seedling.Managers
 
                         if (gameManager.TulipTimeSpent >= seedlingManager.CurrentSeed.growTime)
                         {
-                            seedlingManager.GrowFlower(seedlingManager.CurrentSeed);
                         }
                     }
                     break;

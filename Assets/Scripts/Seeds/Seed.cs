@@ -1,4 +1,5 @@
-﻿using Seedling.SO;
+﻿using Seedling.Managers;
+using Seedling.SO;
 using UnityEngine;
 
 namespace Seedling.Seeds
@@ -10,10 +11,9 @@ namespace Seedling.Seeds
 
         public void GrowFlower()
         {
-            var newFlower = Instantiate(seed.flowerObject, transform.parent);
-            newFlower.transform.position += new Vector3(0, 0.25f, 0);
-            newFlower.FlowerSeed = seed;
+            seed.flowerObject.GrowFlower(seed.flowerObject, new Vector3(0, 0.25f, 0));
 
+            SeedManager.Instance.DoneGrowing();
             DestroySeed();
         }
 

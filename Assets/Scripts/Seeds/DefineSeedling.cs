@@ -49,38 +49,6 @@ namespace Seedling.Seeds
             }
         }
 
-        public void ChoseSeedling()
-        {
-            if (seedlingManager.CurrentSeed == null)
-            {
-                timer.SetActive(true);
-                seedlingManager.CurrentSeed = seedling;
-                seedlingManager.PlantSeed(seedling);
-                notificationDisplayer.PlantedSeedling(seedling);
-            }
-            else if (seedlingManager.CurrentSeed != seedling && !seedlingManager.IsReadyToHarvest)
-            {
-                timer.SetActive(true);
-                seedlingManager.CurrentSeed = seedling;
-                seedlingManager.PlantSeed(seedling);
-                notificationDisplayer.PlantedSeedling(seedling);
-            }
-            else if (seedlingManager.CurrentSeed == seedling && !seedlingManager.IsReadyToHarvest)
-            {
-                timer.SetActive(true);
-                notificationDisplayer.YouPlantedThisArleady();
-            }
-            else if (seedlingManager.IsReadyToHarvest)
-            {
-                timer.SetActive(true);
-                NotificationManager.Instance.DisplayNotification($"You need to harvest your flower first!");
-            }
-            else
-            {
-                notificationDisplayer.YouPlantedThisArleady();
-            }
-        }
-
         public SeedSO Seedling
         {
             get

@@ -20,7 +20,6 @@ namespace Seedling.UI
             canvasGroup.Disable();
         }
 
-
         public void DisplayNotification(string text, float showTime)
         {
             canvasGroup.FadeInCanvas();
@@ -46,34 +45,6 @@ namespace Seedling.UI
         {
             canvasGroup.FadeInCanvas();
             notifierText.text = "You have unlocked " + unlockedSeed.seedName + "!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
-        public void PlantedSeedling(SeedSO chosenSeedling)
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "You have chosen to grow " + chosenSeedling.seedName + "!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
-        internal void PlantSeedlingFirst()
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "You need to plant a seedling first!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
-        public void GrowSeedling(SeedSO grownSeedling)
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "Your " + grownSeedling.seedName + " has grown up!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
-        public void YouPlantedThisArleady()
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "You are grownig this seedling already!";
             canvasGroup.FadeOutCanvas(2.5f);
         }
 

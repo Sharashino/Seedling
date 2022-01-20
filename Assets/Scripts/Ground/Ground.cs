@@ -33,7 +33,7 @@ namespace Seedling.Grounds
             if (HasSeedling) currentSeed.DestroySeed();
             NotificationManager.Instance.DisplayNotification($"You planted {seed.seedName}!");
 
-            currentSeed = Instantiate(seed.seedObject, seedHolder, seedSpawnPos);
+            currentSeed = Instantiate(seed.seedObject, seedSpawnPos.position, Quaternion.identity, seedHolder);
             plantParticles.Play();
 
             growthTick = 0; 

@@ -20,6 +20,11 @@ namespace Seedling.Seeds
             HarvestFlower();
         }
 
+        public void GrowFlower(Flower flower, Vector3 position)
+        {
+            Instantiate(flower, position, Quaternion.identity, transform.parent);
+        }
+
         public void HarvestFlower()
         {
             SeedManager.onFlowerHarvest?.Invoke();
