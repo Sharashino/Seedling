@@ -21,8 +21,6 @@ namespace Seedling.Managers
 
         #endregion
 
-
-
         public SeedManager seedManager;
 
 

@@ -9,99 +9,98 @@ namespace Seedling.UI
 {
     public class NotificationDisplayer : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private GameObject notifier;
         [SerializeField] private TMP_Text notifierText;
-        private float fadeSpeed = 0.02f;
 
-        void Start()
+        void Awake()
         {
-            notifier.SetActive(false);
+            canvasGroup = GetComponent<CanvasGroup>();
+            canvasGroup.Disable();
+        }
+
+
+        public void DisplayNotification(string text, float showTime)
+        {
+            canvasGroup.FadeInCanvas();
+            notifierText.text = text;
+            canvasGroup.FadeOutCanvas(showTime);
         }
 
         public void TrophyUnlocked(string trophyName)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You have unlocked new " + trophyName + " trophy!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void NotEnoughCoins()
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You dont have enough coins!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void SeedlingUnlocked(SeedSO unlockedSeed)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You have unlocked " + unlockedSeed.seedName + "!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void PlantedSeedling(SeedSO chosenSeedling)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You have chosen to grow " + chosenSeedling.seedName + "!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         internal void PlantSeedlingFirst()
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You need to plant a seedling first!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void GrowSeedling(SeedSO grownSeedling)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "Your " + grownSeedling.seedName + " has grown up!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void YouPlantedThisArleady()
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You are grownig this seedling already!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void WaitTillTimerDone()
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "Focus on your task! Wait till your timer is done!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void HarvestFlower(Flower flowerToHarvest)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You have harvested " + flowerToHarvest.FlowerName + "!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void HarvestReminder()
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
             notifierText.text = "You need to harvest your flower first!";
-
-            StartCoroutine(FadeText());
+            canvasGroup.FadeOutCanvas(2.5f);
         }
 
         public void TimeSpentOnSeedling(int timeSpent, SeedSO plantedSeedling)
         {
-            notifier.SetActive(true);
+            canvasGroup.FadeInCanvas();
 
             if (timeSpent == 1)
             {
@@ -111,29 +110,7 @@ namespace Seedling.UI
             {
                 notifierText.text = "You have spent " + timeSpent + " minutes on " + plantedSeedling.seedName + "!";
             }
-
-            StartCoroutine(FadeText());
-        }
-
-        private IEnumerator FadeText()
-        {
-            //wait 2 seconds before fading out
-            yield return new WaitForSeconds(2);
-
-            //variable for fading out text color
-            Color color;
-            color = notifierText.color;
-
-            while (notifierText.color.a > 0)
-            {
-                yield return new WaitForEndOfFrame();
-                color.a -= fadeSpeed;
-                notifierText.color = color;
-            }
-
-            notifier.SetActive(false);
-            color.a = 1;
-            notifierText.color = color;
+            canvasGroup.FadeOutCanvas(2.5f);
         }
     }
 }

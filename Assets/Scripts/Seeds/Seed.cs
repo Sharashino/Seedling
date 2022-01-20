@@ -12,8 +12,7 @@ namespace Seedling.Seeds
         public void GrowFlower()
         {
             var newFlower = Instantiate(seed.flowerObject, transform.parent);
-
-
+            newFlower.transform.position += new Vector3(0, 0.25f, 0);
         }
     }
 }

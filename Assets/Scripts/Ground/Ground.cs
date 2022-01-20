@@ -14,7 +14,7 @@ namespace Seedling.Grounds
         [SerializeField] private GameObject potGround;
         [SerializeField] private Transform seedSpawnPos;
         [SerializeField] private Transform seedHolder;
-        private int growthTick;
+        private int growthTick = 0;
         public bool HasSeedling => currentSeed != null;
 
         private void Awake()
@@ -40,6 +40,8 @@ namespace Seedling.Grounds
             currentSeed.transform.position = seedSpawnPos.position;
 
             plantParticles.Play();
+
+            growthTick = 0; // Resetting timer each seed plant;
             GameTimeManager.OnTick_1 += GrowSeed;
         }
 
@@ -51,17 +53,21 @@ namespace Seedling.Grounds
             
             if(growthTick >= currentSeed.SeedData.growTime)
             {
-                DoneGrowing();
+                DoneGrowing(growthTick);
             }
         }
 
-        private void DoneGrowing()
+        private void DoneGrowing(int growTime)
         {
             GameTimeManager.OnTick_1 -= GrowSeed;
+
+
+            SaveManager.Instance.SaveSeedData(currentSeed, growTime);
 
             currentSeed.GrowFlower();
 
             Debug.Log($"Your seed {currentSeed} is done growing!");
+            RemoveCurrentSeed();
         }
 
         public void RemoveCurrentSeed()

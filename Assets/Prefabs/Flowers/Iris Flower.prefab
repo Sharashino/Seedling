@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3540193564956093054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.2, z: 0.07}
+  m_LocalScale: {x: 0.35, y: 1.25, z: 0.35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d56680af3c66249b1f116dc2e7bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowerType: 0
   flowerName: Iris Flower
   flowerObject: {fileID: 3540193564956093054}
   flowerSeedling: {fileID: 11400000, guid: a98527a501d1dea4791b8e15ab4b96fa, type: 2}
