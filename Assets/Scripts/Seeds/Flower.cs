@@ -11,7 +11,9 @@ namespace Seedling.Seeds
         [SerializeField] private FlowerType flowerType;
         [SerializeField] private string flowerName;
         [SerializeField] private GameObject flowerObject;
-        [SerializeField] private SeedSO flowerSeedling;
+        [SerializeField] private SeedSO flowerSeed;
+
+        public SeedSO FlowerSeed { get => flowerSeed; set => flowerSeed = value; }
 
         public void OnMouseDown()
         {
@@ -22,30 +24,6 @@ namespace Seedling.Seeds
         {
             SeedManager.onFlowerHarvest?.Invoke();
             Destroy(gameObject);
-        }
-
-        public string FlowerName
-        {
-            get
-            {
-                return flowerName;
-            }
-        }
-
-        public FlowerType FlowerType
-        {
-            get
-            {
-                return flowerType;
-            }
-        }
-
-        public SeedSO FlowerSeedling
-        {
-            get
-            {
-                return flowerSeedling;
-            }
         }
     }
 }

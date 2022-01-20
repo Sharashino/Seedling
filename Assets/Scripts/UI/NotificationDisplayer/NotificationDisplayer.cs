@@ -84,20 +84,6 @@ namespace Seedling.UI
             canvasGroup.FadeOutCanvas(2.5f);
         }
 
-        public void HarvestFlower(Flower flowerToHarvest)
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "You have harvested " + flowerToHarvest.FlowerName + "!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
-        public void HarvestReminder()
-        {
-            canvasGroup.FadeInCanvas();
-            notifierText.text = "You need to harvest your flower first!";
-            canvasGroup.FadeOutCanvas(2.5f);
-        }
-
         public void TimeSpentOnSeedling(int timeSpent, SeedSO plantedSeedling)
         {
             canvasGroup.FadeInCanvas();

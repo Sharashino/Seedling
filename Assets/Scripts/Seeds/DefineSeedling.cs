@@ -73,7 +73,7 @@ namespace Seedling.Seeds
             else if (seedlingManager.IsReadyToHarvest)
             {
                 timer.SetActive(true);
-                notificationDisplayer.HarvestReminder();
+                NotificationManager.Instance.DisplayNotification($"You need to harvest your flower first!");
             }
             else
             {

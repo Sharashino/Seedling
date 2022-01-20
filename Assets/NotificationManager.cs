@@ -1,3 +1,4 @@
+using Seedling.UI;
 using UnityEngine;
 
 namespace Seedling.Managers
@@ -21,7 +22,10 @@ namespace Seedling.Managers
         #endregion
 
         [SerializeField] private float notificationFadeTime;
+        [SerializeField] private NotificationDisplayer notificationDisplayer;
+
         public float NotificationFadeTime { get => notificationFadeTime; set => notificationFadeTime = value; }
+        public NotificationDisplayer NotificationDisplayer { get => notificationDisplayer; set => notificationDisplayer = value; }
 
         // Start is called before the first frame update
         void Awake()
@@ -32,5 +36,9 @@ namespace Seedling.Managers
             }
         }
 
+        public void DisplayNotification(string text)
+        {
+            notificationDisplayer.DisplayNotification(text, notificationFadeTime);
+        }
     }
 }

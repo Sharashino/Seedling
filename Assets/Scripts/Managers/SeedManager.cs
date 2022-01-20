@@ -41,6 +41,10 @@ namespace Seedling.Managers
         public static Action onFlowerHarvest;
 
 
+        public SeedSO CurrentSeed { get => currentSeed; set => currentSeed = value; }
+        public DefineSeedling DefineSeed { get => defineSeed; set => defineSeed = value; }
+        public bool IsReadyToHarvest { get => isReadyToHarvest; set => isReadyToHarvest = value; }
+
         private void Awake()
         {
             if (!_instance)
@@ -67,63 +71,6 @@ namespace Seedling.Managers
             audioManager.PlaySound(SoundType.DoneGrowing);
             isReadyToHarvest = true;
         }
-
-        public void HarvestFlower(Flower flowerToHarvest)
-        {
-            switch (flowerToHarvest.FlowerType)
-            {
-                case FlowerType.IrisFlower:
-                    {
-                        gameManager.IrisTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
-                    }
-                    break;
-                case FlowerType.RoseFlower:
-                    {
-                        gameManager.RoseTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
-
-                    }
-                    break;
-                case FlowerType.TulipFlower:
-                    {
-                        gameManager.TulipTimeSpent = 0;
-                        gameManager.PlayerCoins = flowerToHarvest.FlowerSeedling.coinsForPlanting;
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
-
-            //currentSeed.isDoneGrowing = false;
-            //flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
-
-            currentSeed = null;
-            IsReadyToHarvest = false;
-            gameManager.UpdateCoins();
-            timeManager.TimerButtons = false;
-            audioManager.PlaySound(SoundType.HarvestSeedling);
-        }
-
-
-        public SeedSO CurrentSeed
-        {
-            get => currentSeed; set
-            {
-                Debug.Log($"Current seed - {value.seedName}");
-                currentSeed = value;
-            }
-        }
-        public DefineSeedling DefineSeed
-        {
-            get => defineSeed; set
-            {
-                defineSeed = value;
-            }
-        }
-        public bool IsReadyToHarvest { get => isReadyToHarvest; set => isReadyToHarvest = value; }
     }
 }
 

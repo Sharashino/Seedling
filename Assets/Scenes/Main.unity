@@ -380,6 +380,7 @@ Transform:
   - {fileID: 1808990536}
   - {fileID: 799214851}
   - {fileID: 538587404}
+  - {fileID: 756877746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5571,6 +5572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538587404}
+  - component: {fileID: 538587405}
   m_Layer: 0
   m_Name: NotificationManager
   m_TagString: Untagged
@@ -5592,6 +5594,20 @@ Transform:
   m_Father: {fileID: 431085680}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &538587405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538587403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522a3845d2f40ab4b88a09aaa3d475a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationFadeTime: 0.3
+  notificationDisplayer: {fileID: 2107225683}
 --- !u!1 &564818654 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 129380681213306170, guid: cbc9b960ee353d54daf336835941a12c,
@@ -10432,6 +10448,49 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &756877745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756877746}
+  - component: {fileID: 756877747}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756877746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756877745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 431085680}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756877747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756877745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71236f4ce4817854791851f3dcd0b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &799214849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1365603746042259819, guid: ab7e1433b0f46634eb281753abebb1d2,
@@ -26484,6 +26543,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee08f13fed413ce42bc4a5207449b295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &2107225684
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107225681}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &129380681761298404
 PrefabInstance:
   m_ObjectHideFlags: 0
