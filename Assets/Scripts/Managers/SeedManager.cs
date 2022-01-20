@@ -10,7 +10,20 @@ namespace Seedling.Managers
 {
     public class SeedManager : MonoBehaviour
     {
-        public static SeedManager Instance;
+        #region Singleton
+
+        private static SeedManager _instance = null;
+        public static SeedManager Instance
+        {
+            get
+            {
+                if (_instance == null) Debug.LogError("[GameManager-Static] No Game Manager on the scene!");
+                return _instance;
+            }
+            private set => _instance = value;
+        }
+
+        #endregion
 
         public bool HasCurrentSeed => currentSeed != null;
 
@@ -27,7 +40,11 @@ namespace Seedling.Managers
 
         private void Awake()
         {
-            if (Instance != null) Instance = this;
+            if (!_instance)
+            {
+                _instance = this;
+            }
+
 
         }
 

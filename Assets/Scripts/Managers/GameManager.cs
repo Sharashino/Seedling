@@ -6,7 +6,23 @@ namespace Seedling.Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        #region Singleton
+
+        private static GameManager _instance = null;
+        public static GameManager Instance
+        {
+            get
+            {
+                if (_instance == null) Debug.LogError("[GameManager-Static] No Game Manager on the scene!");
+                return _instance;
+            }
+            private set => _instance = value;
+        }
+
+        #endregion
+
+
+
         public SeedManager seedManager;
 
 
@@ -48,8 +64,12 @@ namespace Seedling.Managers
 
         private void Awake()
         {
-            if (Instance != null)
-                Instance = this;
+            if (!_instance)
+            {
+                _instance = this;
+            }
+
+
 
             /*//sprawdzenie
 
