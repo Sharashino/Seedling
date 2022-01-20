@@ -6,7 +6,7 @@ using TMPro;
 
 public class SeedButton : MonoBehaviour
 {
-    [SerializeField] private Seed buttonSeed;
+    [SerializeField] private SeedSO buttonSeed;
     [SerializeField] private Image seedImage;
     [SerializeField] private TMP_Text seedNameText;
     [SerializeField] private TMP_Text seedCuriosText;
@@ -24,7 +24,7 @@ public class SeedButton : MonoBehaviour
     {
         if(buttonSeed != null)
         {
-            GameManager.Instance.seedManager.CurrentSeed = buttonSeed;
+            SeedManager.Instance.CurrentSeed = buttonSeed;
             canvasGroup.Disable();
         }
     }

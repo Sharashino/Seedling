@@ -1,19 +1,26 @@
-﻿using UnityEngine;
+﻿using Seedling.Managers;
+using Seedling.Seeds;
+using UnityEngine;
 using Seedling.SO;
-using Seedling.Managers;
-using System;
 
 namespace Seedling.Grounds
 {
     public class Ground : MonoBehaviour
     {
+        [SerializeField] private Seed currentSeed;
         [SerializeField] private ParticleSystem plantParticles;
+        [SerializeField] private ParticleSystem growParticles;
         [SerializeField] private GameObject grownPlant;
         [SerializeField] private GameObject potGround;
-        [SerializeField] private Seed currentSeed;
         [SerializeField] private Transform seedSpawnPos;
+        [SerializeField] private Transform seedHolder;
         private int growthTick;
         public bool HasSeedling => currentSeed != null;
+
+        private void Awake()
+        {
+            SeedManager.onFlowerHarvest += RemoveCurrentSeed;
+        }
 
         private void OnMouseDown()
         {
@@ -23,52 +30,26 @@ namespace Seedling.Grounds
             }
         }
 
-
-        public void PlantSeed(Seed seed)
+        public void PlantSeed(SeedSO seed)
         {
             //if ground has no seedling plant a new one
             //but if it has, replace them
-            if (!HasSeedling)
-            {
-                GameTimeManager.OnTick_1 += GrowSeed;
-                
-                currentSeed = seed;
-                var newSeed = Instantiate(seed.seedObject);
-                newSeed.transform.position = seedSpawnPos.position;
+            if (HasSeedling) RemoveCurrentSeed();
 
+            currentSeed = Instantiate(seed.seedObject, seedHolder);
+            currentSeed.transform.position = seedSpawnPos.position;
 
-                //Getting Seedling and Pot Transforms
-                /*Transform seedlingTransform = currentSeed.GetComponent<Transform>();
-                Transform potTransform = potGround.GetComponent<Transform>();
-
-                Vector3 seedlingPosition = GetPotGroundPosition(seedlingTransform, potTransform);
-
-                seedlingTransform.position = seedlingPosition;
-                seedlingTransform.parent = potGround.transform;*/
-            }
-            else
-            {
-               /* Destroy(currentSeed);
-                currentSeed = Instantiate(seed.seedObject);
-                currentSeed.name = seed.name;
-
-                //Getting Seedling and Pot Transforms
-                Transform seedlingTransform = currentSeed.GetComponent<Transform>();
-                Transform potTransform = potGround.GetComponent<Transform>();
-
-                //Moving seedling to the centre of the pot
-                Vector3 seedlingPosition = GetPotGroundPosition(seedlingTransform, potTransform);
-
-                seedlingTransform.position = seedlingPosition;
-                seedlingTransform.parent = potGround.transform;*/
-            }
+            plantParticles.Play();
+            GameTimeManager.OnTick_1 += GrowSeed;
         }
 
         private void GrowSeed(GameTimeManager.OnTickEventArgs obj)
         {
             growthTick++;
 
-            if(growthTick >= currentSeed.growTime)
+            if (growthTick % 5 == 0) growParticles.Play();
+            
+            if(growthTick >= currentSeed.SeedData.growTime)
             {
                 DoneGrowing();
             }
@@ -78,20 +59,12 @@ namespace Seedling.Grounds
         {
             GameTimeManager.OnTick_1 -= GrowSeed;
 
+            currentSeed.GrowFlower();
 
+            Debug.Log($"Your seed {currentSeed} is done growing!");
         }
 
-        public Vector3 GetPotGroundPosition(Transform seedlingTransform, Transform potTransform)
-        {
-            //Moving seedling to the centre of the pot
-            Vector3 position = seedlingTransform.position;
-            position.x = potTransform.position.x;
-            position.y = potTransform.position.y + 0.13f;
-
-            return position;
-        }
-
-        public void RemoveSeedling()
+        public void RemoveCurrentSeed()
         {
             Destroy(currentSeed);
         }

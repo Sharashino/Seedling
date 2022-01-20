@@ -5,6 +5,7 @@ using Seedling.UI;
 using Seedling.Enums;
 using Seedling.Seeds;
 using Seedling.Grounds;
+using System;
 
 namespace Seedling.Managers
 {
@@ -27,7 +28,7 @@ namespace Seedling.Managers
 
         public bool HasCurrentSeed => currentSeed != null;
 
-        [SerializeField] private Seed currentSeed;
+        [SerializeField] private SeedSO currentSeed;
         [SerializeField] private Ground seedlingGround;
         [SerializeField] private DefineSeedling defineSeed;
         [SerializeField] private NotificationDisplayer notificationDisplayer;
@@ -37,6 +38,8 @@ namespace Seedling.Managers
         [SerializeField] private GameObject seedlingSelector;
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private bool isReadyToHarvest;
+        public static Action onFlowerHarvest;
+
 
         private void Awake()
         {
@@ -44,11 +47,9 @@ namespace Seedling.Managers
             {
                 _instance = this;
             }
-
-
         }
 
-        public void PlantSeedling(Seed seedlingToPlant)
+        public void PlantSeed(SeedSO seed)
         {
             //seedlingGround.PlantASeedling(seedlingToPlant);
             //audioManager.PlaySound(SoundType.PlantSeedling);
@@ -59,10 +60,9 @@ namespace Seedling.Managers
             audioManager.PlaySound(SoundType.DoneGrowing);
         }
 
-        public void GrowFlower(Seed seedlingToGrow)
+        public void GrowFlower(SeedSO seedlingToGrow)
         {
             //seedlingToGrow.isDoneGrowing = true;
-            currentSeed.seedObject.GetComponent<SeedlingMB>().GrowFlower(currentSeed.seedObject, seedlingGround.gameObject);
             notificationDisplayer.GrowSeedling(seedlingToGrow);
             audioManager.PlaySound(SoundType.DoneGrowing);
             isReadyToHarvest = true;
@@ -98,7 +98,7 @@ namespace Seedling.Managers
             notificationDisplayer.HarvestFlower(flowerToHarvest.GetComponent<Flower>());
 
             //currentSeed.isDoneGrowing = false;
-            flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
+            //flowerToHarvest.HarvestFlower(flowerToHarvest.gameObject);
 
             currentSeed = null;
             IsReadyToHarvest = false;
@@ -108,11 +108,11 @@ namespace Seedling.Managers
         }
 
 
-        public Seed CurrentSeed
+        public SeedSO CurrentSeed
         {
             get => currentSeed; set
             {
-                Debug.Log($"Current seed - {value}");
+                Debug.Log($"Current seed - {value.seedName}");
                 currentSeed = value;
             }
         }
@@ -120,7 +120,6 @@ namespace Seedling.Managers
         {
             get => defineSeed; set
             {
-                Debug.Log($"Current seed - {value}");
                 defineSeed = value;
             }
         }

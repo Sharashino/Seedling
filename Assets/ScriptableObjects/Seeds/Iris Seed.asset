@@ -9,17 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10887879cc93c384b919801f9fbcb215, type: 3}
-  m_Name: Iris Seedling
+  m_Script: {fileID: 11500000, guid: 631dd9a283e7f6543980c6a7cee8e0e8, type: 3}
+  m_Name: Iris Seed
   m_EditorClassIdentifier: 
   seedIcon: {fileID: 21300000, guid: 4f5ba7d78c313d744bc3d8b6abfbeb6c, type: 3}
   seedName: Iris Seeds
-  seedDesc: This flower is purple!
-  seedCuriosity: Did you know this seeds create purple flowers???
-  seedObject: {fileID: 9195059183565728674, guid: 414cecf65ca836641983a49ccc865461,
+  seedDesc: This Seeds grow beautifull violet flowers!
+  seedCuriosity: Did you know this game is boring?
+  seedObject: {fileID: -198459229105206022, guid: 414cecf65ca836641983a49ccc865461,
+    type: 3}
+  flowerObject: {fileID: 2958355089209987314, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}
   seedType: 0
   coinsToUnlock: 10
-  coinsForPlanting: 5
+  coinsForPlanting: 1
   growTime: 10
   isUnlocked: 0

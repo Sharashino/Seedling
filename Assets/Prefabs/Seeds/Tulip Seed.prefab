@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 485314473356339600}
   - component: {fileID: -3014083307040928143}
   m_Layer: 0
-  m_Name: Tulip Seedling
+  m_Name: Tulip Seed
   m_TagString: Seedling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

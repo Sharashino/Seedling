@@ -16,7 +16,7 @@ namespace Seedling.UI
         [SerializeField] private GameObject lockPanel;
         [SerializeField] private TMP_Text requiredCoins;
 
-        private Seed seedling;
+        private SeedSO seedling;
 
         private void Start()
         {

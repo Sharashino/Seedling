@@ -35,7 +35,7 @@ namespace Seedling.UI
             StartCoroutine(FadeText());
         }
 
-        public void SeedlingUnlocked(Seed unlockedSeed)
+        public void SeedlingUnlocked(SeedSO unlockedSeed)
         {
             notifier.SetActive(true);
             notifierText.text = "You have unlocked " + unlockedSeed.seedName + "!";
@@ -43,7 +43,7 @@ namespace Seedling.UI
             StartCoroutine(FadeText());
         }
 
-        public void PlantedSeedling(Seed chosenSeedling)
+        public void PlantedSeedling(SeedSO chosenSeedling)
         {
             notifier.SetActive(true);
             notifierText.text = "You have chosen to grow " + chosenSeedling.seedName + "!";
@@ -59,7 +59,7 @@ namespace Seedling.UI
             StartCoroutine(FadeText());
         }
 
-        public void GrowSeedling(Seed grownSeedling)
+        public void GrowSeedling(SeedSO grownSeedling)
         {
             notifier.SetActive(true);
             notifierText.text = "Your " + grownSeedling.seedName + " has grown up!";
@@ -99,7 +99,7 @@ namespace Seedling.UI
             StartCoroutine(FadeText());
         }
 
-        public void TimeSpentOnSeedling(int timeSpent, Seed plantedSeedling)
+        public void TimeSpentOnSeedling(int timeSpent, SeedSO plantedSeedling)
         {
             notifier.SetActive(true);
 

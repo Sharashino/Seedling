@@ -1,20 +1,19 @@
-﻿using Seedling.Enums;
+﻿using Seedling.SO;
+using System;
 using UnityEngine;
 
-namespace Seedling.SO
+namespace Seedling.Seeds
 {
-    [CreateAssetMenu(fileName = "New Seed", menuName = "Inventory/Item/Seeds")]
-    public class Seed : ScriptableObject
+    public class Seed : MonoBehaviour
     {
-        public Sprite seedIcon;
-        public string seedName = "New Seed";
-        public string seedDesc = "Seed desc";
-        public string seedCuriosity;
-        public GameObject seedObject;
-        public SeedType seedType;
-        public int coinsToUnlock;
-        public int coinsForPlanting;
-        public int growTime;
-        public bool isUnlocked = false;
+        [SerializeField] private SeedSO seed;
+        public SeedSO SeedData => seed;
+
+        public void GrowFlower()
+        {
+            var newFlower = Instantiate(seed.flowerObject, transform.parent);
+
+
+        }
     }
 }

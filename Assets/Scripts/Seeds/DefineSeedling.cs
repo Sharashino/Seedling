@@ -19,7 +19,7 @@ namespace Seedling.Seeds
         [SerializeField] private TMP_Text seedlingTime;
         [SerializeField] private TMP_Text seedlingCuriosity;
         [SerializeField] private Image seedlingImage;
-        [SerializeField] private Seed seedling;
+        [SerializeField] private SeedSO seedling;
 
         // Start is called before the first frame update
         void Start()
@@ -55,14 +55,14 @@ namespace Seedling.Seeds
             {
                 timer.SetActive(true);
                 seedlingManager.CurrentSeed = seedling;
-                seedlingManager.PlantSeedling(seedling);
+                seedlingManager.PlantSeed(seedling);
                 notificationDisplayer.PlantedSeedling(seedling);
             }
             else if (seedlingManager.CurrentSeed != seedling && !seedlingManager.IsReadyToHarvest)
             {
                 timer.SetActive(true);
                 seedlingManager.CurrentSeed = seedling;
-                seedlingManager.PlantSeedling(seedling);
+                seedlingManager.PlantSeed(seedling);
                 notificationDisplayer.PlantedSeedling(seedling);
             }
             else if (seedlingManager.CurrentSeed == seedling && !seedlingManager.IsReadyToHarvest)
@@ -81,7 +81,7 @@ namespace Seedling.Seeds
             }
         }
 
-        public Seed Seedling
+        public SeedSO Seedling
         {
             get
             {
