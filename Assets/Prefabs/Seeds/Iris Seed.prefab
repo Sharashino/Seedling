@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9195059183565728687}
   - component: {fileID: 9195059183565728684}
   - component: {fileID: 9195059183565728685}
-  - component: {fileID: -198459229105206022}
+  - component: {fileID: 3635506030650637367}
   m_Layer: 0
   m_Name: Iris Seed
   m_TagString: Seedling
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.2, z: 0.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -96,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-198459229105206022
+--- !u!114 &3635506030650637367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9195059183565728674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94a654ef1043dcf4d965179978c7548e, type: 3}
+  m_Script: {fileID: 11500000, guid: 10887879cc93c384b919801f9fbcb215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 11400000, guid: 2487f77ed946768408715463e231a0e9, type: 2}

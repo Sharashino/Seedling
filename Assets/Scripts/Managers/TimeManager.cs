@@ -59,7 +59,6 @@ namespace Seedling.Managers
                     break;
             }
 
-            seedlingManager.DefineSeed.UpdateSeedlingTimers();
         }
 
         public bool IsCounting

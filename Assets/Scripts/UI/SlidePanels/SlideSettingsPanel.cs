@@ -1,39 +1,35 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 
 namespace Seedling.UI.Panels
 {
     public class SlideSettingsPanel : MonoBehaviour
     {
-        [SerializeField] private GameObject settingsPanel;
-        [SerializeField] private GameObject menuBar;
-        private Animator settingsPanelAnimator;
-        private bool showSettingsPanel;
+        [SerializeField] private Button settingsButton;
+        [SerializeField] private Button resetDataButton;
+        [SerializeField] private Button donateButton;
+        [SerializeField] private Toggle muteToggle;
+
+        private Animator animator;
 
         private void Awake()
         {
-            settingsPanelAnimator = settingsPanel.GetComponent<Animator>();
+            animator = GetComponent<Animator>();
+            settingsButton.onClick.AddListener(ShowHideSettings);
+            resetDataButton.onClick.AddListener(OnResetData);
+            donateButton.onClick.AddListener(OnDonate);
         }
 
-        public void ShowHideSettingsPanel()
+        public void ShowHideSettings()
         {
-            if (settingsPanel != null)
-            {
-                if (settingsPanelAnimator != null)
-                {
-                    showSettingsPanel = settingsPanelAnimator.GetBool("showSettingsPanel");
-                    settingsPanelAnimator.SetBool("showSettingsPanel", !showSettingsPanel);
-                }
-            }
+            bool isOpen = animator.GetBool("showPanel");
+            animator.SetBool("showPanel", !isOpen);
         }
 
-        public void OnDonateButton()
-        {
-            Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
-        }
+        public void OnDonate() => Application.OpenURL("https://www.paypal.com/donate?hosted_button_id=7SGWW4Q262BBS");
 
-        public void OnResetDataButton()
+        public void OnResetData()
         {
-            ES3.DeleteFile("SaveFile.es3");
             Application.Quit();
         }
 

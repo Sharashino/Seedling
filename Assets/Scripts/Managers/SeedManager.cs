@@ -30,7 +30,6 @@ namespace Seedling.Managers
 
         [SerializeField] private SeedSO currentSeed;
         [SerializeField] private Ground seedlingGround;
-        [SerializeField] private DefineSeedling defineSeed;
         [SerializeField] private NotificationDisplayer notificationDisplayer;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private TimeManager timeManager;
@@ -42,7 +41,6 @@ namespace Seedling.Managers
 
 
         public SeedSO CurrentSeed { get => currentSeed; set => currentSeed = value; }
-        public DefineSeedling DefineSeed { get => defineSeed; set => defineSeed = value; }
         public bool IsReadyToHarvest { get => isReadyToHarvest; set => isReadyToHarvest = value; }
 
         private void Awake()

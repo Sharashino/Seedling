@@ -25,6 +25,7 @@ namespace Seedling.Grounds
                 return;
             }
 
+            TimeManager.Instance.ShowTimerButtons();
             NotificationManager.Instance.DisplayNotification($"Pick a seed to grow first!");
         }
 
@@ -37,10 +38,10 @@ namespace Seedling.Grounds
             plantParticles.Play();
 
             growthTick = 0; 
-            GameTimeManager.OnTick_1 += GrowSeed;
+            TimeManager.OnTick_1 += GrowSeed;
         }
 
-        private void GrowSeed(GameTimeManager.OnTickEventArgs obj)
+        private void GrowSeed(TimeManager.OnTickEventArgs obj)
         {
             growthTick++;
 
@@ -54,7 +55,7 @@ namespace Seedling.Grounds
 
         private void DoneGrowing(int growTime)
         {
-            GameTimeManager.OnTick_1 -= GrowSeed;
+            TimeManager.OnTick_1 -= GrowSeed;
             SaveManager.Instance.SaveSeedData(currentSeed, growTime);
 
             currentSeed.GrowFlower();

@@ -16,7 +16,7 @@ MonoBehaviour:
   seedName: Iris Seeds
   seedDesc: This Seeds grow beautifull violet flowers!
   seedCuriosity: Did you know this game is boring?
-  seedObject: {fileID: -198459229105206022, guid: 414cecf65ca836641983a49ccc865461,
+  seedObject: {fileID: 3635506030650637367, guid: 414cecf65ca836641983a49ccc865461,
     type: 3}
   flowerObject: {fileID: 2958355089209987314, guid: 5da1e3f06a572c14a848fdb623ac73b9,
     type: 3}

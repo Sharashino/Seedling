@@ -20,7 +20,6 @@ namespace Seedling.UI
 
         private void Start()
         {
-            seedling = buttonPanel.GetComponent<DefineSeedling>().Seedling;
             PanelLock();
             requiredCoins.text = seedling.coinsToUnlock.ToString();
         }

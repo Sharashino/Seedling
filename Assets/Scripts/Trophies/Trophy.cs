@@ -8,6 +8,7 @@ namespace Seedling.SO
     {
         public string trophyName;
         public string trophyDesc;
+        public Sprite trophyImage; 
         public TrophyType trophyType;
     }
 }

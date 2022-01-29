@@ -1,54 +1,30 @@
-﻿using TMPro;
+﻿using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
-using Seedling.Managers;
-using System.Collections;
+using TMPro;
 
 namespace Seedling.UI
 {
     public class CountdownTimer : MonoBehaviour
     {
-        [SerializeField] private float currentTime = 0f;
-        [SerializeField] private float startingTime = 0f;
-        [SerializeField] private GameObject timerButtons;
         [SerializeField] private TMP_Text countDownText;
-        [SerializeField] private ParticleSystem growParticles;
-        [SerializeField] private GameManager gameManager;
-        [SerializeField] private SeedManager seedlingManager;
-        [SerializeField] private TimeManager timeManager;
-        [SerializeField] private NotificationDisplayer notificationDisplayer;
+        [SerializeField] private Button addTime;
+        [SerializeField] private Button subTime;
+        [SerializeField] private Button startTimer;
+        [SerializeField] private CanvasGroup[] canvasGroups; // Start, Add, Subtract
 
         private float timer;
         private int hours;
         private int minutes;
         private int seconds;
 
-        private void Update()
+        private void Awake()
         {
-            currentTime = timer;
-        }
+            addTime.onClick.AddListener(AddTime);    
+            subTime.onClick.AddListener(SubtractTime);
+            startTimer.onClick.AddListener(() => StartCoroutine(StartCountdown()));
 
-        public void StartTimer()
-        {
-           /* if (currentTime != 0)
-            {
-                if (seedlingManager.CurrentSeed == null)
-                {
-                    notificationDisplayer.PlantSeedlingFirst();
-                    timer = 0;
-                    FormatText();
-                    return;
-                }
-                else if (seedlingManager.CurrentSeed.isDoneGrowing)
-                {
-                    notificationDisplayer.HarvestReminder();
-                    timer = 0;
-                    FormatText();
-                    return;
-                }
-
-                timeManager.IsCounting = true;
-                StartCoroutine(StartCountdown());
-            }*/
+            DisableTimerCanvas(null);
         }
 
         public void AddTime()
@@ -56,6 +32,8 @@ namespace Seedling.UI
             //Adding to timer in seconds!!!
             timer += 60;
             FormatText();
+
+            if (timer > 0) canvasGroups[0].Enable();
         }
 
         public void SubtractTime()
@@ -66,11 +44,13 @@ namespace Seedling.UI
                 timer -= 60;
                 FormatText();
             }
+
+            if (timer == 0) canvasGroups[0].Disable();
         }
 
         private IEnumerator StartCountdown()
         {
-            startingTime = timer / 60;
+            DisableTimerCanvas(null);
 
             while (timer >= 0)
             {
@@ -79,35 +59,8 @@ namespace Seedling.UI
                 yield return null;
             }
 
-            //if player spent 1 minute on plant fix syntax
-            if (startingTime == 1)
-            {
-                notificationDisplayer.TimeSpentOnSeedling(1, seedlingManager.CurrentSeed);
-                gameManager.AllTimeSpent = 1;
-                gameManager.PlayerCoins = 1;
-                gameManager.UpdateCoins();
-                timeManager.SetSeedlingSpentTime(1);
-            }
-            else
-            {
-                notificationDisplayer.TimeSpentOnSeedling((int)startingTime, seedlingManager.CurrentSeed);
-                gameManager.AllTimeSpent = (int)startingTime;
-                gameManager.PlayerCoins = (int)startingTime;
-                gameManager.UpdateCoins();
-                timeManager.SetSeedlingSpentTime((int)startingTime);
-            }
-
-            timeManager.IsCounting = false;
-            seedlingManager.DoneGrowing();
-            CreateGrowParticles();
-
             //reset the timer
             timer = 0;
-        }
-
-        private void CreateGrowParticles()
-        {
-            growParticles.Play();
         }
 
         private void FormatText()
@@ -119,56 +72,32 @@ namespace Seedling.UI
             countDownText.text = "";
 
             #region hours
-            if (hours <= 9)
-            {
-                countDownText.text += "0" + hours + ":";
-            }
-            else if (hours >= 10)
-            {
-                countDownText.text += hours + ":";
-            }
-            else
-            {
-                countDownText.text += "00";
-            }
+            if (hours <= 9) countDownText.text += $"0{hours}:";
+            else if (hours >= 10) countDownText.text += $"{hours}:";
+            else countDownText.text += "00";
+
             #endregion
 
             #region minutes
-            if (minutes <= 9)
-            {
-                countDownText.text += "0" + minutes + ":";
-            }
-            else if (minutes >= 10)
-            {
-                countDownText.text += minutes + ":";
-
-            }
-            else
-            {
-                countDownText.text += "00";
-            }
+            if (minutes <= 9) countDownText.text += $"0{minutes}:";
+            else if (minutes >= 10) countDownText.text += $"{minutes}:";
+            else countDownText.text += "00";
             #endregion
 
             #region seconds
-            if (seconds <= 9)
-            {
-                countDownText.text += "0" + seconds;
-
-            }
-            else if (seconds >= 10)
-            {
-                countDownText.text += seconds;
-
-            }
-            else
-            {
-                countDownText.text += "00";
-            }
+            if (seconds <= 9) countDownText.text += $"0{seconds}";
+            else if (seconds >= 10) countDownText.text += seconds;
+            else countDownText.text += "00";
             #endregion
+        }
 
-            if (currentTime <= 0)
+        public void DisableTimerCanvas(CanvasGroup canvasToSpare)
+        {
+            foreach (var cg in canvasGroups)
             {
-                currentTime = 0;
+                if (cg == canvasToSpare) return;
+
+                cg.Disable();
             }
         }
     }

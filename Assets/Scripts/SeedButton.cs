@@ -1,40 +1,49 @@
+using Seedling.UI.Panels;
 using Seedling.Managers;
 using UnityEngine.UI;
 using Seedling.SO;
 using UnityEngine;
 using TMPro;
 
-public class SeedButton : MonoBehaviour
+namespace Seedling.UI.Buttons
 {
-    [SerializeField] private SeedSO buttonSeed;
-    [SerializeField] private Image seedImage;
-    [SerializeField] private TMP_Text seedNameText;
-    [SerializeField] private TMP_Text seedCuriosText;
-    [SerializeField] private TMP_Text seedTimeText;
-    [SerializeField] private Button selectButton;
-    [SerializeField] private CanvasGroup canvasGroup;
-
-    void Start()
+    public class SeedButton : MonoBehaviour
     {
-        UpdateButtonUI();   
-        selectButton.onClick.AddListener(PickSeedling);  
-    }
+        [SerializeField] private SeedSO seed;
+        [SerializeField] private Image seedImage;
+        [SerializeField] private TMP_Text seedNameText;
+        [SerializeField] private TMP_Text seedCuriosText;
+        [SerializeField] private TMP_Text seedTimeText;
+        private SeedPanel seedPanel;
+        private Button seedButton;
 
-    private void PickSeedling()
-    {
-        if(buttonSeed != null)
+        void Awake()
         {
-            SeedManager.Instance.CurrentSeed = buttonSeed;
-            canvasGroup.Disable();
+            InitButton();
+
+            seedButton.onClick.AddListener(PickSeedling);
+        }
+
+        private void PickSeedling()
+        {
+            if (seed != null)
+            {
+                SeedManager.Instance.CurrentSeed = seed;
+                NotificationManager.Instance.DisplayNotification($"You have picked {seed.seedName}");
+                seedPanel.ShowHidePanel();
+            }
+        }
+
+        private void InitButton()
+        {
+            seedPanel = GetComponentInParent<SeedPanel>();
+            seedButton = GetComponent<Button>();
+
+            seedImage.sprite = seed.seedIcon;
+            seedNameText.text = seed.seedName;
+            seedCuriosText.text = seed.seedCuriosity;
+            seedTimeText.text = $"{seed.growTime}";
         }
     }
-
-    private void UpdateButtonUI()
-    {
-        canvasGroup.Enable();
-        seedImage.sprite = buttonSeed.seedIcon;
-        seedNameText.text = buttonSeed.seedName;
-        seedCuriosText.text = buttonSeed.seedCuriosity;
-        seedTimeText.text = $"{buttonSeed.growTime}";
-    }
 }
+
